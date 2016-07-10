@@ -1,0 +1,23 @@
+{
+  "name": "pharmared",
+  "version": "0.0.1",
+  "description": "Social net for pharmacy",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "0.12.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LaMaldicionDeMandos/pharmared.git"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}

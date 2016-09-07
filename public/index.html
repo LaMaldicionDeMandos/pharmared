@@ -701,8 +701,8 @@ padding-top:50px;
 <br />
 
 
-<div class="myhover" style="display: inline-block;cursor: pointer;padding: 5px;"ng-click="myFunc()"> 
-<button class="sc_button2" style=" background-image: url('./wp-content/themes/dentario/images/farmacia.svg') !important; background: no-repeat" ></button>
+<div class="myhover" style="display: inline-block;cursor: pointer;padding: 5px;"ng-click="FuncFarmacia()"> 
+<button  class="sc_button2" style=" background-image: url('./wp-content/themes/dentario/images/farmacia.svg') !important; background: no-repeat" ></button>
 <label for="titulo" style="
         margin: auto;
         display:block;
@@ -713,7 +713,7 @@ padding-top:50px;
 
 </div>
 
-<div class="myhover" style="display: inline-block;cursor: pointer;padding:  5px;margin-top:100px; "ng-click="myFunc()">
+<div class="myhover" style="display: inline-block;cursor: pointer;padding:  5px;margin-top:100px; "ng-click="FuncFarmaceutico()">
 <button  class="sc_button2" style=" background-image: url('./wp-content/themes/dentario/images/farmaceutico.svg') !important; background: no-repeat;"></button>
 <label for="titulo" style="
         margin: auto;
@@ -725,7 +725,7 @@ padding-top:50px;
 <!--&eacute;
 &iacute;-->
 </div>
-<div class="myhover" style="display: inline-block;cursor: pointer;padding:  5px" ng-click="myFunc()">
+<div class="myhover" style="display: inline-block;cursor: pointer;padding:  5px" ng-click="FuncLaboratorio()">
 <button  class="sc_button2" style=" background-image: url('./wp-content/themes/dentario/images/laboratorio.svg') !important; background: no-repeat;"></button>
 <label for="titulo" style="
         margin: auto;
@@ -738,7 +738,7 @@ padding-top:50px;
 &iacute;-->
 </div>
 
-<div class="myhover" style="display: inline-block;cursor: pointer;padding:  5px" ng-click="myFunc()">
+<div class="myhover" style="display: inline-block;cursor: pointer;padding:  5px" ng-click="FuncDrogueria()">
 <button  class="sc_button2" style=" background-image: url('./wp-content/themes/dentario/images/drogueria.svg') !important; background: no-repeat;"></button>
 <label for="titulo" style="
         margin: auto;
@@ -769,9 +769,7 @@ padding-top:50px;
 <button ng-click="myFunc()">Proveedor de Farmacia</button>-->
 </div>
 
-
-
-<div ng-if="showMe" >
+<div ng-if="showFarmacia" >
 	<img src="./wp-content/themes/dentario/images/farmacia.svg" style="float:right;width:25px;height:25px;">
 			
 				<form  id="sc_form_327934679_form" data-formtype="form_2" method="post" action="./wp-admin/admin-ajax.php">
@@ -812,14 +810,6 @@ padding-top:50px;
 					</div>
 				
 
-				<!--	<div class="column-1_2 sc_column_item sc_column_item_2 even">
-						<div class="wpb_text_column wpb_content_element ">
-							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><i class="fa-icon-check"></i></i><label class="required" for="sc_form_phone">Calle</label><input id="sc_form_phone" type="text" name="calle" placeholder="Calle"></div>
-							</div>
-						</div>
-					</div> -->
-
 
 
 
@@ -830,40 +820,7 @@ padding-top:50px;
 <br/>
 	<label for="ubicacion">Ubicación de la Farmacia</label>
 
-			<!--	<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2">
-				<div class="column-1_2 sc_column_item sc_column_item_1 odd first">
-						<div class="wpb_text_column wpb_content_element ">
-							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><i class="fa-icon-check"></i></i><label class="required" for="sc_form_email">Numero</label><input id="sc_form_email" type="text" name="numero" placeholder="Número">
-								</div>
-
-							</div>
-						</div>
-					</div>
-
-				</div> -->
-
-
-		<!--		<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"> 
-					<div class="column-1_2 sc_column_item sc_column_item_1 odd first">
-						<div class="wpb_text_column wpb_content_element ">
-							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><i class="icon icon-dentrario_add_user"></i><label class="required" for="sc_form_doctor">Farmaceutico</label><input id="sc_form_doctor" type="text" name="farmaceutico" placeholder="Nombre Farmacéutico DT"></div>
-							</div>
-						</div>
-					</div>
-				
 			
-				
-				<div class="column-1_2 sc_column_item sc_column_item_2 even">
-						<div class="wpb_text_column wpb_content_element ">
-							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><i class="icon icon-mail-light"></i><label class="required" for="sc_form_email">Matricula</label><input id="sc_form_email" type="text" name="matricula" placeholder="Matrícula DT"></div>
-
-							</div>
-						</div>
-					</div>
-					</div>-->
 					<br/>
 		
 <div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
@@ -916,8 +873,7 @@ padding-top:50px;
 
 			</div>
 			
-			<!--<div class="sc_form_item sc_form_message label_over"><label class="required" for="sc_form_message">Message</label><textarea id="sc_form_message" data-autoresize rows="1" name="message" placeholder="Message"></textarea></div> -->
-	<!--		<div ng-click="myFunc()" ><button class="alignright">Retroceder</button></div> -->
+			
 		
 			<div class="sc_form_item sc_form_button"  ><button class="alignleft">Registrarse</button></div>
 			
@@ -929,25 +885,435 @@ padding-top:50px;
 		</form>
 
 
-			<div ng-click="myFunc()" ><button class="alignright">Atrás</button></div>
+			<div ng-click="FuncFarmacia()" ><button class="alignright">Atrás</button></div>
 
 
+</div>
+
+
+<div ng-if="showFarmaceutico" >
+	<img src="./wp-content/themes/dentario/images/farmaceutico.svg" style="float:right;width:25px;height:25px;">
+			
+				<form  id="sc_form_327934679_form" data-formtype="form_2" method="post" action="./wp-admin/admin-ajax.php">
+
+						<div class="sc_form_info" >
+
+<div class="vc_empty_space"  style="height: 55px" > </div>
+
+				<label for="datos" >
+				Datos Personales y Profesionales</label> 
+
+				
+				<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
+						<div class="wpb_text_column wpb_content_element">
+							<div class="wpb_wrapper">
+				
+				
+				
+								<div class="sc_form_item sc_form_field label_over"><i class="fa-icon-star-o"></i><label class="required" for="sc_form_username">Nombre y Apellido</label><input id="sc_form_username" type="text" name="nombreyapelido" placeholder="Nombre y Apellido"></div>
+							</div>
+						</div>
+					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
+						<div class="wpb_text_column wpb_content_element">
+							<div class="wpb_wrapper">
+								<div class="sc_form_item sc_form_field label_over"><label for="sc_form_phone">Matricula</label><input id="sc_form_phone" type="text" name="matricula" placeholder="Matrícula"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
+						<div class="wpb_text_column wpb_content_element">
+							<div class="wpb_wrapper">
+								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_username">Cuil</label><input id="sc_form_username" type="text" name="cuil" placeholder="CUIL/CUIT"></div>
+							</div>
+						</div>
+					</div>
+				
+
+				
+
+				</div> 
+
+<br/>
+
+<br/>
+<!--	<label for="ubicacion">Lugar de Trabajo</label>
+
+			
+					<br/>
+		
+<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
+						<div class="wpb_text_column wpb_content_element">
+							<div class="wpb_wrapper">
+								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_username">Calle</label><input id="sc_form_username" type="text" name="calle" placeholder="Calle"></div>
+							</div>
+						</div>
+					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
+						<div class="wpb_text_column wpb_content_element">
+							<div class="wpb_wrapper">
+								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_phone">Numero</label><input id="sc_form_phone" type="text" name="numero" placeholder="Número"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+		
+
+	
+<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
+						<div class="wpb_text_column wpb_content_element">
+							<div class="wpb_wrapper">
+								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_username">Localidad</label><input id="sc_form_username" type="text" name="localidad" placeholder="Localidad"></div>
+							</div>
+						</div>
+					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
+						<div class="wpb_text_column wpb_content_element">
+							<div class="wpb_wrapper">
+								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_phone">Provincia</label><input id="sc_form_phone" type="text" name="provincia" placeholder="Provincia"></div>
+							</div>
+						</div>
+					</div>
+				</div> -->
+<br/>
+<br/>
+	<label for="usuariored">Usuario para FarmaRed</label>
+<br/> 
+<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
+						<div class="wpb_text_column wpb_content_element">
+							<div class="wpb_wrapper">
+								<div class="sc_form_item sc_form_field label_over"><i class="fa-icon-envelope-o"></i><label class="required" for="sc_form_username">Email</label><input id="sc_form_username" type="text" name="email" placeholder="E-mail"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+
+			</div>
+			
+		
+		
+			<div class="sc_form_item sc_form_button"  ><button class="alignleft">Registrarse</button></div>
+			
+			<div class="result sc_infobox"></div>
+
+
+
+	
+		</form>
+
+
+			<div ng-click="FuncFarmaceutico()" ><button class="alignright">Atrás</button></div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!--hasta aca va farmaceutico-->
+
+
+<div ng-if="showLaboratorio" >
+	<img src="./wp-content/themes/dentario/images/laboratorio.svg" style="float:right;width:25px;height:25px;">
+			
+				<form  id="sc_form_327934679_form" data-formtype="form_2" method="post" action="./wp-admin/admin-ajax.php">
+
+						<div class="sc_form_info" >
+
+
+
+				<label for="datos" >
+				Datos del Laboratorio</label> 
+
+
+
+				<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
+						<div class="wpb_text_column wpb_content_element">
+							<div class="wpb_wrapper">
+				
+				
+				
+								<div class="sc_form_item sc_form_field label_over"><i class="fa-icon-star-o"></i><label class="required" for="sc_form_username">NombreFantasia</label><input id="sc_form_username" type="text" name="nombrefantasia" placeholder="Nombre de Fantasía"></div>
+							</div>
+						</div>
+					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
+						<div class="wpb_text_column wpb_content_element">
+							<div class="wpb_wrapper">
+								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_phone">Cuit</label><input id="sc_form_phone" type="text" name="cuit" placeholder="CUIT"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
+						<div class="wpb_text_column wpb_content_element">
+							<div class="wpb_wrapper">
+								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_username">Telefono</label><input id="sc_form_username" type="text" name="Teléfono" placeholder="Teléfono"></div>
+							</div>
+						</div>
+					</div>
+				
+
+				
+
+				</div>
+
+<br/>
+
+<br/>
+	<label for="ubicacion">Ubicación del Laboratorio</label>
+
+			
+					<br/>
+		
+<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
+						<div class="wpb_text_column wpb_content_element">
+							<div class="wpb_wrapper">
+								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_username">Calle</label><input id="sc_form_username" type="text" name="calle" placeholder="Calle"></div>
+							</div>
+						</div>
+					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
+						<div class="wpb_text_column wpb_content_element">
+							<div class="wpb_wrapper">
+								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_phone">Numero</label><input id="sc_form_phone" type="text" name="numero" placeholder="Número"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+		
+
+	
+<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
+						<div class="wpb_text_column wpb_content_element">
+							<div class="wpb_wrapper">
+								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_username">Localidad</label><input id="sc_form_username" type="text" name="localidad" placeholder="Localidad"></div>
+							</div>
+						</div>
+					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
+						<div class="wpb_text_column wpb_content_element">
+							<div class="wpb_wrapper">
+								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_phone">Provincia</label><input id="sc_form_phone" type="text" name="provincia" placeholder="Provincia"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+<br/>
+<br/>
+	<label for="usuariored">Datos de Usuario Principal para FarmaRed</label>
+<br/> 
+<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
+						<div class="wpb_text_column wpb_content_element">
+							<div class="wpb_wrapper">
+								<div class="sc_form_item sc_form_field label_over"><i class="fa-icon-envelope-o"></i><label class="required" for="sc_form_username">Email</label><input id="sc_form_username" type="text" name="email" placeholder="E-mail"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+
+			</div>
+			
+		
+		
+			<div class="sc_form_item sc_form_button"  ><button class="alignleft">Registrarse</button></div>
+			
+			<div class="result sc_infobox"></div>
+
+
+
+	
+		</form>
+
+
+			<div ng-click="FuncLaboratorio()" ><button class="alignright">Atrás</button></div>
+
+
+</div>
+
+
+
+
+
+<!--hasta aca va laboratorio-->
+
+<div ng-if="showDrogueria" >
+	<img src="./wp-content/themes/dentario/images/drogueria.svg" style="float:right;width:25px;height:25px;">
+			
+				<form  id="sc_form_327934679_form" data-formtype="form_2" method="post" action="./wp-admin/admin-ajax.php">
+
+						<div class="sc_form_info" >
+
+
+
+				<label for="datos" >
+				Datos de la Droguer&iacute;a</label> 
+
+
+
+				<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
+						<div class="wpb_text_column wpb_content_element">
+							<div class="wpb_wrapper">
+				
+				
+				
+								<div class="sc_form_item sc_form_field label_over"><i class="fa-icon-star-o"></i><label class="required" for="sc_form_username">NombreFantasia</label><input id="sc_form_username" type="text" name="nombrefantasia" placeholder="Nombre de Fantasía"></div>
+							</div>
+						</div>
+					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
+						<div class="wpb_text_column wpb_content_element">
+							<div class="wpb_wrapper">
+								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_phone">Cuit</label><input id="sc_form_phone" type="text" name="cuit" placeholder="CUIT"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
+						<div class="wpb_text_column wpb_content_element">
+							<div class="wpb_wrapper">
+								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_username">Telefono</label><input id="sc_form_username" type="text" name="Teléfono" placeholder="Teléfono"></div>
+							</div>
+						</div>
+					</div>
+				
+
+				
+
+				</div>
+
+<br/>
+
+<br/>
+	<label for="ubicacion">Ubicación de la Droguer&iacute;a</label>
+
+			
+					<br/>
+		
+<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
+						<div class="wpb_text_column wpb_content_element">
+							<div class="wpb_wrapper">
+								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_username">Calle</label><input id="sc_form_username" type="text" name="calle" placeholder="Calle"></div>
+							</div>
+						</div>
+					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
+						<div class="wpb_text_column wpb_content_element">
+							<div class="wpb_wrapper">
+								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_phone">Numero</label><input id="sc_form_phone" type="text" name="numero" placeholder="Número"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+		
+
+	
+<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
+						<div class="wpb_text_column wpb_content_element">
+							<div class="wpb_wrapper">
+								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_username">Localidad</label><input id="sc_form_username" type="text" name="localidad" placeholder="Localidad"></div>
+							</div>
+						</div>
+					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
+						<div class="wpb_text_column wpb_content_element">
+							<div class="wpb_wrapper">
+								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_phone">Provincia</label><input id="sc_form_phone" type="text" name="provincia" placeholder="Provincia"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+<br/>
+<br/>
+	<label for="usuariored">Datos de Usuario Principal para FarmaRed</label>
+<br/> 
+<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
+						<div class="wpb_text_column wpb_content_element">
+							<div class="wpb_wrapper">
+								<div class="sc_form_item sc_form_field label_over"><i class="fa-icon-envelope-o"></i><label class="required" for="sc_form_username">Email</label><input id="sc_form_username" type="text" name="email" placeholder="E-mail"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+
+			</div>
+			
+		
+		
+			<div class="sc_form_item sc_form_button"  ><button class="alignleft">Registrarse</button></div>
+			
+			<div class="result sc_infobox"></div>
+
+
+
+	
+		</form>
+
+
+			<div ng-click="FuncDrogueria()" ><button class="alignright">Atrás</button></div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!--hasta aca va drogueria-->
 
 		</div>
 
-</div>
+
 <script>
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope) {
-    $scope.showMe = false;
+    $scope.showFarmacia = false;
     $scope.showButton = true;
+	$scope.showFarmaceutico = false;
+	$scope.showLaboratorio = false;
+	$scope.showDrogueria = false;
 
-
-    $scope.myFunc = function() {
-        $scope.showMe = !$scope.showMe;
+    $scope.FuncFarmacia = function() {
+        $scope.showFarmacia = !$scope.showFarmacia;
 		$scope.showButton = !$scope.showButton;
-
     }
+
+
+$scope.FuncFarmaceutico = function() {
+        $scope.showFarmaceutico = !$scope.showFarmaceutico;
+		$scope.showButton = !$scope.showButton;
+    }
+
+$scope.FuncLaboratorio = function() {
+        $scope.showLaboratorio  = !$scope.showLaboratorio ;
+		$scope.showButton = !$scope.showButton;
+    }
+
+$scope.FuncDrogueria = function() {
+        $scope.showDrogueria  = !$scope.showDrogueria ;
+		$scope.showButton = !$scope.showButton;
+    }
+
+
+
+
 });
 </script>
 

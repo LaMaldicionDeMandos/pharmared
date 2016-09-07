@@ -1153,14 +1153,7 @@ body:not(.top_panel_fixed) .top_panel_position_over .top_panel_bottom {
 	z-index:10000;
 }
 
-.fixed{
 
-position: fixed;
-z-index=10000;
-top=0px;
-left:0px;
-
-}
 .top_panel_top .sc_socials.sc_socials_size_tiny .social_icons span {
     font-size: 1.08em
 }
@@ -1537,7 +1530,7 @@ left:0px;
 
 /* Logo in the header */
 .top_panel_wrap .logo {
-	margin: 2em 0 1em 0;
+	margin: 0em 0 0em 0;
 		overflow:hidden;
 }
 .top_panel_wrap .logo_main {
@@ -1566,7 +1559,7 @@ left:0px;
 	margin-bottom:0 !important;
 }
 .top_panel_fixed .top_panel_wrap .logo_main {
-	display: none;
+	/*display: none;*/
 }
 .top_panel_wrap .logo_fixed {
 	display:none;

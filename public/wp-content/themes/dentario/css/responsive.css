@@ -19,7 +19,7 @@ Apple iPod Touch (5th generation)
 
 	/* Body sizes */
 	.body_style_boxed .page_wrap {		width:1060px; }
-	.slider_boxed, .content_wrap, .content_container {	width:1350px; }
+	.slider_boxed, .content_wrap, .content_container {	width:1000px; }
 
 	/* Content and Sidebar */
 	.sidebar_show .content { width: 670px; }

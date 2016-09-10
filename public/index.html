@@ -129,7 +129,7 @@ var tribe_events_linked_posts = {"post_types":{"tribe_venue":"venue","tribe_orga
 					data.aspectratio = obj.aspectratio;
 					
 					// SYNC AJAX REQUEST
-					jQuery.ajax({
+				/*	jQuery.ajax({
 						type:"post",
 						url:"./wp-admin/admin-ajax.php",
 						dataType: 'json',
@@ -142,7 +142,7 @@ var tribe_events_linked_posts = {"post_types":{"tribe_venue":"venue","tribe_orga
 						error: function(e) {
 							console.log(e);
 						}
-					});
+					});*/
 					
 					 // FIRST RETURN THE CONTENT WHEN IT IS LOADED !!
 					 return content;						 
@@ -683,7 +683,8 @@ en la Farmacia </div>
 						data-captionhidden="on" 
 
 		
-	style="z-index: 6; min-width: 837px; max-width: 837px; max-width: 135px; max-width: 135px; white-space: normal;"><div  id="sc_form_327934679_wrap" class="sc_form_wrap"><div  id="sc_form_327934679" class="sc_form sc_form_style_form_2">
+	style="z-index: 6; min-width: 837px; max-width: 837px; max-width: 135px; max-width: 135px; white-space: normal;">
+	<div  id="sc_form_327934679_wrap" class="sc_form_wrap"><div  id="sc_form_327934679" class="sc_form sc_form_style_form_2">
 
 
 <div  ng-app="myApp" ng-controller="myCtrl">
@@ -758,11 +759,6 @@ padding-top:50px;
 
 
 <div ng-if="showFarmacia"  >
-
-
-
-
-
 
 
 
@@ -924,8 +920,8 @@ transition: ease-in;
 <div ng-if="showFarmaceutico" >
 	<img src="./wp-content/themes/dentario/images/farmaceutico.svg" style="float:right;width:25px;height:25px;">
 			
-				<form  id="sc_form_327934679_form" data-formtype="form_2" method="post" action="./wp-admin/admin-ajax.php">
-
+				<form  id="sc_form_327934679_form" data-formtype="form_2" method="post" >
+<!--action="./wp-admin/admin-ajax.php"-->
 						<div class="sc_form_info" >
 
 				<div class="vc_empty_space"  style="height: 55px" > </div>
@@ -1017,8 +1013,8 @@ transition: ease-in;
 <div ng-if="showLaboratorio" >
 	<img src="./wp-content/themes/dentario/images/laboratorio.svg" style="float:right;width:25px;height:25px;">
 			
-				<form  id="sc_form_327934679_form" data-formtype="form_2" method="post" action="./wp-admin/admin-ajax.php">
-
+				<form  id="sc_form_327934679_form" data-formtype="form_2" method="post" >
+<!--action="./wp-admin/admin-ajax.php"-->
 						<div class="sc_form_info" >
 
 
@@ -1143,8 +1139,8 @@ transition: ease-in;
 <div ng-if="showDrogueria" >
 	<img src="./wp-content/themes/dentario/images/drogueria.svg" style="float:right;width:25px;height:25px;">
 			
-				<form  id="sc_form_327934679_form" data-formtype="form_2" method="post" action="./wp-admin/admin-ajax.php">
-
+				<form  id="sc_form_327934679_form" data-formtype="form_2" method="post" >
+<!--action="./wp-admin/admin-ajax.php"-->
 						<div class="sc_form_info" >
 
 
@@ -1509,7 +1505,8 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 		</aside><aside id="dentario_widget_qrcode-2" class="widget_number_2 column-1_3 widget widget_qrcode"><div class="widget_inner">
 					<div class="qrcode"><img src="data:image/png;base64,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" alt="" /></div>
 					
-				</div></aside><aside id="text-2" class="widget_number_3 column-1_3 widget widget_text">			<div class="textwidget"><div  id="sc_form_129551765_wrap" class="sc_form_wrap"><div  id="sc_form_129551765" class="sc_form sc_form_style_form_1 margin_top_null margin_bottom_null">		<form  id="sc_form_129551765_form" data-formtype="form_1" method="post" action="./wp-admin/admin-ajax.php">
+				</div></aside><aside id="text-2" class="widget_number_3 column-1_3 widget widget_text">			<div class="textwidget"><div  id="sc_form_129551765_wrap" class="sc_form_wrap"><div  id="sc_form_129551765" class="sc_form sc_form_style_form_1 margin_top_null margin_bottom_null">		<form  id="sc_form_129551765_form" data-formtype="form_1" method="post" >
+				<!--action="./wp-admin/admin-ajax.php"-->
 						<div class="sc_form_info">
 				<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_username">Name</label><input id="sc_form_username" type="text" name="username" placeholder="Nombre"></div>
 				<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_email">E-mail</label><input id="sc_form_email" type="text" name="email" placeholder="E-mail"></div>
@@ -1590,7 +1587,7 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 <div class="custom_html_section">
 </div>
 
-<script type="text/javascript">if (typeof DENTARIO_STORAGE == 'undefined') var DENTARIO_STORAGE = {};if (DENTARIO_STORAGE['theme_font']=='') DENTARIO_STORAGE['theme_font'] = 'Poppins';DENTARIO_STORAGE['theme_skin_color'] = '#232A34';DENTARIO_STORAGE['theme_skin_bg_color'] = '#ffffff';</script><script type="text/javascript">if (typeof DENTARIO_STORAGE == 'undefined') var DENTARIO_STORAGE = {};DENTARIO_STORAGE["strings"] = {ajax_error: 			"Invalid server answer",bookmark_add: 		"Add the bookmark",bookmark_added:		"Current page has been successfully added to the bookmarks. You can see it in the right panel on the tab &#039;Bookmarks&#039;",bookmark_del: 		"Delete this bookmark",bookmark_title:		"Enter bookmark title",bookmark_exists:		"Current page already exists in the bookmarks list",search_error:		"Error occurs in AJAX search! Please, type your query and press search icon for the traditional search way.",email_confirm:		"On the e-mail address &quot;%s&quot; we sent a confirmation email. Please, open it and click on the link.",reviews_vote:		"Thanks for your vote! New average rating is:",reviews_error:		"Error saving your vote! Please, try again later.",error_like:			"Error saving your like! Please, try again later.",error_global:		"Global error text",name_empty:			"The name can&#039;t be empty",name_long:			"Too long name",email_empty:			"Too short (or empty) email address",email_long:			"Too long email address",email_not_valid:		"Invalid email address",subject_empty:		"The subject can&#039;t be empty",subject_long:		"Too long subject",text_empty:			"The message text can&#039;t be empty",text_long:			"Too long message text",send_complete:		"Send message complete!",send_error:			"Transmit failed!",login_empty:			"El Email no puede estar vacío",login_long:			"Too long login field",login_success:		"Login success! The page will be reloaded in 3 sec.",login_failed:		"Login failed!",password_empty:		"La contraseña debe contener 4 caracteres como mínimo",password_long:		"Too long password",password_not_equal:	"The passwords in both fields are not equal",registration_success:"Registration success! Please log in!",registration_failed:	"Registration failed!",geocode_error:		"Geocode was not successful for the following reason:",googlemap_not_avail:	"Google map API not available!",editor_save_success:	"Post content saved!",editor_save_error:	"Error saving post data!",editor_delete_post:	"You really want to delete the current post?",editor_delete_post_header:"Delete post",editor_delete_success:	"Post deleted!",editor_delete_error:		"Error deleting post!",editor_caption_cancel:	"Cancel",editor_caption_close:	"Close"};</script><script type="text/javascript">if (typeof DENTARIO_STORAGE == 'undefined') var DENTARIO_STORAGE = {};DENTARIO_STORAGE['ajax_url']			 = './wp-admin/admin-ajax.php';DENTARIO_STORAGE['ajax_nonce']		 = '4acbe622ac';DENTARIO_STORAGE['site_url']			= '.';DENTARIO_STORAGE['vc_edit_mode']		= false;DENTARIO_STORAGE['theme_font']		= 'Poppins';DENTARIO_STORAGE['theme_skin']			= 'less';DENTARIO_STORAGE['theme_skin_color']		= '#232A34';DENTARIO_STORAGE['theme_skin_bg_color']	= '#ffffff';DENTARIO_STORAGE['slider_height']	= 100;DENTARIO_STORAGE['system_message']	= {message: '',status: '',header: ''};DENTARIO_STORAGE['user_logged_in']	= false;DENTARIO_STORAGE['toc_menu']		= 'hide';DENTARIO_STORAGE['toc_menu_home']	= false;DENTARIO_STORAGE['toc_menu_top']	= false;DENTARIO_STORAGE['menu_fixed']		= true;DENTARIO_STORAGE['menu_mobile']	= 1023;DENTARIO_STORAGE['menu_slider']     = false;DENTARIO_STORAGE['menu_cache']	= false;DENTARIO_STORAGE['demo_time']		= 0;DENTARIO_STORAGE['media_elements_enabled'] = true;DENTARIO_STORAGE['ajax_search_enabled'] 	= true;DENTARIO_STORAGE['ajax_search_min_length']	= 3;DENTARIO_STORAGE['ajax_search_delay']		= 200;DENTARIO_STORAGE['css_animation']      = true;DENTARIO_STORAGE['menu_animation_in']  = 'fadeIn';DENTARIO_STORAGE['menu_animation_out'] = 'fadeOutDown';DENTARIO_STORAGE['popup_engine']	= 'magnific';DENTARIO_STORAGE['email_mask']		= '^([a-zA-Z0-9_\-]+\.)*[a-zA-Z0-9_\-]+@[a-z0-9_\-]+(\.[a-z0-9_\-]+)*\.[a-z]{2,6}$';DENTARIO_STORAGE['contacts_maxlength']	= 1000;DENTARIO_STORAGE['comments_maxlength']	= 1000;DENTARIO_STORAGE['remember_visitors_settings']	= false;DENTARIO_STORAGE['admin_mode']			= false;DENTARIO_STORAGE['isotope_resize_delta']	= 0.3;DENTARIO_STORAGE['error_message_box']	= null;DENTARIO_STORAGE['viewmore_busy']		= false;DENTARIO_STORAGE['video_resize_inited']	= false;DENTARIO_STORAGE['top_panel_height']		= 0;</script><script type="text/javascript">
+<script type="text/javascript">if (typeof DENTARIO_STORAGE == 'undefined') var DENTARIO_STORAGE = {};if (DENTARIO_STORAGE['theme_font']=='') DENTARIO_STORAGE['theme_font'] = 'Poppins';DENTARIO_STORAGE['theme_skin_color'] = '#232A34';DENTARIO_STORAGE['theme_skin_bg_color'] = '#ffffff';</script><script type="text/javascript">if (typeof DENTARIO_STORAGE == 'undefined') var DENTARIO_STORAGE = {};DENTARIO_STORAGE["strings"] = {ajax_error: 			"Invalid server answer",bookmark_add: 		"Add the bookmark",bookmark_added:		"Current page has been successfully added to the bookmarks. You can see it in the right panel on the tab &#039;Bookmarks&#039;",bookmark_del: 		"Delete this bookmark",bookmark_title:		"Enter bookmark title",bookmark_exists:		"Current page already exists in the bookmarks list",search_error:		"Error occurs in AJAX search! Please, type your query and press search icon for the traditional search way.",email_confirm:		"On the e-mail address &quot;%s&quot; we sent a confirmation email. Please, open it and click on the link.",reviews_vote:		"Thanks for your vote! New average rating is:",reviews_error:		"Error saving your vote! Please, try again later.",error_like:			"Error saving your like! Please, try again later.",error_global:		"Global error text",name_empty:			"The name can&#039;t be empty",name_long:			"Too long name",email_empty:			"Too short (or empty) email address",email_long:			"Too long email address",email_not_valid:		"Invalid email address",subject_empty:		"The subject can&#039;t be empty",subject_long:		"Too long subject",text_empty:			"The message text can&#039;t be empty",text_long:			"Too long message text",send_complete:		"Send message complete!",send_error:			"Transmit failed!",login_empty:			"El Email no puede estar vacío",login_long:			"Too long login field",login_success:		"Login success! The page will be reloaded in 3 sec.",login_failed:		"Login failed!",password_empty:		"La contraseña debe contener 4 caracteres como mínimo",password_long:		"Too long password",password_not_equal:	"The passwords in both fields are not equal",registration_success:"Registration success! Please log in!",registration_failed:	"Registration failed!",geocode_error:		"Geocode was not successful for the following reason:",googlemap_not_avail:	"Google map API not available!",editor_save_success:	"Post content saved!",editor_save_error:	"Error saving post data!",editor_delete_post:	"You really want to delete the current post?",editor_delete_post_header:"Delete post",editor_delete_success:	"Post deleted!",editor_delete_error:		"Error deleting post!",editor_caption_cancel:	"Cancel",editor_caption_close:	"Close"};</script><script type="text/javascript">if (typeof DENTARIO_STORAGE == 'undefined') var DENTARIO_STORAGE = {};DENTARIO_STORAGE['ajax_nonce']		 = '4acbe622ac';DENTARIO_STORAGE['site_url']			= '.';DENTARIO_STORAGE['vc_edit_mode']		= false;DENTARIO_STORAGE['theme_font']		= 'Poppins';DENTARIO_STORAGE['theme_skin']			= 'less';DENTARIO_STORAGE['theme_skin_color']		= '#232A34';DENTARIO_STORAGE['theme_skin_bg_color']	= '#ffffff';DENTARIO_STORAGE['slider_height']	= 100;DENTARIO_STORAGE['system_message']	= {message: '',status: '',header: ''};DENTARIO_STORAGE['user_logged_in']	= false;DENTARIO_STORAGE['toc_menu']		= 'hide';DENTARIO_STORAGE['toc_menu_home']	= false;DENTARIO_STORAGE['toc_menu_top']	= false;DENTARIO_STORAGE['menu_fixed']		= true;DENTARIO_STORAGE['menu_mobile']	= 1023;DENTARIO_STORAGE['menu_slider']     = false;DENTARIO_STORAGE['menu_cache']	= false;DENTARIO_STORAGE['demo_time']		= 0;DENTARIO_STORAGE['media_elements_enabled'] = true;DENTARIO_STORAGE['ajax_search_enabled'] 	= true;DENTARIO_STORAGE['ajax_search_min_length']	= 3;DENTARIO_STORAGE['ajax_search_delay']		= 200;DENTARIO_STORAGE['css_animation']      = true;DENTARIO_STORAGE['menu_animation_in']  = 'fadeIn';DENTARIO_STORAGE['menu_animation_out'] = 'fadeOutDown';DENTARIO_STORAGE['popup_engine']	= 'magnific';DENTARIO_STORAGE['email_mask']		= '^([a-zA-Z0-9_\-]+\.)*[a-zA-Z0-9_\-]+@[a-z0-9_\-]+(\.[a-z0-9_\-]+)*\.[a-z]{2,6}$';DENTARIO_STORAGE['contacts_maxlength']	= 1000;DENTARIO_STORAGE['comments_maxlength']	= 1000;DENTARIO_STORAGE['remember_visitors_settings']	= false;DENTARIO_STORAGE['admin_mode']			= false;DENTARIO_STORAGE['isotope_resize_delta']	= 0.3;DENTARIO_STORAGE['error_message_box']	= null;DENTARIO_STORAGE['viewmore_busy']		= false;DENTARIO_STORAGE['video_resize_inited']	= false;DENTARIO_STORAGE['top_panel_height']		= 0;</script><script type="text/javascript">
 				jQuery("document").ready (function(){DENTARIO_STORAGE['phone_mask']		= '^[0-9\-\+]{9,15}$';DENTARIO_STORAGE["strings"]["phone_not_valid"] = "Invalid phone number" ;DENTARIO_STORAGE["strings"]["phone_empty"] = "The phone can not be empty" ;DENTARIO_STORAGE["strings"]["phone_wrong"] = "The phone is wrong" ;DENTARIO_STORAGE["strings"]["doctor_empty"] = "Doctor name can not be empty" ;DENTARIO_STORAGE["strings"]["doctor_long"] = "Doctor name too long" ;});</script><link rel='stylesheet' property='stylesheet' id='rs-icon-set-fa-icon-css'  href='./wp-content/plugins/revslider/public/assets/fonts/font-awesome/css/font-awesome.css' type='text/css' media='all' />		<script type="text/javascript">
 			function revslider_showDoubleJqueryError(sliderID) {
 				var errorMessage = "Revolution Slider Error: You have some jquery.js library include that comes after the revolution files js include.";

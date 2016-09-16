@@ -1567,7 +1567,7 @@ Very common low res
 		margin-bottom: 2rem !important;
 	}
 	.tp-caption.dentrarario-home3-static-text {
-		display: none;
+		/*display: none;*/
 	}
 	.dentrarario-home3-appointment-btn .sc_button {
 		margin-top: 1.5em !important;

@@ -687,7 +687,7 @@ en la Farmacia </div>
 	<div  id="sc_form_327934679_wrap" class="sc_form_wrap"><div  id="sc_form_327934679" class="sc_form sc_form_style_form_2">
 
 
-<div  ng-app="myApp" ng-controller="myCtrl">
+<div  ng-app="landingApp" ng-controller="registerButtonsController">
 <div ng-show="showButton" >
 <br />
 
@@ -758,7 +758,7 @@ padding-top:50px;
 
 
 
-<div ng-if="showFarmacia"  >
+<div ng-if="showFarmacia" ng-controller="registerPharmacyController" >
 
 
 
@@ -767,7 +767,7 @@ padding-top:50px;
 
 <img src="./wp-content/themes/dentario/images/farmacia.svg" style="float:right;width:25px; height:25px"> 
 
-				<form  id="sc_form_327934679_form" data-formtype="form_2">
+				<form  id="sc_form_327934679_form" data-formtype="form_2" ng-submit="register(form)">
 
 				<!-- method="post" action="./wp-admin/admin-ajax.php"-->
 						<div class="sc_form_info" >
@@ -868,7 +868,7 @@ padding-top:50px;
 					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_phone">Nombre</label><input id="sc_form_phone" type="text" name="nombre" placeholder="Nombre y Apellido"></div>
+								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_phone">Nombre</label><input ng-model="form.fullName" id="sc_form_phone" type="text" name="nombre" placeholder="Nombre y Apellido"></div>
 							</div>
 						</div>
 					</div>
@@ -1256,8 +1256,7 @@ padding-top:50px;
 
 		</div>
 
-
-<script>
+<!--<script>
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope) {
     $scope.showFarmacia = false;
@@ -1291,7 +1290,7 @@ $scope.FuncDrogueria = function() {
 
 
 });
-</script>
+</script> -->
 
 
 
@@ -1620,6 +1619,9 @@ var _wpmejsSettings = {"pluginPath":"\/wp-includes\/js\/mediaelement\/"};
 <script type='text/javascript' src='./wp-content/themes/dentario/fw/js/magnific/jquery.magnific-popup.min.js?ver=4.5.3'></script>
 <script type='text/javascript' src='./wp-content/themes/dentario/shortcodes/theme.shortcodes.js'></script>
 <script type='text/javascript' src='./wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=4.12'></script>
+
+<script type='text/javascript' src='./js/landing_controllers.js'></script>
+<script type='text/javascript' src='./js/landing_app.js'></script>
 
 </body>
 </html>

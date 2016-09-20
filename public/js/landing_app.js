@@ -1,5 +1,5 @@
 
 angular.module('landingApp', [
-    'landingApp.controllers'
-    //,   'landingApp.services'
+    'landingApp.controllers'  ,
+     'landingApp.services'
 ]);

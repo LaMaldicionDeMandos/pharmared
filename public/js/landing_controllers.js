@@ -45,7 +45,7 @@ angular.module('landingApp.controllers', []).
             $scope.errors = {};
             var valid = validateForm($scope.form);
              if (valid) {
-               formService.register($scope.form).then(
+               formService.register($scope.form,formService.PHARMACY).then(
                     function(info) {
                         $scope.success = true;
                         console.log(info);

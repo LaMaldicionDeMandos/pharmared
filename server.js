@@ -7,7 +7,7 @@ config = xnconfig.parse(process.env.NODE_ENV, data);
 var bodyParser= require('body-parser');
 var express = require('express');
 var app = express();
-
+var register=require('./routers/register');
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
@@ -19,12 +19,7 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', function(req, res) {
   res.sendFile('index.html');
 });
-app.post("/register", function(req,res){
-  var form=req.body;
-  console.log(form.fantasyName);
-  res.status(201).send('Farmacia Registrada');
-
-});
+app.use("/register", register);
 
 
 

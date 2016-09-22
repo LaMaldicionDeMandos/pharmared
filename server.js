@@ -9,6 +9,8 @@ var express = require('express');
 var app = express();
 var register=require('./routers/register');
 
+
+
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 

@@ -52,7 +52,7 @@ angular.module('landingApp.controllers', []).
                     },
                     function(error) {
                         $scope.errors.form = error;
-
+                        console.log(error);
                     }
                 );
             }

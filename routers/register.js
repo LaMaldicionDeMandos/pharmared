@@ -17,11 +17,11 @@ var registerPharmacy = function(req, res) {
                 },
                 function(error){
                     console.log('regError');
-                    res.status(400).send (error);
+                    res.status(400).send ('Farmacia no Registrada - Error Registro');
                 });
         },
         function(error){
-            res.status(400).send (error);
+            res.status(400).send ('Farmacia no Registrada - Error Validación');
         });
 };
 router.post('/pharmacy', registerPharmacy);
@@ -33,7 +33,7 @@ var confirmEntity=function(cuit,entityName) {
 
     request(config.validator_url+entityName + '/'+cuit, function (error, response, body) {
 
-        var result = JSON.parse(body);
+        var result = body;
         if (error)  {
             def.reject(error);
         }
@@ -73,7 +73,7 @@ var regEntity=function(form,socialName,entityName) {
             def.reject(error);
             console.log('error');
         }
-       
+
         else {
 
             def.resolve();

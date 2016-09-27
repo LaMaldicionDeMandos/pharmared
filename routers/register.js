@@ -11,8 +11,10 @@ var registerPharmacy = function(req, res) {
 
     confirmEntity(form.cuit,'pharmacy').then(
         function(socialName) {
+            console.log('Validation ok, registering');
             regEntity(form, socialName, 'pharmacy').then(
                 function() {
+                    console.log("Register ok");
                     res.status(201).send('Farmacia Registrada') ;
                 },
                 function(error){
@@ -21,6 +23,7 @@ var registerPharmacy = function(req, res) {
                 });
         },
         function(error){
+            console.log('Validation error, send 400');
             res.status(400).send ('Farmacia no Registrada - Error Validación');
         });
 };
@@ -30,20 +33,22 @@ router.post('/pharmacy', registerPharmacy);
 
 var confirmEntity=function(cuit,entityName) {
     var def = q.defer();
-
+    console.log("Sent request to: " + config.validator_url+entityName + '/'+cuit);
     request(config.validator_url+entityName + '/'+cuit, function (error, response, body) {
-
         var result = body;
+        console.log("Afip response: " + JSON.stringify(result));
         if (error)  {
+            console.log("Afip error: " + error);
             def.reject(error);
         }
         else if (!result.valid){
+            console.log("Rejecting promise");
             def.reject('Invalid');
         }
 
         else {
             console.log('valid');
-           def.resolve(result.name);
+            def.resolve(result.name);
         }
 
     });

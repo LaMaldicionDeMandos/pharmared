@@ -36,7 +36,7 @@ var confirmEntity=function(cuit,entityName) {
     console.log("Sent request to: " + config.validator_url+entityName + '/'+cuit);
     request(config.validator_url+entityName + '/'+cuit, function (error, response, body) {
         console.log("Afip response");
-        var result = body;
+        var result = JSON.parse(body);
         console.log("Afip response: " + JSON.stringify(result));
         if (error)  {
             console.log("Afip error: " + error);

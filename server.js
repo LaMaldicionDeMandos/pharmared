@@ -8,18 +8,22 @@ var bodyParser= require('body-parser');
 var express = require('express');
 var passport = require('passport');
 var HashStrategy = require('passport-hash').Strategy;
+var request = require('request');
 var app = express();
 
 var register=require('./routers/register');
 
 passport.use(new HashStrategy(
     function(hash, done) {
-      //TODO get user
-//      db.users.findByToken(token, function(err, user) {
-//        if (err) { return done(err); }
-//        if (!user) { return done(null, false); }
-        return done(null, {name: 'mockupUser'});
-//      });
+        request(config.user_url + '?accessToken=' + hash, function (error, res, body) {
+            if (error) {
+                done(error);
+            }
+            if (res.statusCode != 200) {
+                done(new Error('bar request'));
+            }
+            done(null, JSON.parse(body));
+        });
     }));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
@@ -31,7 +35,7 @@ app.use(express.static(__dirname + '/public'));
 app.get('/authenticate/:hash',
     passport.authenticate('hash', { failureRedirect: '/', session: false }),
     function(req, res) {
-      res.send('User authenticated ' + JSON.stringify(req.user));
+      res.send(req.user);
     });
 
 app.get('/', function(req, res) {

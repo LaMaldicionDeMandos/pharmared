@@ -38,8 +38,8 @@ app.get('/authenticate/:hash',
       res.redirect('http://www.google.com');
     });
 
-app.get('/', function(req, res) {
-  res.sendFile('index.html');
+app.get('/', ensureAuthenticated, function(req, res) {
+  res.sendFile(__dirname + '/public/landing.html');
 });
 app.use("/register", register);
 
@@ -47,6 +47,21 @@ app.get('/errors', function(req, res) {
   res.sendFile(__dirname + '/public/error_popup.html');
 });
 
+function ensureAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        console.log("User is authenticated");
+        return res.redirect('http://www.google.com');
+        /*
+        if(req.cookies.currentCountry && req.user.countries.indexOf(req.cookies.currentCountry)>=0) {
+            req.user.currentCountry = req.cookies.currentCountry;
+        } else {
+            req.user.currentCountry = req.user.countries[0];
+        }
+        */
+    }
+    console.log("User is not authenticated");
+    return next();
+};
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));

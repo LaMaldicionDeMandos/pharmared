@@ -22,7 +22,7 @@ passport.use(new HashStrategy(
             if (res.statusCode != 200) {
                 done(new Error('bar request'));
             }
-            done(null, JSON.parse(body));
+            done(null, body);
         });
     }));
 app.use(bodyParser.urlencoded({extended:true}));
@@ -35,7 +35,7 @@ app.use(express.static(__dirname + '/public'));
 app.get('/authenticate/:hash',
     passport.authenticate('hash', { failureRedirect: '/', session: false }),
     function(req, res) {
-      res.send(req.user);
+      res.redirect('http://www.google.com');
     });
 
 app.get('/', function(req, res) {

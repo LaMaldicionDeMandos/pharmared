@@ -7,13 +7,13 @@ config = xnconfig.parse(process.env.NODE_ENV, data);
 var bodyParser= require('body-parser');
 var express = require('express');
 var passport = require('passport');
-var BearerStrategy = require('passport-http-bearer').Strategy;
+var HashStrategy = require('passport-hash').Strategy;
 var app = express();
 
 var register=require('./routers/register');
 
-passport.use(new BearerStrategy(
-    function(token, done) {
+passport.use(new HashStrategy(
+    function(hash, done) {
       //TODO get user
 //      db.users.findByToken(token, function(err, user) {
 //        if (err) { return done(err); }
@@ -23,14 +23,13 @@ passport.use(new BearerStrategy(
     }));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
-app.use(require('morgan')('combined'));
 
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
 
-app.get('/authenticate',
-    passport.authenticate('bearer', { session: false }),
+app.get('/authenticate/:hash',
+    passport.authenticate('hash', { failureRedirect: '/', session: false }),
     function(req, res) {
       res.send('User authenticated ' + JSON.stringify(req.user));
     });

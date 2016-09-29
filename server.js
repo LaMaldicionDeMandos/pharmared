@@ -11,6 +11,7 @@ var passport = require('passport');
 var methodOverride = require('method-override');
 var cookieParser = require('cookie-parser');
 var HashStrategy = require('passport-hash').Strategy;
+var LoginStrategy = require('passport-local').Strategy;
 var request = require('request');
 var app = express();
 
@@ -30,6 +31,11 @@ passport.use(new HashStrategy(
             done(null, user);
         });
     }));
+passport.use(new LoginStrategy(
+    function(username, password, done) {
+        done(null, {username: username, pass: password});
+    }
+));
 passport.serializeUser(function(user, done) {
     console.log('Serializing user');
     var json = JSON.stringify(user);
@@ -57,6 +63,23 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.post('/login', function(req, res, next) {
+    passport.authenticate('local', function(err, user, info) {
+        if (err) {
+            console.log("Error in authentication: " + JSON.stringify(info));
+            return next(err);
+        }
+        console.log("user authenticated: " + JSON.stringify(user) + " doing login in session");
+        req.login(user, function(err) {
+            if (err) {
+                console.log("Error in login into session: " + err);
+                return next(err);
+            }
+            console.log("Login success, sending path to redirect");
+            res.redirect(config.success_url);
+        });
+    })(req, res, next);
+});
 app.get('/authenticate/:hash',
     passport.authenticate('hash', { failureRedirect: '/', session: true }),
     function(req, res) {

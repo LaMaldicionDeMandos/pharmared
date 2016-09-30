@@ -687,33 +687,23 @@ en la Farmacia </div>
 
 
  <div  ng-app="landingApp" ng-controller="registerButtonsController">
+	 <div ng-show="showMessage" >
+		 <br />
 
-	<div ng-show="showMessage">
-		<br />
-
-		<label for="datos" style="width: 90%;
-padding-top:50px;
+		 <label for="datos" style="width: 90%;
+	padding-top:50px;
     display: block;
     margin: auto;
    text-align: center;
    font-size:1.5em;
 
     ">Felicitaciones!</label>
-		<br />
+		 <br />
 
-		<p >Tu cuenta se ha creado con éxito. A continuación te estará llegando un email para activarla.</p>
+		 <p >Tu cuenta se ha creado con éxito. A continuación te estará llegando un email para activarla.</p>
 
-	</div>
-
-
-
-
-
-
-
-
-
-<div ng-show="showButton" >
+	 </div>
+	 <div ng-show="showButton" >
 <br />
 
 <label for="datos" style="width: 90%;

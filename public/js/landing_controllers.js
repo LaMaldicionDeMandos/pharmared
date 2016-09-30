@@ -13,6 +13,15 @@ angular.module('landingApp.controllers', []).
     $scope.showDrogueria = false;
     $scope.showMessage=false;
 
+    $scope.showSuccess = function() {
+        $scope.showFarmacia = false;
+        $scope.showFarmaceutico = false;
+        $scope.showLaboratorio = false;
+        $scope.showDrogueria = false;
+        $scope.showMessage=true;
+    }
+
+
     $scope.FuncFarmacia = function() {
         $scope.showFarmacia = !$scope.showFarmacia;
         $scope.showButton = !$scope.showButton;
@@ -39,19 +48,17 @@ angular.module('landingApp.controllers', []).
 
 
     .controller('registerPharmacyController', function($scope, registerService,  validateFormService) {
-
          $scope.form={fantasyName:'',cuit:'',phone:'',street:'',number:'',city:'',state:'',email:'',fullName:''};
          $scope.errors = {};
+        $scope.showMessage = false;
          $scope.register = function() {
-            $scope.showMessage = false;
             $scope.success = false;
             $scope.errors = {};
            var valid = validateFormService.validate($scope.form);
              if (valid) {
                registerService.register($scope.form,registerService.PHARMACY).then(
                     function(info) {
-                        $scope.showFarmacia=false;
-                        $scope.showMessage = true;
+                        $scope.$parent.$parent.showSuccess();
                         $scope.success = true;
                         console.log(info);
                     },

@@ -33,7 +33,15 @@ passport.use(new HashStrategy(
     }));
 passport.use(new LoginStrategy(
     function(username, password, done) {
-        done(null, {username: username, pass: password});
+        var form = {username: username, password: password};
+        request({method: 'post', url: config.login_url, body: form, json: true, headers: null},
+            function(error, response, body){
+                if (error)  {
+                    done(error);
+                }
+                form.accessToken = body;
+                done(null, form);
+            });
     }
 ));
 passport.serializeUser(function(user, done) {
@@ -76,6 +84,7 @@ app.post('/login', function(req, res, next) {
                 return next(err);
             }
             console.log("Login success, sending path to redirect");
+            res.append('Authorization', "Bearer " + user.accessToken);
             res.redirect(config.success_url);
         });
     })(req, res, next);
@@ -83,7 +92,8 @@ app.post('/login', function(req, res, next) {
 app.get('/authenticate/:hash',
     passport.authenticate('hash', { failureRedirect: '/', session: true }),
     function(req, res) {
-      res.redirect(config.success_url);
+        res.append('Authorization', "Bearer " + user.accessToken);
+        res.redirect(config.success_url);
     });
 
 app.get('/', ensureAuthenticated, function(req, res) {
@@ -98,14 +108,8 @@ app.get('/errors', function(req, res) {
 function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         console.log("User is authenticated");
+        res.append('Authorization', "Bearer " + req.user.accessToken);
         return res.redirect(config.success_url);
-        /*
-        if(req.cookies.currentCountry && req.user.countries.indexOf(req.cookies.currentCountry)>=0) {
-            req.user.currentCountry = req.cookies.currentCountry;
-        } else {
-            req.user.currentCountry = req.user.countries[0];
-        }
-        */
     }
     console.log("User is not authenticated");
     return next();

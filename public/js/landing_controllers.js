@@ -53,9 +53,11 @@ angular.module('landingApp.controllers', []).
         $scope.showMessage = false;
          $scope.register = function() {
             $scope.success = false;
-            $scope.errors = {};
-           var valid = validateFormService.validate($scope.form);
-             if (valid) {
+
+         var result = validateFormService.validate($scope.form);
+
+          if (result.valid) {
+
                registerService.register($scope.form,registerService.PHARMACY).then(
                     function(info) {
                         $scope.$parent.$parent.showSuccess();
@@ -65,10 +67,14 @@ angular.module('landingApp.controllers', []).
                     function(error) {
                         $scope.errors.form = error;
                         console.log(error);
+
                     }
                 );
+            } else {
+                $scope.errors = result.err;
             }
-        };
+
+         };
 
     })
 

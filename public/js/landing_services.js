@@ -27,7 +27,8 @@ angular.module('landingApp.services', []).
             var errors = {};
             var valid=true;
             if (!form.fantasyName || form.fantasyName.length == 0) {
-                errors.fantasyName = 'invalid_fantasyName';
+            //    errors.fantasyName = 'invalid_fantasyName';
+                errors.fantasyName ='invalid_fantasy';
                 valid = false;
             }
 
@@ -60,7 +61,7 @@ angular.module('landingApp.services', []).
 
 
             if (!form.province || form.province.length == 0) {
-                errors.proviince = 'invalid_province';
+                errors.province = 'invalid_province';
                 valid = false;
             }
 
@@ -77,7 +78,7 @@ angular.module('landingApp.services', []).
                 errors.email = 'invalid_email';
                 valid = false;
             };
-            return valid;
+            return {err:errors,valid:valid};
         }
 
     };

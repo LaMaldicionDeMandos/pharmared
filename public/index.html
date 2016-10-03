@@ -75,6 +75,8 @@ img.emoji {
 <link rel='stylesheet' id='mediaelement-css'  href='./wp-includes/js/mediaelement/mediaelementplayer.min.css?ver=2.18.1' type='text/css' media='all' />
 <link rel='stylesheet' id='wp-mediaelement-css'  href='wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=4.5.3' type='text/css' media='all' />
 <link rel='stylesheet' id='js_composer_front-css'  href='./wp-content/plugins/js_composer/assets/css/js_composer.min.css?ver=4.12' type='text/css' media='all' />
+<link rel='stylesheet' href='./css/styles.css' type='text/css' />
+
 <script type='text/javascript'>
 /* <![CDATA[ */
 var tribe_events_linked_posts = {"post_types":{"tribe_venue":"venue","tribe_organizer":"organizer"}};
@@ -802,13 +804,25 @@ padding-top:50px;
 				
 				
 				
-								<div class="sc_form_item sc_form_field label_over" ><i class="fa-icon-star-o"></i><label class="required" for="sc_form_username">NombreFantasia</label><input id="sc_form_username" ng-model="form.fantasyName" type="text" name="nombrefantasia" placeholder="Nombre de Fantasía"></div>
+								<div class="sc_form_item sc_form_field label_over alert-container" >
+									<i class="fa-icon-star-o"></i>
+									<label class="required" for="sc_form_username">NombreFantasia</label>
+									<input id="sc_form_username" ng-model="form.fantasyName" type="text" name="nombrefantasia" placeholder="Nombre de Fantasía" >
+									<span class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext">El nombre de fantasia es obligatorio</span>
+									</span>
+								</div>
+							<!--	<label ng-if="errors.fantasyName" style="color:red">El nombre de fantasia es obligatorio</label>-->
 							</div>
 						</div>
 					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_phone">Cuit</label><input id="sc_form_phone" ng-model="form.cuit" type="text" name="cuit" placeholder="CUIT"></div>
+								<div class="sc_form_item sc_form_field label_over">
+									<label class="required" for="sc_form_phone">Cuit</label>
+									<input id="sc_form_phone" ng-model="form.cuit" type="text" name="cuit" placeholder="CUIT">
+								</div>
 							</div>
 						</div>
 					</div>
@@ -817,7 +831,10 @@ padding-top:50px;
 				<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_username">Telefono</label><input id="sc_form_username" ng-model="form.phone" type="text" name="Teléfono" placeholder="Teléfono"></div>
+								<div class="sc_form_item sc_form_field label_over">
+									<label class="required" for="sc_form_username">Telefono</label>
+									<input id="sc_form_username" ng-model="form.phone" type="text" name="Teléfono" placeholder="Teléfono">
+								</div>
 							</div>
 						</div>
 					</div>
@@ -839,13 +856,19 @@ padding-top:50px;
 <div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_username">Calle</label><input id="sc_form_username" ng-model="form.street" type="text" name="calle" placeholder="Calle"></div>
+								<div class="sc_form_item sc_form_field label_over">
+									<label class="required" for="sc_form_username">Calle</label>
+									<input id="sc_form_username" ng-model="form.street" type="text" name="calle" placeholder="Calle">
+								</div>
 							</div>
 						</div>
 					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_phone">Numero</label><input id="sc_form_phone" ng-model="form.number" type="text" name="numero" placeholder="Número"></div>
+								<div class="sc_form_item sc_form_field label_over">
+									<label class="required" for="sc_form_phone">Numero</label>
+									<input id="sc_form_phone" ng-model="form.number" type="text" name="numero" placeholder="Número">
+								</div>
 							</div>
 						</div>
 					</div>
@@ -857,13 +880,19 @@ padding-top:50px;
 <div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_username">Localidad</label><input id="sc_form_username" ng-model="form.city" type="text" name="localidad" placeholder="Localidad"></div>
+								<div class="sc_form_item sc_form_field label_over">
+									<label class="required" for="sc_form_username">Localidad</label>
+									<input id="sc_form_username" ng-model="form.city" type="text" name="localidad" placeholder="Localidad">
+								</div>
 							</div>
 						</div>
 					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_phone">Provincia</label><input id="sc_form_phone" ng-model="form.province" type="text" name="provincia" placeholder="Provincia"></div>
+								<div class="sc_form_item sc_form_field label_over">
+									<label class="required" for="sc_form_phone">Provincia</label>
+									<input id="sc_form_phone" ng-model="form.province" type="text" name="provincia" placeholder="Provincia">
+								</div>
 							</div>
 						</div>
 					</div>
@@ -879,13 +908,19 @@ padding-top:50px;
 <div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_username">Email</label><input id="sc_form_username" ng-model="form.email"  type="text" name="email" placeholder="E-mail"></div>
+								<div class="sc_form_item sc_form_field label_over">
+									<label class="required" for="sc_form_username">Email</label>
+									<input id="sc_form_username" ng-model="form.email"  type="text" name="email" placeholder="E-mail">
+								</div>
 							</div>
 						</div>
 					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_phone">Nombre</label><input ng-model="form.fullName" id="sc_form_fullName" type="text" name="nombre" placeholder="Nombre y Apellido"></div>
+								<div class="sc_form_item sc_form_field label_over">
+									<label class="required" for="sc_form_phone">Nombre</label>
+									<input ng-model="form.fullName" id="sc_form_fullName" type="text" name="nombre" placeholder="Nombre y Apellido">
+								</div>
 							</div>
 						</div>
 					</div>
@@ -931,13 +966,19 @@ padding-top:50px;
 				
 				
 				
-								<div class="sc_form_item sc_form_field label_over"><i class="fa-icon-star-o"></i><label class="required" for="sc_form_username">Nombre y Apellido</label><input id="sc_form_username" ng-model="form.fullName" type="text" name="nombreyapelido" placeholder="Nombre y Apellido"></div>
+								<div class="sc_form_item sc_form_field label_over"><i class="fa-icon-star-o"></i>
+									<label class="required" for="sc_form_username">Nombre y Apellido</label>
+									<input id="sc_form_username" ng-model="form.fullName" type="text" name="nombreyapelido" placeholder="Nombre y Apellido">
+								</div>
 							</div>
 						</div>
 					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label for="sc_form_phone">Matricula</label><input id="sc_form_phone" ng-model="form.enrollment" type="text" name="matricula" placeholder="Matrícula"></div>
+								<div class="sc_form_item sc_form_field label_over">
+									<label for="sc_form_phone">Matricula</label>
+									<input id="sc_form_phone" ng-model="form.enrollment" type="text" name="matricula" placeholder="Matrícula">
+								</div>
 							</div>
 						</div>
 					</div>
@@ -946,7 +987,9 @@ padding-top:50px;
 				<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_username">Cuil</label><input id="sc_form_username" ng-model="form.cuit" type="text" name="cuil" placeholder="CUIL/CUIT"></div>
+								<div class="sc_form_item sc_form_field label_over">
+									<label class="required" for="sc_form_username">Cuil</label>
+									<input id="sc_form_username" ng-model="form.cuit" type="text" name="cuil" placeholder="CUIL/CUIT"></div>
 							</div>
 						</div>
 					</div>

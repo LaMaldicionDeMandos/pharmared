@@ -801,16 +801,14 @@ padding-top:50px;
 				<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-				
-				
-				
+
 								<div class="sc_form_item sc_form_field label_over alert-container" >
 									<i class="fa-icon-star-o"></i>
-									<label class="required" for="sc_form_username">NombreFantasia</label>
-									<input id="sc_form_username" ng-model="form.fantasyName" type="text" name="nombrefantasia" placeholder="Nombre de Fantasía" >
-									<span class="alert-icon tooltip">
-										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span class="tooltiptext">El nombre de fantasia es obligatorio</span>
+									<label class="required" for="sc_form_fantasyNameF">Nombre de Fantasía</label>
+									<input id="sc_form_fantasyNameF" ng-model="form.fantasyName" type="text" name="nombrefantasia" placeholder="Nombre de Fantasía" >
+									<span ng-if="errors.fantasyName" class="alert-icon tooltip">
+										<img  src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext">El nombre de fantasía es obligatorio</span>
 									</span>
 								</div>
 							<!--	<label ng-if="errors.fantasyName" style="color:red">El nombre de fantasia es obligatorio</label>-->
@@ -819,9 +817,13 @@ padding-top:50px;
 					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over">
+								<div class="sc_form_item sc_form_field label_over alert-container">
 									<label class="required" for="sc_form_phone">Cuit</label>
 									<input id="sc_form_phone" ng-model="form.cuit" type="text" name="cuit" placeholder="CUIT">
+									<span ng-if="errors.cuit" class="alert-icon tooltip">
+										<img  src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext-right">El CUIT es obligatorio</span>
+									</span>
 								</div>
 							</div>
 						</div>
@@ -831,9 +833,13 @@ padding-top:50px;
 				<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over">
+								<div class="sc_form_item sc_form_field label_over alert-container">
 									<label class="required" for="sc_form_username">Telefono</label>
 									<input id="sc_form_username" ng-model="form.phone" type="text" name="Teléfono" placeholder="Teléfono">
+									<span ng-if="errors.phone" class="alert-icon tooltip">
+										<img  src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext">El teléfono es obligatorio</span>
+									</span>
 								</div>
 							</div>
 						</div>
@@ -856,18 +862,26 @@ padding-top:50px;
 <div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over">
+								<div class="sc_form_item sc_form_field label_over alert-container">
 									<label class="required" for="sc_form_username">Calle</label>
 									<input id="sc_form_username" ng-model="form.street" type="text" name="calle" placeholder="Calle">
+									<span ng-if="errors.street" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext">La calle es obligatoria</span>
+									</span>
 								</div>
 							</div>
 						</div>
 					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over">
-									<label class="required" for="sc_form_phone">Numero</label>
+								<div class="sc_form_item sc_form_field label_over alert-container">
+									<label class="required" for="sc_form_phone">Número</label>
 									<input id="sc_form_phone" ng-model="form.number" type="text" name="numero" placeholder="Número">
+									<span ng-if="errors.number" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext-right">El número es obligatorio</span>
+									</span>
 								</div>
 							</div>
 						</div>
@@ -880,18 +894,26 @@ padding-top:50px;
 <div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over">
+								<div class="sc_form_item sc_form_field label_over alert-container">
 									<label class="required" for="sc_form_username">Localidad</label>
 									<input id="sc_form_username" ng-model="form.city" type="text" name="localidad" placeholder="Localidad">
+									<span ng-if="errors.city" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext">La localidad es obligatoria</span>
+									</span>
 								</div>
 							</div>
 						</div>
 					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over">
+								<div class="sc_form_item sc_form_field label_over alert-container">
 									<label class="required" for="sc_form_phone">Provincia</label>
 									<input id="sc_form_phone" ng-model="form.province" type="text" name="provincia" placeholder="Provincia">
+									<span ng-if="errors.province" class="alert-icon tooltip">
+										<img  src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext-right">La provincia es obligatoria</span>
+									</span>
 								</div>
 							</div>
 						</div>
@@ -908,18 +930,26 @@ padding-top:50px;
 <div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over">
+								<div class="sc_form_item sc_form_field label_over alert-container">
 									<label class="required" for="sc_form_username">Email</label>
 									<input id="sc_form_username" ng-model="form.email"  type="text" name="email" placeholder="E-mail">
+									<span ng-if="errors.email" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext">El email es obligatorio</span>
+									</span>
 								</div>
 							</div>
 						</div>
 					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over">
+								<div class="sc_form_item sc_form_field label_over alert-container">
 									<label class="required" for="sc_form_phone">Nombre</label>
 									<input ng-model="form.fullName" id="sc_form_fullName" type="text" name="nombre" placeholder="Nombre y Apellido">
+									<span ng-if="errors.fullName" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext-right">El nombre y el apellido son obligatorios</span>
+									</span>
 								</div>
 							</div>
 						</div>
@@ -947,10 +977,10 @@ padding-top:50px;
 
 </div>
 
-<div ng-if="showFarmaceutico" >
+<div ng-if="showFarmaceutico" ng-controller="registerPharmacistController" >
 	<img src="./wp-content/themes/dentario/images/farmaceutico.svg" style="float:right;width:25px;height:25px;">
 			
-				<form  id="sc_form_327934679_form" data-formtype="form_2" method="post" >
+				<form  id="sc_form_327934679_form" data-formtype="form_2" ng-submit="register(form)" >
 <!--action="./wp-admin/admin-ajax.php"-->
 						<div class="sc_form_info" >
 
@@ -960,24 +990,31 @@ padding-top:50px;
 				Datos Personales y Profesionales</label> 
 
 				
-				<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
+				<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2">
+					<div class="column-1_2 sc_column_item sc_column_item_1 odd first">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-				
-				
-				
-								<div class="sc_form_item sc_form_field label_over"><i class="fa-icon-star-o"></i>
+							<div class="sc_form_item sc_form_field label_over alert-container">
+								<i class="fa-icon-star-o"></i>
 									<label class="required" for="sc_form_username">Nombre y Apellido</label>
 									<input id="sc_form_username" ng-model="form.fullName" type="text" name="nombreyapelido" placeholder="Nombre y Apellido">
+									<span ng-if="errors.fullName" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext">El nombre y el apellido son obligatorios</span>
+									</span>
 								</div>
 							</div>
 						</div>
 					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over">
+								<div class="sc_form_item sc_form_field label_over alert-container">
 									<label for="sc_form_phone">Matricula</label>
 									<input id="sc_form_phone" ng-model="form.enrollment" type="text" name="matricula" placeholder="Matrícula">
+									<span ng-if="errors.enrollment" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext-right">La matrícula es obligatorio</span>
+									</span>
 								</div>
 							</div>
 						</div>
@@ -987,9 +1024,16 @@ padding-top:50px;
 				<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over">
-									<label class="required" for="sc_form_username">Cuil</label>
-									<input id="sc_form_username" ng-model="form.cuit" type="text" name="cuil" placeholder="CUIL/CUIT"></div>
+								<div class="sc_form_item sc_form_field label_over alert-container">
+									<label class="required" for="sc_form_username">CUIL/CUIT</label>
+									<input id="sc_form_username" ng-model="form.cuit" type="text" name="cuil" placeholder="CUIL/CUIT">
+									<span ng-if="errors.cuit" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext">El CUIT es obligatorio</span>
+									</span>
+
+								</div>
+
 							</div>
 						</div>
 					</div>
@@ -1002,15 +1046,28 @@ padding-top:50px;
 <br/>
 
 <br/>
+							<br/>
 
-<br/>
-<br/>
+							<br/>
+
+
 	<label for="usuariored">Usuario para farmared</label>
 <br/> 
-<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
+<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2">
+	<div class="column-1_2 sc_column_item sc_column_item_1 odd first">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><i class="fa-icon-envelope-o"></i><label class="required" for="sc_form_username">Email</label><input id="sc_form_username" ng-model="form.email" type="text" name="email" placeholder="E-mail"></div>
+								<div class="sc_form_item sc_form_field label_over alert-container">
+									<i class="fa-icon-envelope-o"></i>
+									<label class="required" for="sc_form_username">Email</label>
+									<input id="sc_form_email" ng-model="form.email" type="text" name="email" placeholder="E-mail">
+									<span ng-if="errors.email" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext">El mail es obligatorio</span>
+									</span>
+
+								</div>
+
 							</div>
 						</div>
 					</div>
@@ -1060,21 +1117,36 @@ padding-top:50px;
 				<label for="datos" >
 				Datos del Laboratorio</label> 
 
-
-
-				<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
+				<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2">
+					<div class="column-1_2 sc_column_item sc_column_item_1 odd first">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-				
-				
-				
-								<div class="sc_form_item sc_form_field label_over"><i class="fa-icon-star-o"></i><label class="required" for="sc_form_username">NombreFantasia</label><input id="sc_form_username" ng-model="form.fantasyName" type="text" name="nombrefantasia" placeholder="Nombre de Fantasía"></div>
+
+								<div class="sc_form_item sc_form_field label_over alert-container">
+									<i class="fa-icon-star-o"></i>
+									<label class="required" for="sc_form_fantasyNameL">NombreFantasia</label>
+									<input id="sc_form_fantasyNameL" ng-model="form.fantasyName" type="text" name="nombrefantasia" placeholder="Nombre de Fantasía">
+									<span ng-if="errors.fantasyName" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext">El nombre de fantasía es obligatorio</span>
+									</span>
+								</div>
+
 							</div>
 						</div>
 					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_phone">Cuit</label><input id="sc_form_phone" ng-model="form.cuit" type="text" name="cuit" placeholder="CUIT"></div>
+								<div class="sc_form_item sc_form_field label_over alert-container">
+									<label class="required" for="sc_form_phonel">CUIT</label>
+									<input id="sc_form_phonel" ng-model="form.cuit" type="text" name="cuit" placeholder="CUIT">
+									<span ng-if="errors.cuit" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext-right">El CUIT es obligatorio</span>
+									</span>
+
+								</div>
+
 							</div>
 						</div>
 					</div>
@@ -1083,7 +1155,17 @@ padding-top:50px;
 				<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_username">Telefono</label><input id="sc_form_username" ng-model="form.phone" type="text" name="Teléfono" placeholder="Teléfono"></div>
+								<div class="sc_form_item sc_form_field label_over alert-container">
+									<label class="required" for="sc_form_username">Telefono</label>
+									<input id="sc_form_username" ng-model="form.phone" type="text" name="Teléfono" placeholder="Teléfono">
+									<span ng-if="errors.phone" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext">El teléfono es obligatorio</span>
+									</span>
+
+
+								</div>
+
 							</div>
 						</div>
 					</div>
@@ -1104,13 +1186,28 @@ padding-top:50px;
 <div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_username">Calle</label><input id="sc_form_username" ng-model="form.street" type="text" name="calle" placeholder="Calle"></div>
+								<div class="sc_form_item sc_form_field label_over alert-container">
+									<label class="required" for="sc_form_username">Calle</label>
+									<input id="sc_form_username" ng-model="form.street" type="text" name="calle" placeholder="Calle">
+									<span ng-if="errors.street" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext">La calle es obligatoria</span>
+									</span>
+								</div>
+
 							</div>
 						</div>
 					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_phone">Numero</label><input id="sc_form_phone" ng-model="form.number" type="text" name="numero" placeholder="Número"></div>
+								<div class="sc_form_item sc_form_field label_over alert-container">
+									<label class="required" for="sc_form_phone">Numero</label>
+									<input id="sc_form_phone" ng-model="form.number" type="text" name="numero" placeholder="Número">
+									<span ng-if="errors.number" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext-right">El número es obligatorio</span>
+									</span>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -1122,13 +1219,30 @@ padding-top:50px;
 <div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_username">Localidad</label><input id="sc_form_username" ng-model="form.city" type="text" name="localidad" placeholder="Localidad"></div>
+								<div class="sc_form_item sc_form_field label_over alert-container">
+									<label class="required" for="sc_form_username">Localidad</label>
+									<input id="sc_form_username" ng-model="form.city" type="text" name="localidad" placeholder="Localidad">
+									<span ng-if="errors.city" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext">La localidad es obligatoria</span>
+									</span>
+
+								</div>
+
 							</div>
 						</div>
 					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_phone">Provincia</label><input id="sc_form_phone" ng-model="form.province" type="text" name="provincia" placeholder="Provincia"></div>
+								<div class="sc_form_item sc_form_field label_over alert-container">
+									<label class="required" for="sc_form_phone">Provincia</label>
+									<input id="sc_form_phone" ng-model="form.province" type="text" name="provincia" placeholder="Provincia">
+									<span ng-if="errors.province" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext-right">La provincia es obligatoria</span>
+									</span>
+
+								</div>
 							</div>
 						</div>
 					</div>
@@ -1140,13 +1254,28 @@ padding-top:50px;
 <div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_username">Email</label><input id="sc_form_username" ng-model="form.email" type="text" name="email" placeholder="E-mail"></div>
+								<div class="sc_form_item sc_form_field label_over alert-container">
+									<label class="required" for="sc_form_username">Email</label>
+									<input id="sc_form_username" ng-model="form.email" type="text" name="email" placeholder="E-mail">
+									<span ng-if="errors.email" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext">El email es obligatorio</span>
+									</span>
+								</div>
+
 							</div>
 						</div>
 					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_phone">Nombre</label><input id="sc_form_phone" ng-model="form.fullName" type="text" name="nombre" placeholder="Nombre y Apellido"></div>
+								<div class="sc_form_item sc_form_field label_over alert-container">
+									<label class="required" for="sc_form_phone">Nombre</label>
+									<input id="sc_form_phone" ng-model="form.fullName" type="text" name="nombre" placeholder="Nombre y Apellido">
+									<span ng-if="errors.fullName" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext-right">El nombre y el apellido son obligatorios</span>
+									</span>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -1197,16 +1326,30 @@ padding-top:50px;
 				<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-				
-				
-				
-								<div class="sc_form_item sc_form_field label_over"><i class="fa-icon-star-o"></i><label class="required" for="sc_form_username">NombreFantasia</label><input id="sc_form_username" ng-model="form.fantasyName" type="text" name="nombrefantasia" placeholder="Nombre de Fantasía"></div>
+								<div class="sc_form_item sc_form_field label_over alert-container">
+									<i class="fa-icon-star-o"></i>
+									<label class="required" for="sc_form_username">NombreFantasia</label>
+									<input id="sc_form_username" ng-model="form.fantasyName" type="text" name="nombrefantasia" placeholder="Nombre de Fantasía">
+									<span ng-if="errors.fantasyName" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext">El nombre de fantasía es obligatorio</span>
+									</span>
+
+
+								</div>
 							</div>
 						</div>
 					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_phone">Cuit</label><input id="sc_form_phone" ng-model="form.cuit" type="text" name="cuit" placeholder="CUIT"></div>
+								<div class="sc_form_item sc_form_field label_over alert-container">
+									<label class="required" for="sc_form_phone">Cuit</label>
+									<input id="sc_form_phone" ng-model="form.cuit" type="text" name="cuit" placeholder="CUIT">
+									<span ng-if="errors.cuit" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext-right">El CUIT es obligatorio</span>
+									</span>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -1215,7 +1358,16 @@ padding-top:50px;
 				<div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_username">Telefono</label><input id="sc_form_username" ng-model="form.phone" type="text" name="Teléfono" placeholder="Teléfono"></div>
+								<div class="sc_form_item sc_form_field label_over alert-container">
+									<label class="required" for="sc_form_username">Telefono</label>
+									<input id="sc_form_username" ng-model="form.phone" type="text" name="Teléfono" placeholder="Teléfono">
+									<span ng-if="errors.phone" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext">El teléfono es obligatorio</span>
+									</span>
+
+
+								</div>
 							</div>
 						</div>
 					</div>
@@ -1236,13 +1388,28 @@ padding-top:50px;
 <div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_username">Calle</label><input id="sc_form_username" ng-model="form.street" type="text" name="calle" placeholder="Calle"></div>
+								<div class="sc_form_item sc_form_field label_over alert-container">
+									<label class="required" for="sc_form_username">Calle</label>
+									<input id="sc_form_username" ng-model="form.street" type="text" name="calle" placeholder="Calle">
+									<span ng-if="errors.street" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext">La calle es obligatoria</span>
+									</span>
+
+								</div>
 							</div>
 						</div>
 					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_phone">Numero</label><input id="sc_form_phone" ng-model="form.number" type="text" name="numero" placeholder="Número"></div>
+								<div class="sc_form_item sc_form_field label_over alert-container">
+									<label class="required" for="sc_form_phone">Numero</label>
+									<input id="sc_form_phone" ng-model="form.number" type="text" name="numero" placeholder="Número">
+									<span ng-if="errors.number" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext-right">El número es obligatorio</span>
+									</span>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -1254,13 +1421,28 @@ padding-top:50px;
 <div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_username">Localidad</label><input id="sc_form_username" ng-model="form.city" type="text" name="localidad" placeholder="Localidad"></div>
+								<div class="sc_form_item sc_form_field label_over alert-container">
+									<label class="required" for="sc_form_username">Localidad</label>
+									<input id="sc_form_username" ng-model="form.city" type="text" name="localidad" placeholder="Localidad">
+									<span ng-if="errors.city" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext">La localidad es obligatoria</span>
+									</span>
+
+								</div>
 							</div>
 						</div>
 					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_phone">Provincia</label><input id="sc_form_phone" ng-model="form.province" type="text" name="provincia" placeholder="Provincia"></div>
+								<div class="sc_form_item sc_form_field label_over alert-container">
+									<label class="required" for="sc_form_phone">Provincia</label>
+									<input id="sc_form_phone" ng-model="form.province" type="text" name="provincia" placeholder="Provincia">
+									<span ng-if="errors.province" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext-right">La provincia es obligatoria</span>
+									</span>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -1272,13 +1454,28 @@ padding-top:50px;
 <div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_username">Email</label><input id="sc_form_username" ng-model="form.email" type="text" name="email" placeholder="E-mail"></div>
+								<div class="sc_form_item sc_form_field label_over alert-container">
+									<label class="required" for="sc_form_username">Email</label>
+									<input id="sc_form_username" ng-model="form.email" type="text" name="email" placeholder="E-mail">
+									<span ng-if="errors.email" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext">El email es obligatorio</span>
+									</span>
+
+								</div>
 							</div>
 						</div>
 					</div><div class="column-1_2 sc_column_item sc_column_item_2 even">
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
-								<div class="sc_form_item sc_form_field label_over"><label class="required" for="sc_form_phone">Nombre</label><input id="sc_form_phone" ng-model="form.fullName" type="text" name="nombre" placeholder="Nombre y Apellido"></div>
+								<div class="sc_form_item sc_form_field label_over alert-container">
+									<label class="required" for="sc_form_phone">Nombre</label>
+									<input id="sc_form_phone" ng-model="form.fullName" type="text" name="nombre" placeholder="Nombre y Apellido">
+									<span ng-if="errors.fullName" class="alert-icon tooltip">
+										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span class="tooltiptext-right">El nombre y el apellido son obligatorios</span>
+									</span>
+								</div>
 							</div>
 						</div>
 					</div>

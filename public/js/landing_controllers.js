@@ -48,24 +48,23 @@ angular.module('landingApp.controllers', []).
 
 
     .controller('registerPharmacyController', function($scope, registerService,  validateFormService) {
-         $scope.form={fantasyName:'',cuit:'',phone:'',street:'',number:'',city:'',state:'',email:'',fullName:''};
-         $scope.errors = {};
+        $scope.form={fantasyName:'',cuit:'',phone:'',street:'',number:'',city:'',state:'',email:'',fullName:''};
+        $scope.errors = {};
         $scope.showMessage = false;
-         $scope.register = function() {
+        $scope.register = function() {
             $scope.success = false;
+            $scope.errors = {};
+            var result = validateFormService.validate($scope.form);
 
-         var result = validateFormService.validate($scope.form);
-
-          if (result.valid) {
-
-               registerService.register($scope.form,registerService.PHARMACY).then(
+            if (result.valid) {
+                registerService.register($scope.form,registerService.PHARMACY).then(
                     function(info) {
                         $scope.$parent.$parent.showSuccess();
                         $scope.success = true;
                         console.log(info);
                     },
                     function(error) {
-                        $scope.errors.form = error;
+                        $scope.errors[error] = true;
                         console.log(error);
 
                     }
@@ -110,7 +109,9 @@ angular.module('landingApp.controllers', []).
 
     var validateForm = function(form) {
         var valid = true;
-        if (!form.fullName || form.fullName.length == 0) {
+
+        var bl=/\s/;
+        if (!form.fullName || form.fullName.length == 0 || !bl.test(form.fullName)) {
             $scope.errors.fullName = 'invalid_fullName';
             valid = false;
         }

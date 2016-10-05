@@ -242,7 +242,7 @@ var tribe_events_linked_posts = {"post_types":{"tribe_venue":"venue","tribe_orga
 	<li id="menu-item-1780" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1780"><a href="#Reg"><span>Registrarse</span></a></li>
 <li id="menu-item-1760" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1760"><a href="#Quienes"><span>Quienes Somos</span></a></li>
 <li id="menu-item-1744" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1744"><a href="#Services"><span>Servicios</span></a></li>
-<li id="menu-item-1761" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1761"><a href="#Contact"><span>Contáctenos</span></a></li>
+<li id="menu-item-1761" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1761"><a href="#Contact"><span>Cont&aacute;ctenos</span></a></li>
 
 	</ul>
 
@@ -277,7 +277,7 @@ var tribe_events_linked_posts = {"post_types":{"tribe_venue":"venue","tribe_orga
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1780"><a href="#"><span>Registrarse</span></a></li>
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1760"><a href="#Quienes"><span>Quienes Somos</span></a></li>
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1744"><a href="#Services"><span>Servicios</span></a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1761"><a href="#Contact"><span>Contáctenos</span></a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1761"><a href="#Contact"><span>Cont&aacute;ctenos</span></a></li>
 </ul>					</nav>
 				</div>
 			</div>
@@ -299,7 +299,7 @@ var tribe_events_linked_posts = {"post_types":{"tribe_venue":"venue","tribe_orga
 					<ul id="menu_main_mobile" class="menu_main_nav"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1780"><a href="#"><span>Registrarse</span></a></li>
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1760"><a href="#Quienes"><span>Quienes Somos</span></a></li>
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1744"><a href="#Services"><span>Servicios</span></a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1761"><a href="#Contact"><span>Contáctenos</span></a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1761"><a href="#Contact"><span>Cont&aacute;ctenos</span></a></li>
 </ul>				</nav>
 										<div class="login"><a href="#popup_login" class="popup_link popup_login_link icon-user">Ingresar</a>						</div>
 									</div>
@@ -358,7 +358,7 @@ var tribe_events_linked_posts = {"post_types":{"tribe_venue":"venue","tribe_orga
 
 			 data-end="6750" 
 
-			style="z-index: 6; white-space: nowrap;">Innovación y Compromiso<br/>
+			style="z-index: 6; white-space: nowrap;">Innovaci&oacute;n y Compromiso<br/>
 en la Farmacia </div>
 
 		<!-- LAYER NR. 3 -->
@@ -703,8 +703,8 @@ en la Farmacia </div>
 		 <div class="vc_empty_space"  style="height: 55px" > </div>
 
 
-		 <p align="center">La cuenta se ha creado con éxito.<br/> <br/>
-			 A continuación estará llegando un email para activarla.</p>
+		 <p align="center">La cuenta se ha creado con &eacute;xito.<br/> <br/>
+			 A continuaci&oacute;n estar&aacute; llegando un email para activarla.</p>
 
 	 </div>
 	 <div ng-show="showButton" >
@@ -804,11 +804,11 @@ padding-top:50px;
 
 								<div class="sc_form_item sc_form_field label_over alert-container" >
 									<i class="fa-icon-star-o"></i>
-									<label class="required" for="sc_form_fantasyNameF">Nombre de Fantasía</label>
-									<input id="sc_form_fantasyNameF" ng-model="form.fantasyName" type="text" name="nombrefantasia" placeholder="Nombre de Fantasía" >
+									<label class="required" for="sc_form_fantasyNameF">Nombre de Fantas&iacute;a</label>
+									<input id="sc_form_fantasyNameF" ng-model="form.fantasyName" type="text" name="nombrefantasia" placeholder="Nombre de Fantas&iacute;a" >
 									<span ng-if="errors.fantasyName" class="alert-icon tooltip">
 										<img  src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span class="tooltiptext">El nombre de fantasía es obligatorio</span>
+										<span class="tooltiptext">El nombre de fantas&iacute;a es obligatorio</span>
 									</span>
 								</div>
 							<!--	<label ng-if="errors.fantasyName" style="color:red">El nombre de fantasia es obligatorio</label>-->
@@ -819,10 +819,14 @@ padding-top:50px;
 							<div class="wpb_wrapper">
 								<div class="sc_form_item sc_form_field label_over alert-container">
 									<label class="required" for="sc_form_phone">Cuit</label>
-									<input id="sc_form_phone" ng-model="form.cuit" type="text" name="cuit" placeholder="CUIT">
-									<span ng-if="errors.cuit" class="alert-icon tooltip">
-										<img  src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span class="tooltiptext-right">El CUIT es obligatorio</span>
+									<input id="sc_form_phone" ng-model="form.cuit" type="text" name="cuit" placeholder="CUIT - Ejemplo: 30555667776">
+									<span  class="alert-icon tooltip">
+
+										<img ng-if="errors.cuit_not_exist || errors.cuit || errors.invalid_entity || errors.exist_pharmacy"  src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span ng-if="errors.cuit_not_exist" class="tooltiptext-right">Error. Verifique el CUIT. Ejemplo: 30555667776 </span>
+										<span ng-if="errors.cuit" class="tooltiptext-right">El CUIT es obligatorio</span>
+										<span ng-if="errors.invalid_entity" class="tooltiptext-right">El CUIT ingresado no corresponde a una farmacia</span>
+										<span ng-if="errors.exist_pharmacy" class="tooltiptext-right">El CUIT ingresado ya se encuentra registrado</span>
 									</span>
 								</div>
 							</div>
@@ -835,10 +839,10 @@ padding-top:50px;
 							<div class="wpb_wrapper">
 								<div class="sc_form_item sc_form_field label_over alert-container">
 									<label class="required" for="sc_form_username">Telefono</label>
-									<input id="sc_form_username" ng-model="form.phone" type="text" name="Teléfono" placeholder="Teléfono">
+									<input id="sc_form_username" ng-model="form.phone" type="text" name="Tel&eacute;fono" placeholder="Tel&eacute;fono">
 									<span ng-if="errors.phone" class="alert-icon tooltip">
 										<img  src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span class="tooltiptext">El teléfono es obligatorio</span>
+										<span class="tooltiptext">El tel&eacute;fono es obligatorio</span>
 									</span>
 								</div>
 							</div>
@@ -854,7 +858,7 @@ padding-top:50px;
 <br/>
 
 <br/>
-	<label for="ubicacion">Ubicación de la Farmacia</label>
+	<label for="ubicacion">Ubicaci&oacute;n de la Farmacia</label>
 
 			
 					<br/>
@@ -876,11 +880,11 @@ padding-top:50px;
 						<div class="wpb_text_column wpb_content_element">
 							<div class="wpb_wrapper">
 								<div class="sc_form_item sc_form_field label_over alert-container">
-									<label class="required" for="sc_form_phone">Número</label>
-									<input id="sc_form_phone" ng-model="form.number" type="text" name="numero" placeholder="Número">
+									<label class="required" for="sc_form_phone">N&uacute;mero</label>
+									<input id="sc_form_phone" ng-model="form.number" type="text" name="numero" placeholder="N&uacute;mero">
 									<span ng-if="errors.number" class="alert-icon tooltip">
 										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span class="tooltiptext-right">El número es obligatorio</span>
+										<span class="tooltiptext-right">El n&uacute;mero es obligatorio</span>
 									</span>
 								</div>
 							</div>
@@ -933,9 +937,10 @@ padding-top:50px;
 								<div class="sc_form_item sc_form_field label_over alert-container">
 									<label class="required" for="sc_form_username">Email</label>
 									<input id="sc_form_username" ng-model="form.email"  type="text" name="email" placeholder="E-mail">
-									<span ng-if="errors.email" class="alert-icon tooltip">
-										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span class="tooltiptext">El email es obligatorio</span>
+									<span  class="alert-icon tooltip">
+										<img ng-if="errors.email || errors.exist_user " src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span ng-if="errors.email" class="tooltiptext">Se debe completar correctamente el email</span>
+										<span ng-if="errors.exist_user" class="tooltiptext">Verifique el email. El usuario ingresado ya se encuentra registrado</span>
 									</span>
 								</div>
 							</div>
@@ -948,7 +953,7 @@ padding-top:50px;
 									<input ng-model="form.fullName" id="sc_form_fullName" type="text" name="nombre" placeholder="Nombre y Apellido">
 									<span ng-if="errors.fullName" class="alert-icon tooltip">
 										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span class="tooltiptext-right">El nombre y el apellido son obligatorios</span>
+										<span class="tooltiptext-right">El nombre y el apellido son obligatorios.<br/> Ejemplo: Ada Benitez</span>
 									</span>
 								</div>
 							</div>
@@ -971,7 +976,7 @@ padding-top:50px;
 		</form>
 
 
-			<div ng-click="FuncFarmacia()" ><button class="alignright">Atrás</button></div>
+			<div ng-click="FuncFarmacia()" ><button class="alignright">Atr&aacute;s</button></div>
 
 
 
@@ -1000,7 +1005,7 @@ padding-top:50px;
 									<input id="sc_form_username" ng-model="form.fullName" type="text" name="nombreyapelido" placeholder="Nombre y Apellido">
 									<span ng-if="errors.fullName" class="alert-icon tooltip">
 										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span class="tooltiptext">El nombre y el apellido son obligatorios</span>
+										<span class="tooltiptext-right">El nombre y el apellido son obligatorios.<br/> Ejemplo: Ada Benitez</span>
 									</span>
 								</div>
 							</div>
@@ -1010,10 +1015,10 @@ padding-top:50px;
 							<div class="wpb_wrapper">
 								<div class="sc_form_item sc_form_field label_over alert-container">
 									<label for="sc_form_phone">Matricula</label>
-									<input id="sc_form_phone" ng-model="form.enrollment" type="text" name="matricula" placeholder="Matrícula">
+									<input id="sc_form_phone" ng-model="form.enrollment" type="text" name="matricula" placeholder="Matr&iacute;cula">
 									<span ng-if="errors.enrollment" class="alert-icon tooltip">
 										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span class="tooltiptext-right">La matrícula es obligatoria</span>
+										<span class="tooltiptext-right">La matr&iacute;cula es obligatoria</span>
 									</span>
 								</div>
 							</div>
@@ -1026,10 +1031,14 @@ padding-top:50px;
 							<div class="wpb_wrapper">
 								<div class="sc_form_item sc_form_field label_over alert-container">
 									<label class="required" for="sc_form_username">CUIL/CUIT</label>
-									<input id="sc_form_username" ng-model="form.cuit" type="text" name="cuil" placeholder="CUIL/CUIT">
-									<span ng-if="errors.cuit" class="alert-icon tooltip">
-										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span class="tooltiptext">El CUIT es obligatorio</span>
+									<input id="sc_form_username" ng-model="form.cuit" type="text" name="cuil" placeholder="CUIL/CUIT - Ej.: 27555667776">
+									<span  class="alert-icon tooltip">
+
+										<img ng-if="errors.cuit_not_exist || errors.cuit || errors.invalid_entity || errors.exist_pharmacist"  src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span ng-if="errors.cuit_not_exist" class="tooltiptext-right">Error. Verifique el CUIT/CUIL. Ejemplo: 27555667776 </span>
+										<span ng-if="errors.cuit" class="tooltiptext-right">El CUIT/CUIL es obligatorio</span>
+										<span ng-if="errors.invalid_entity" class="tooltiptext-right">El CUIT/CUIL ingresado no corresponde a un profesional farmac&eacute;utico</span>
+										<span ng-if="errors.exist_pharmacist" class="tooltiptext-right">El CUIT/CUIL ingresado ya se encuentra registrado</span>
 									</span>
 
 								</div>
@@ -1061,9 +1070,10 @@ padding-top:50px;
 									<i class="fa-icon-envelope-o"></i>
 									<label class="required" for="sc_form_username">Email</label>
 									<input id="sc_form_email" ng-model="form.email" type="text" name="email" placeholder="E-mail">
-									<span ng-if="errors.email" class="alert-icon tooltip">
-										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span class="tooltiptext">El mail es obligatorio</span>
+									<span  class="alert-icon tooltip">
+										<img ng-if="errors.email || errors.exist_user " src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span ng-if="errors.email" class="tooltiptext">Se debe completar correctamente el email</span>
+										<span ng-if="errors.exist_user" class="tooltiptext">Verifique el email. El usuario ingresado ya se encuentra registrado</span>
 									</span>
 
 								</div>
@@ -1090,7 +1100,7 @@ padding-top:50px;
 		</form>
 
 
-			<div ng-click="FuncFarmaceutico()" ><button class="alignright">Atrás</button></div>
+			<div ng-click="FuncFarmaceutico()" ><button class="alignright">Atr&aacute;s</button></div>
 </div>
 
 
@@ -1125,10 +1135,10 @@ padding-top:50px;
 								<div class="sc_form_item sc_form_field label_over alert-container">
 									<i class="fa-icon-star-o"></i>
 									<label class="required" for="sc_form_fantasyNameL">NombreFantasia</label>
-									<input id="sc_form_fantasyNameL" ng-model="form.fantasyName" type="text" name="nombrefantasia" placeholder="Nombre de Fantasía">
+									<input id="sc_form_fantasyNameL" ng-model="form.fantasyName" type="text" name="nombrefantasia" placeholder="Nombre de Fantas&iacute;a">
 									<span ng-if="errors.fantasyName" class="alert-icon tooltip">
 										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span class="tooltiptext">El nombre de fantasía es obligatorio</span>
+										<span class="tooltiptext">El nombre de fantas&iacute;a es obligatorio</span>
 									</span>
 								</div>
 
@@ -1139,10 +1149,14 @@ padding-top:50px;
 							<div class="wpb_wrapper">
 								<div class="sc_form_item sc_form_field label_over alert-container">
 									<label class="required" for="sc_form_phonel">CUIT</label>
-									<input id="sc_form_phonel" ng-model="form.cuit" type="text" name="cuit" placeholder="CUIT">
-									<span ng-if="errors.cuit" class="alert-icon tooltip">
-										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span class="tooltiptext-right">El CUIT es obligatorio</span>
+									<input id="sc_form_phonel" ng-model="form.cuit" type="text" name="cuit" placeholder="CUIT - Ejemplo: 30555667776">
+									<span  class="alert-icon tooltip">
+
+										<img ng-if="errors.cuit_not_exist || errors.cuit || errors.invalid_entity || errors.exist_laboratory"  src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span ng-if="errors.cuit_not_exist" class="tooltiptext-right">Error. Verifique el CUIT. Ejemplo: 30555667776 </span>
+										<span ng-if="errors.cuit" class="tooltiptext-right">El CUIT es obligatorio</span>
+										<span ng-if="errors.invalid_entity" class="tooltiptext-right">El CUIT ingresado no corresponde a un laboratorio</span>
+										<span ng-if="errors.exist_laboratory" class="tooltiptext-right">El CUIT ingresado ya se encuentra registrado</span>
 									</span>
 
 								</div>
@@ -1157,10 +1171,10 @@ padding-top:50px;
 							<div class="wpb_wrapper">
 								<div class="sc_form_item sc_form_field label_over alert-container">
 									<label class="required" for="sc_form_username">Telefono</label>
-									<input id="sc_form_username" ng-model="form.phone" type="text" name="Teléfono" placeholder="Teléfono">
+									<input id="sc_form_username" ng-model="form.phone" type="text" name="Tel&eacute;fono" placeholder="Tel&eacute;fono">
 									<span ng-if="errors.phone" class="alert-icon tooltip">
 										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span class="tooltiptext">El teléfono es obligatorio</span>
+										<span class="tooltiptext">El tel&eacute;fono es obligatorio</span>
 									</span>
 
 
@@ -1178,7 +1192,7 @@ padding-top:50px;
 <br/>
 
 <br/>
-	<label for="ubicacion">Ubicación del Laboratorio</label>
+	<label for="ubicacion">Ubicaci&oacute;n del Laboratorio</label>
 
 			
 					<br/>
@@ -1202,10 +1216,10 @@ padding-top:50px;
 							<div class="wpb_wrapper">
 								<div class="sc_form_item sc_form_field label_over alert-container">
 									<label class="required" for="sc_form_phone">Numero</label>
-									<input id="sc_form_phone" ng-model="form.number" type="text" name="numero" placeholder="Número">
+									<input id="sc_form_phone" ng-model="form.number" type="text" name="numero" placeholder="N&uacute;mero">
 									<span ng-if="errors.number" class="alert-icon tooltip">
 										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span class="tooltiptext-right">El número es obligatorio</span>
+										<span class="tooltiptext-right">El n&uacute;mero es obligatorio</span>
 									</span>
 								</div>
 							</div>
@@ -1257,9 +1271,10 @@ padding-top:50px;
 								<div class="sc_form_item sc_form_field label_over alert-container">
 									<label class="required" for="sc_form_username">Email</label>
 									<input id="sc_form_username" ng-model="form.email" type="text" name="email" placeholder="E-mail">
-									<span ng-if="errors.email" class="alert-icon tooltip">
-										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span class="tooltiptext">El email es obligatorio</span>
+									<span  class="alert-icon tooltip">
+										<img ng-if="errors.email || errors.exist_user " src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span ng-if="errors.email" class="tooltiptext">Se debe completar correctamente el email</span>
+										<span ng-if="errors.exist_user" class="tooltiptext">Verifique el email. El usuario ingresado ya se encuentra registrado</span>
 									</span>
 								</div>
 
@@ -1273,7 +1288,7 @@ padding-top:50px;
 									<input id="sc_form_phone" ng-model="form.fullName" type="text" name="nombre" placeholder="Nombre y Apellido">
 									<span ng-if="errors.fullName" class="alert-icon tooltip">
 										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span class="tooltiptext-right">El nombre y el apellido son obligatorios</span>
+											<span class="tooltiptext-right">El nombre y el apellido son obligatorios.<br/> Ejemplo: Ada Benitez</span>
 									</span>
 								</div>
 							</div>
@@ -1298,7 +1313,7 @@ padding-top:50px;
 		</form>
 
 
-			<div ng-click="FuncLaboratorio()" ><button class="alignright">Atrás</button></div>
+			<div ng-click="FuncLaboratorio()" ><button class="alignright">Atr&aacute;s</button></div>
 
 
 </div>
@@ -1329,10 +1344,10 @@ padding-top:50px;
 								<div class="sc_form_item sc_form_field label_over alert-container">
 									<i class="fa-icon-star-o"></i>
 									<label class="required" for="sc_form_username">NombreFantasia</label>
-									<input id="sc_form_username" ng-model="form.fantasyName" type="text" name="nombrefantasia" placeholder="Nombre de Fantasía">
+									<input id="sc_form_username" ng-model="form.fantasyName" type="text" name="nombrefantasia" placeholder="Nombre de Fantas&iacute;a">
 									<span ng-if="errors.fantasyName" class="alert-icon tooltip">
 										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span class="tooltiptext">El nombre de fantasía es obligatorio</span>
+										<span class="tooltiptext">El nombre de fantas&iacute;a es obligatorio</span>
 									</span>
 
 
@@ -1344,10 +1359,14 @@ padding-top:50px;
 							<div class="wpb_wrapper">
 								<div class="sc_form_item sc_form_field label_over alert-container">
 									<label class="required" for="sc_form_phone">Cuit</label>
-									<input id="sc_form_phone" ng-model="form.cuit" type="text" name="cuit" placeholder="CUIT">
-									<span ng-if="errors.cuit" class="alert-icon tooltip">
-										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span class="tooltiptext-right">El CUIT es obligatorio</span>
+									<input id="sc_form_phone" ng-model="form.cuit" type="text" name="cuit" placeholder="CUIT - Ejemplo: 30555667776">
+									<span  class="alert-icon tooltip">
+
+										<img ng-if="errors.cuit_not_exist || errors.cuit || errors.invalid_entity || errors.exist_drugstore"  src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span ng-if="errors.cuit_not_exist" class="tooltiptext-right">Error. Verifique el CUIT. Ejemplo: 30555667776 </span>
+										<span ng-if="errors.cuit" class="tooltiptext-right">El CUIT es obligatorio</span>
+										<span ng-if="errors.invalid_entity" class="tooltiptext-right">El CUIT ingresado no corresponde a una droguer&iacute;a</span>
+										<span ng-if="errors.exist_drugstore" class="tooltiptext-right">El CUIT ingresado ya se encuentra registrado</span>
 									</span>
 								</div>
 							</div>
@@ -1360,10 +1379,10 @@ padding-top:50px;
 							<div class="wpb_wrapper">
 								<div class="sc_form_item sc_form_field label_over alert-container">
 									<label class="required" for="sc_form_username">Telefono</label>
-									<input id="sc_form_username" ng-model="form.phone" type="text" name="Teléfono" placeholder="Teléfono">
+									<input id="sc_form_username" ng-model="form.phone" type="text" name="Tel&eacute;fono" placeholder="Tel&eacute;fono">
 									<span ng-if="errors.phone" class="alert-icon tooltip">
 										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span class="tooltiptext">El teléfono es obligatorio</span>
+										<span class="tooltiptext">El tel&eacute;fono es obligatorio</span>
 									</span>
 
 
@@ -1380,7 +1399,7 @@ padding-top:50px;
 <br/>
 
 <br/>
-	<label for="ubicacion">Ubicación de la Droguer&iacute;a</label>
+	<label for="ubicacion">Ubicaci&oacute;n de la Droguer&iacute;a</label>
 
 			
 					<br/>
@@ -1404,10 +1423,10 @@ padding-top:50px;
 							<div class="wpb_wrapper">
 								<div class="sc_form_item sc_form_field label_over alert-container">
 									<label class="required" for="sc_form_phone">Numero</label>
-									<input id="sc_form_phone" ng-model="form.number" type="text" name="numero" placeholder="Número">
+									<input id="sc_form_phone" ng-model="form.number" type="text" name="numero" placeholder="N&uacute;mero">
 									<span ng-if="errors.number" class="alert-icon tooltip">
 										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span class="tooltiptext-right">El número es obligatorio</span>
+										<span class="tooltiptext-right">El n&uacute;mero es obligatorio</span>
 									</span>
 								</div>
 							</div>
@@ -1457,9 +1476,10 @@ padding-top:50px;
 								<div class="sc_form_item sc_form_field label_over alert-container">
 									<label class="required" for="sc_form_username">Email</label>
 									<input id="sc_form_username" ng-model="form.email" type="text" name="email" placeholder="E-mail">
-									<span ng-if="errors.email" class="alert-icon tooltip">
-										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span class="tooltiptext">El email es obligatorio</span>
+									<span  class="alert-icon tooltip">
+										<img ng-if="errors.email || errors.exist_user " src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span ng-if="errors.email" class="tooltiptext">Se debe completar correctamente el email</span>
+										<span ng-if="errors.exist_user" class="tooltiptext">Verifique el email. El usuario ingresado ya se encuentra registrado</span>
 									</span>
 
 								</div>
@@ -1473,7 +1493,7 @@ padding-top:50px;
 									<input id="sc_form_phone" ng-model="form.fullName" type="text" name="nombre" placeholder="Nombre y Apellido">
 									<span ng-if="errors.fullName" class="alert-icon tooltip">
 										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span class="tooltiptext-right">El nombre y el apellido son obligatorios</span>
+										<span class="tooltiptext-right">El nombre y el apellido son obligatorios.<br/> Ejemplo: Ada Benitez</span>
 									</span>
 								</div>
 							</div>
@@ -1497,7 +1517,7 @@ padding-top:50px;
 		</form>
 
 
-			<div ng-click="FuncDrogueria()" ><button class="alignright">Atrás</button></div>
+			<div ng-click="FuncDrogueria()" ><button class="alignright">Atr&aacute;s</button></div>
 
 
 </div>
@@ -1691,9 +1711,9 @@ jsFileLocation:"./wp-content/plugins/revslider/public/assets/js/",
 
 		</div>
 	</div>
-<div style="font-size: 13px;color: #333333;text-align: left;font-family:Open Sans;font-weight:600;font-style:normal" class="vc_custom_heading vc_custom_1455714631637">- Dr. Emma Grey</div><a href="#" class="sc_button sc_button_square sc_button_style_filled sc_button_size_medium margin_top_small margin_bottom_small" style="color:#ffffff;background-color:#66a554; border-color:#66a554;">Más Sobre Nosotros</a></div></div></div></div></div></div><div class="vc_empty_space"  style="height: 40px" ><span class="vc_empty_space_inner"></span></div>
+<div style="font-size: 13px;color: #333333;text-align: left;font-family:Open Sans;font-weight:600;font-style:normal" class="vc_custom_heading vc_custom_1455714631637">- Dr. Emma Grey</div><a href="#" class="sc_button sc_button_square sc_button_style_filled sc_button_size_medium margin_top_small margin_bottom_small" style="color:#ffffff;background-color:#66a554; border-color:#66a554;">M&aacute;s Sobre Nosotros</a></div></div></div></div></div></div><div class="vc_empty_space"  style="height: 40px" ><span class="vc_empty_space_inner"></span></div>
 </div></div><div id="Services" class="sc_section"><div class="sc_section_inner"><div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1455704765009"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_empty_space"  style="height: 35px" ><span class="vc_empty_space_inner"></span></div>
-<div id="sc_services_500058582_wrap" class="sc_services_wrap"><div id="sc_services_500058582" class="sc_services sc_services_style_services-1 sc_services_type_icons  margin_top_medium" style="width:100%;"><h2 class="sc_services_title sc_item_title">Nuestros Servicios</h2><div class="sc_services_descr sc_item_descr">Algunos de Nuestros Servicios más Requeridos</div><div class="sc_columns columns_wrap"><div class="column-1_4 column_padding_bottom">			<div id="sc_services_500058582_1"				class="sc_services_item sc_services_item_1 odd first"
+<div id="sc_services_500058582_wrap" class="sc_services_wrap"><div id="sc_services_500058582" class="sc_services sc_services_style_services-1 sc_services_type_icons  margin_top_medium" style="width:100%;"><h2 class="sc_services_title sc_item_title">Nuestros Servicios</h2><div class="sc_services_descr sc_item_descr">Algunos de Nuestros Servicios m&aacute;s Requeridos</div><div class="sc_columns columns_wrap"><div class="column-1_4 column_padding_bottom">			<div id="sc_services_500058582_1"				class="sc_services_item sc_services_item_1 odd first"
 				>
 				<a href="./index.php/services/tooth-protection/"><span class="sc_icon icon-medic-3"></span></a>				<div class="sc_services_item_content">
 					<h4 class="sc_services_item_title"><a href="./index.php/services/tooth-protection/">Tooth Protection</a></h4>
@@ -1727,9 +1747,9 @@ jsFileLocation:"./wp-content/plugins/revslider/public/assets/js/",
 			</div>
 		</div></div></div><!-- /.sc_services --></div><!-- /.sc_services_wrap --><div class="vc_empty_space"  style="height: 10px" ><span class="vc_empty_space_inner"></span></div>
 </div></div></div></div><div class="vc_row-full-width"></div><div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1455716132737"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="columns_wrap sc_columns columns_nofluid sc_columns_count_2"><div class="column-1_2 sc_column_item sc_column_item_1 odd first"><div class="sc_section margin_top_huge margin_bottom_huge"><div class="sc_section_inner"></div></div><div class="vc_empty_space"  style="height: 1px" ><span class="vc_empty_space_inner"></span></div>
-<h3 class="sc_title sc_title_regular margin_top_tiny">Conectamos e Integramos a la Comunidad Farmacéutica</h3><div class="vc_empty_space"  style="height: 15px" ><span class="vc_empty_space_inner"></span></div>
-<ul class="sc_list sc_list_style_iconed"><li class="sc_list_item odd first" title="Comunicaciones Oficiales"><span class="sc_list_icon icon-ok" style="color:#66a554;"></span>Comunicaciones Oficiales</li><li class="sc_list_item even" title="Acceso a Múltiples Servicios y Ofertas Exlcusivas"><span class="sc_list_icon icon-ok" style="color:#66a554;"></span>Acceso a Múltiples Servicios y Ofertas Exlcusivas</li><li class="sc_list_item odd" title="Humor, Noticias y Mucho Más!"><span class="sc_list_icon icon-ok" style="color:#66a554;"></span>Humor, Noticias y Mucho Más!</li></ul><a href="#" class="sc_button sc_button_square sc_button_style_filled sc_button_size_medium margin_top_tiny margin_bottom_tiny" style="background-color:#66a554; border-color:#66a554;">Más sobre nosotros</a><div class="vc_empty_space"  style="height: 75px" ><span class="vc_empty_space_inner"></span></div>
-</div></div></div></div></div></div><div class="vc_row-full-width"></div><div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid vc_row-no-padding"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div id="sc_call_to_action_58039632" class="sc_call_to_action sc_call_to_action_accented sc_call_to_action_style_1 sc_call_to_action_align_center" style="width:100%;"><div class="sc_call_to_action_info"><h3 class="sc_call_to_action_title sc_item_title">Ideas Innovadoras combinando Tecnología y Profesionalismo</h3><div class="sc_call_to_action_descr sc_item_descr">Sea parte y protagonista</div><div class="sc_call_to_action_buttons sc_item_buttons"><div class="sc_call_to_action_button sc_item_button"><a href="#" class="sc_button sc_button_square sc_button_style_filled sc_button_size_medium">Ingresar</a></div></div></div></div></div></div></div></div><div class="vc_row-full-width"></div> </div></div><div id="Contact" class="sc_section"><div class="sc_section_inner"><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><h2 class="sc_title sc_title_regular sc_align_center margin_top_tiny margin_bottom_tiny" style="text-align:center;">Contáctenos</h2></div></div></div></div></div></div>
+<h3 class="sc_title sc_title_regular margin_top_tiny">Conectamos e Integramos a la Comunidad Farmac&eacute;utica</h3><div class="vc_empty_space"  style="height: 15px" ><span class="vc_empty_space_inner"></span></div>
+<ul class="sc_list sc_list_style_iconed"><li class="sc_list_item odd first" title="Comunicaciones Oficiales"><span class="sc_list_icon icon-ok" style="color:#66a554;"></span>Comunicaciones Oficiales</li><li class="sc_list_item even" title="Acceso a M&uacute;ltiples Servicios y Ofertas Exlcusivas"><span class="sc_list_icon icon-ok" style="color:#66a554;"></span>Acceso a M&uacute;ltiples Servicios y Ofertas Exlcusivas</li><li class="sc_list_item odd" title="Humor, Noticias y Mucho M&aacute;s!"><span class="sc_list_icon icon-ok" style="color:#66a554;"></span>Humor, Noticias y Mucho M&aacute;s!</li></ul><a href="#" class="sc_button sc_button_square sc_button_style_filled sc_button_size_medium margin_top_tiny margin_bottom_tiny" style="background-color:#66a554; border-color:#66a554;">M&aacute;s sobre nosotros</a><div class="vc_empty_space"  style="height: 75px" ><span class="vc_empty_space_inner"></span></div>
+</div></div></div></div></div></div><div class="vc_row-full-width"></div><div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid vc_row-no-padding"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div id="sc_call_to_action_58039632" class="sc_call_to_action sc_call_to_action_accented sc_call_to_action_style_1 sc_call_to_action_align_center" style="width:100%;"><div class="sc_call_to_action_info"><h3 class="sc_call_to_action_title sc_item_title">Ideas Innovadoras combinando Tecnolog&iacute;a y Profesionalismo</h3><div class="sc_call_to_action_descr sc_item_descr">Sea parte y protagonista</div><div class="sc_call_to_action_buttons sc_item_buttons"><div class="sc_call_to_action_button sc_item_button"><a href="#" class="sc_button sc_button_square sc_button_style_filled sc_button_size_medium">Ingresar</a></div></div></div></div></div></div></div></div><div class="vc_row-full-width"></div> </div></div><div id="Contact" class="sc_section"><div class="sc_section_inner"><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><h2 class="sc_title sc_title_regular sc_align_center margin_top_tiny margin_bottom_tiny" style="text-align:center;">Cont&aacute;ctenos</h2></div></div></div></div></div></div>
 <p>&nbsp;</p>
 </div></div></section> <!-- </section> class="post_content" itemprop="articleBody"> -->	<section class="related_wrap related_wrap_empty"></section>
 	</article> <!-- </article> class="itemscope post_item post_item_single_portfolio post_featured_default post_format_standard post-8 page type-page status-publish hentry" itemscope itemtype="http://schema.org/Article"> --></div> <!-- </div> class="content"> --></div> <!-- </div> class="content_wrap"> -->			
@@ -1803,13 +1823,13 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 				<div class="popup_form_field remember_field">
 					<input type="checkbox" value="forever" id="rememberme" name="rememberme">
 					<label for="rememberme" style="font-weight:450;">Recordarme</label>
-					<a href="./lost-password/" class="forgot_password" style="font-weight:400;">Olvidó su contraseña?</a>
+					<a href="./lost-password/" class="forgot_password" style="font-weight:400;">Olvid&oacute; su contraseña?</a>
 				</div>
 				<div class="popup_form_field submit_field"><input type="submit" class="submit_button" value="Ingresar"></div>
 			</form>
 		</div>
 		<div class="form_right">
-		<!--	<div class="login_socials_title">farmared, Red de Profesionales Farmacéuticos</div>
+		<!--	<div class="login_socials_title">farmared, Red de Profesionales Farmac&eacute;uticos</div>
 			<div class="login_socials_list">
 				<div class="sc_socials sc_socials_type_icons sc_socials_shape_round sc_socials_size_tiny"><div class="sc_socials_item"><a href="#" target="_blank" class="social_icons social_facebook"><span class="icon-facebook"></span></a></div><div class="sc_socials_item"><a href="#" target="_blank" class="social_icons social_twitter"><span class="icon-twitter"></span></a></div><div class="sc_socials_item"><a href="#" target="_blank" class="social_icons social_gplus"><span class="icon-gplus"></span></a></div></div>			</div>-->
 			
@@ -1832,7 +1852,7 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 <div class="custom_html_section">
 </div>
 
-<script type="text/javascript">if (typeof DENTARIO_STORAGE == 'undefined') var DENTARIO_STORAGE = {};if (DENTARIO_STORAGE['theme_font']=='') DENTARIO_STORAGE['theme_font'] = 'Poppins';DENTARIO_STORAGE['theme_skin_color'] = '#232A34';DENTARIO_STORAGE['theme_skin_bg_color'] = '#ffffff';</script><script type="text/javascript">if (typeof DENTARIO_STORAGE == 'undefined') var DENTARIO_STORAGE = {};DENTARIO_STORAGE["strings"] = {ajax_error: 			"Invalid server answer",bookmark_add: 		"Add the bookmark",bookmark_added:		"Current page has been successfully added to the bookmarks. You can see it in the right panel on the tab &#039;Bookmarks&#039;",bookmark_del: 		"Delete this bookmark",bookmark_title:		"Enter bookmark title",bookmark_exists:		"Current page already exists in the bookmarks list",search_error:		"Error occurs in AJAX search! Please, type your query and press search icon for the traditional search way.",email_confirm:		"On the e-mail address &quot;%s&quot; we sent a confirmation email. Please, open it and click on the link.",reviews_vote:		"Thanks for your vote! New average rating is:",reviews_error:		"Error saving your vote! Please, try again later.",error_like:			"Error saving your like! Please, try again later.",error_global:		"Global error text",name_empty:			"The name can&#039;t be empty",name_long:			"Too long name",email_empty:			"Too short (or empty) email address",email_long:			"Too long email address",email_not_valid:		"Invalid email address",subject_empty:		"The subject can&#039;t be empty",subject_long:		"Too long subject",text_empty:			"The message text can&#039;t be empty",text_long:			"Too long message text",send_complete:		"Send message complete!",send_error:			"Transmit failed!",login_empty:			"El Email no puede estar vacío",login_long:			"Too long login field",login_success:		"Login success! The page will be reloaded in 3 sec.",login_failed:		"Login failed!",password_empty:		"La contraseña debe contener 4 caracteres como mínimo",password_long:		"Too long password",password_not_equal:	"The passwords in both fields are not equal",registration_success:"Registration success! Please log in!",registration_failed:	"Registration failed!",geocode_error:		"Geocode was not successful for the following reason:",googlemap_not_avail:	"Google map API not available!",editor_save_success:	"Post content saved!",editor_save_error:	"Error saving post data!",editor_delete_post:	"You really want to delete the current post?",editor_delete_post_header:"Delete post",editor_delete_success:	"Post deleted!",editor_delete_error:		"Error deleting post!",editor_caption_cancel:	"Cancel",editor_caption_close:	"Close"};</script><script type="text/javascript">if (typeof DENTARIO_STORAGE == 'undefined') var DENTARIO_STORAGE = {};DENTARIO_STORAGE['ajax_nonce']		 = '4acbe622ac';DENTARIO_STORAGE['site_url']			= '.';DENTARIO_STORAGE['vc_edit_mode']		= false;DENTARIO_STORAGE['theme_font']		= 'Poppins';DENTARIO_STORAGE['theme_skin']			= 'less';DENTARIO_STORAGE['theme_skin_color']		= '#232A34';DENTARIO_STORAGE['theme_skin_bg_color']	= '#ffffff';DENTARIO_STORAGE['slider_height']	= 100;DENTARIO_STORAGE['system_message']	= {message: '',status: '',header: ''};DENTARIO_STORAGE['user_logged_in']	= false;DENTARIO_STORAGE['toc_menu']		= 'hide';DENTARIO_STORAGE['toc_menu_home']	= false;DENTARIO_STORAGE['toc_menu_top']	= false;DENTARIO_STORAGE['menu_fixed']		= true;DENTARIO_STORAGE['menu_mobile']	= 1023;DENTARIO_STORAGE['menu_slider']     = false;DENTARIO_STORAGE['menu_cache']	= false;DENTARIO_STORAGE['demo_time']		= 0;DENTARIO_STORAGE['media_elements_enabled'] = true;DENTARIO_STORAGE['ajax_search_enabled'] 	= true;DENTARIO_STORAGE['ajax_search_min_length']	= 3;DENTARIO_STORAGE['ajax_search_delay']		= 200;DENTARIO_STORAGE['css_animation']      = true;DENTARIO_STORAGE['menu_animation_in']  = 'fadeIn';DENTARIO_STORAGE['menu_animation_out'] = 'fadeOutDown';DENTARIO_STORAGE['popup_engine']	= 'magnific';DENTARIO_STORAGE['email_mask']		= '^([a-zA-Z0-9_\-]+\.)*[a-zA-Z0-9_\-]+@[a-z0-9_\-]+(\.[a-z0-9_\-]+)*\.[a-z]{2,6}$';DENTARIO_STORAGE['contacts_maxlength']	= 1000;DENTARIO_STORAGE['comments_maxlength']	= 1000;DENTARIO_STORAGE['remember_visitors_settings']	= false;DENTARIO_STORAGE['admin_mode']			= false;DENTARIO_STORAGE['isotope_resize_delta']	= 0.3;DENTARIO_STORAGE['ajax_url'] ='./wp-admin/admin-ajax.php';DENTARIO_STORAGE['error_message_box']	= null;DENTARIO_STORAGE['viewmore_busy']		= false;DENTARIO_STORAGE['video_resize_inited']	= false;DENTARIO_STORAGE['top_panel_height']		= 0;</script><script type="text/javascript">
+<script type="text/javascript">if (typeof DENTARIO_STORAGE == 'undefined') var DENTARIO_STORAGE = {};if (DENTARIO_STORAGE['theme_font']=='') DENTARIO_STORAGE['theme_font'] = 'Poppins';DENTARIO_STORAGE['theme_skin_color'] = '#232A34';DENTARIO_STORAGE['theme_skin_bg_color'] = '#ffffff';</script><script type="text/javascript">if (typeof DENTARIO_STORAGE == 'undefined') var DENTARIO_STORAGE = {};DENTARIO_STORAGE["strings"] = {ajax_error: 			"Invalid server answer",bookmark_add: 		"Add the bookmark",bookmark_added:		"Current page has been successfully added to the bookmarks. You can see it in the right panel on the tab &#039;Bookmarks&#039;",bookmark_del: 		"Delete this bookmark",bookmark_title:		"Enter bookmark title",bookmark_exists:		"Current page already exists in the bookmarks list",search_error:		"Error occurs in AJAX search! Please, type your query and press search icon for the traditional search way.",email_confirm:		"On the e-mail address &quot;%s&quot; we sent a confirmation email. Please, open it and click on the link.",reviews_vote:		"Thanks for your vote! New average rating is:",reviews_error:		"Error saving your vote! Please, try again later.",error_like:			"Error saving your like! Please, try again later.",error_global:		"Global error text",name_empty:			"The name can&#039;t be empty",name_long:			"Too long name",email_empty:			"Too short (or empty) email address",email_long:			"Too long email address",email_not_valid:		"Invalid email address",subject_empty:		"The subject can&#039;t be empty",subject_long:		"Too long subject",text_empty:			"The message text can&#039;t be empty",text_long:			"Too long message text",send_complete:		"Send message complete!",send_error:			"Transmit failed!",login_empty:			"El Email no puede estar vac&iacute;o",login_long:			"Too long login field",login_success:		"Login success! The page will be reloaded in 3 sec.",login_failed:		"Login failed!",password_empty:		"La contraseña debe contener 4 caracteres como m&iacute;nimo",password_long:		"Too long password",password_not_equal:	"The passwords in both fields are not equal",registration_success:"Registration success! Please log in!",registration_failed:	"Registration failed!",geocode_error:		"Geocode was not successful for the following reason:",googlemap_not_avail:	"Google map API not available!",editor_save_success:	"Post content saved!",editor_save_error:	"Error saving post data!",editor_delete_post:	"You really want to delete the current post?",editor_delete_post_header:"Delete post",editor_delete_success:	"Post deleted!",editor_delete_error:		"Error deleting post!",editor_caption_cancel:	"Cancel",editor_caption_close:	"Close"};</script><script type="text/javascript">if (typeof DENTARIO_STORAGE == 'undefined') var DENTARIO_STORAGE = {};DENTARIO_STORAGE['ajax_nonce']		 = '4acbe622ac';DENTARIO_STORAGE['site_url']			= '.';DENTARIO_STORAGE['vc_edit_mode']		= false;DENTARIO_STORAGE['theme_font']		= 'Poppins';DENTARIO_STORAGE['theme_skin']			= 'less';DENTARIO_STORAGE['theme_skin_color']		= '#232A34';DENTARIO_STORAGE['theme_skin_bg_color']	= '#ffffff';DENTARIO_STORAGE['slider_height']	= 100;DENTARIO_STORAGE['system_message']	= {message: '',status: '',header: ''};DENTARIO_STORAGE['user_logged_in']	= false;DENTARIO_STORAGE['toc_menu']		= 'hide';DENTARIO_STORAGE['toc_menu_home']	= false;DENTARIO_STORAGE['toc_menu_top']	= false;DENTARIO_STORAGE['menu_fixed']		= true;DENTARIO_STORAGE['menu_mobile']	= 1023;DENTARIO_STORAGE['menu_slider']     = false;DENTARIO_STORAGE['menu_cache']	= false;DENTARIO_STORAGE['demo_time']		= 0;DENTARIO_STORAGE['media_elements_enabled'] = true;DENTARIO_STORAGE['ajax_search_enabled'] 	= true;DENTARIO_STORAGE['ajax_search_min_length']	= 3;DENTARIO_STORAGE['ajax_search_delay']		= 200;DENTARIO_STORAGE['css_animation']      = true;DENTARIO_STORAGE['menu_animation_in']  = 'fadeIn';DENTARIO_STORAGE['menu_animation_out'] = 'fadeOutDown';DENTARIO_STORAGE['popup_engine']	= 'magnific';DENTARIO_STORAGE['email_mask']		= '^([a-zA-Z0-9_\-]+\.)*[a-zA-Z0-9_\-]+@[a-z0-9_\-]+(\.[a-z0-9_\-]+)*\.[a-z]{2,6}$';DENTARIO_STORAGE['contacts_maxlength']	= 1000;DENTARIO_STORAGE['comments_maxlength']	= 1000;DENTARIO_STORAGE['remember_visitors_settings']	= false;DENTARIO_STORAGE['admin_mode']			= false;DENTARIO_STORAGE['isotope_resize_delta']	= 0.3;DENTARIO_STORAGE['ajax_url'] ='./wp-admin/admin-ajax.php';DENTARIO_STORAGE['error_message_box']	= null;DENTARIO_STORAGE['viewmore_busy']		= false;DENTARIO_STORAGE['video_resize_inited']	= false;DENTARIO_STORAGE['top_panel_height']		= 0;</script><script type="text/javascript">
 				jQuery("document").ready (function(){DENTARIO_STORAGE['phone_mask']		= '^[0-9\-\+]{9,15}$';DENTARIO_STORAGE["strings"]["phone_not_valid"] = "Invalid phone number" ;DENTARIO_STORAGE["strings"]["phone_empty"] = "The phone can not be empty" ;DENTARIO_STORAGE["strings"]["phone_wrong"] = "The phone is wrong" ;DENTARIO_STORAGE["strings"]["doctor_empty"] = "Doctor name can not be empty" ;DENTARIO_STORAGE["strings"]["doctor_long"] = "Doctor name too long" ;});</script><link rel='stylesheet' property='stylesheet' id='rs-icon-set-fa-icon-css'  href='./wp-content/plugins/revslider/public/assets/fonts/font-awesome/css/font-awesome.css' type='text/css' media='all' />		<script type="text/javascript">
 			function revslider_showDoubleJqueryError(sliderID) {
 				var errorMessage = "Revolution Slider Error: You have some jquery.js library include that comes after the revolution files js include.";

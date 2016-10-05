@@ -65,8 +65,9 @@ angular.module('landingApp.services', []).
                 valid = false;
             }
 
+            var bl=/\s/;
 
-            if (!form.fullName || form.fullName.length == 0) {
+            if (!form.fullName || form.fullName.length == 0 || !bl.test(form.fullName)) {
                 errors.fullName = 'invalid_fullName';
                 valid = false;
             }

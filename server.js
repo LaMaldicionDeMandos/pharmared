@@ -23,6 +23,9 @@ app.get('/', function(req, res) {
 });
 app.use("/register", register);
 
+app.get('/errors', function(req, res) {
+  res.sendFile(__dirname + '/public/error_popup.html');
+});
 
 
 app.listen(app.get('port'), function() {

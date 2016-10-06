@@ -13,6 +13,7 @@ angular.module('landingApp.controllers', []).
     $scope.showDrogueria = false;
     $scope.showMessage=false;
 
+
     $scope.showSuccess = function() {
         $scope.showFarmacia = false;
         $scope.showFarmaceutico = false;
@@ -47,7 +48,7 @@ angular.module('landingApp.controllers', []).
     })
 
 
-    .controller('registerPharmacyController', function($scope, registerService,  validateFormService) {
+    .controller('registerPharmacyController', function($scope, registerService,  validateFormService,ngDialog) {
         $scope.form={fantasyName:'',cuit:'',phone:'',street:'',number:'',city:'',state:'',email:'',fullName:''};
         $scope.errors = {};
         $scope.showMessage = false;
@@ -64,7 +65,11 @@ angular.module('landingApp.controllers', []).
                         console.log(info);
                     },
                     function(error) {
+
                         $scope.errors[error] = true;
+                        if ($scope.errors.unknown_error) {
+                            ngDialog.open({ template: '/errors' });
+                        }
                         console.log(error);
 
                     }
@@ -95,7 +100,7 @@ angular.module('landingApp.controllers', []).
                     console.log(info);
                 },
                 function(error) {
-                    $scope.errors.form = error;
+                    $scope.errors[error] = true;
                     console.log(error);
 
                 }
@@ -157,7 +162,7 @@ angular.module('landingApp.controllers', []).
                     console.log(info);
                 },
                 function(error) {
-                    $scope.errors.form = error;
+                    $scope.errors[error] = true;
                     console.log(error);
 
                 }
@@ -190,7 +195,7 @@ angular.module('landingApp.controllers', []).
                         console.log(info);
                     },
                     function(error) {
-                        $scope.errors.form = error;
+                        $scope.errors[error] = true;
                         console.log(error);
 
                     }

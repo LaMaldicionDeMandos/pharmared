@@ -76,6 +76,8 @@ img.emoji {
 <link rel='stylesheet' id='wp-mediaelement-css'  href='wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=4.5.3' type='text/css' media='all' />
 <link rel='stylesheet' id='js_composer_front-css'  href='./wp-content/plugins/js_composer/assets/css/js_composer.min.css?ver=4.12' type='text/css' media='all' />
 <link rel='stylesheet' href='./css/styles.css' type='text/css' />
+<link rel='stylesheet' href='./bower_components/ng-dialog/css/ngDialog.css' type='text/css'/>
+<link rel='stylesheet' href='./bower_components/ng-dialog/css/ngDialog-theme-default.css' type='text/css' />
 
 <script type='text/javascript'>
 /* <![CDATA[ */
@@ -707,6 +709,8 @@ en la Farmacia </div>
 			 A continuaci&oacute;n estar&aacute; llegando un email para activarla.</p>
 
 	 </div>
+
+
 	 <div ng-show="showButton" >
 <br />
 
@@ -823,7 +827,7 @@ padding-top:50px;
 									<span  class="alert-icon tooltip">
 
 										<img ng-if="errors.cuit_not_exist || errors.cuit || errors.invalid_entity || errors.exist_pharmacy"  src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span ng-if="errors.cuit_not_exist" class="tooltiptext-right">Error. Verifique el CUIT. Ejemplo: 30555667776 </span>
+										<span ng-if="errors.cuit_not_exist" class="tooltiptext-right">El CUIT es inv&aacute;lido.<br/> Ejemplo: 30555667776 </span>
 										<span ng-if="errors.cuit" class="tooltiptext-right">El CUIT es obligatorio</span>
 										<span ng-if="errors.invalid_entity" class="tooltiptext-right">El CUIT ingresado no corresponde a una farmacia</span>
 										<span ng-if="errors.exist_pharmacy" class="tooltiptext-right">El CUIT ingresado ya se encuentra registrado</span>
@@ -965,9 +969,22 @@ padding-top:50px;
 			</div>
 			
 			
-		
-			<div class="sc_form_item sc_form_button"  ><button class="alignleft">Registrarse</button></div>
-			
+
+			<div class="sc_form_item sc_form_button"  >
+
+
+
+				<button class="alignleft">Registrarse</button>
+
+
+
+
+
+
+			</div>
+
+
+
 			<div class="result sc_infobox"></div>
 
 
@@ -1035,7 +1052,8 @@ padding-top:50px;
 									<span  class="alert-icon tooltip">
 
 										<img ng-if="errors.cuit_not_exist || errors.cuit || errors.invalid_entity || errors.exist_pharmacist"  src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span ng-if="errors.cuit_not_exist" class="tooltiptext-right">Error. Verifique el CUIT/CUIL. Ejemplo: 27555667776 </span>
+
+										<span ng-if="errors.cuit_not_exist" class="tooltiptext-right">El CUIT/CUIL es inv&aacute;lido.<br/> Ejemplo: 27555667776 </span>
 										<span ng-if="errors.cuit" class="tooltiptext-right">El CUIT/CUIL es obligatorio</span>
 										<span ng-if="errors.invalid_entity" class="tooltiptext-right">El CUIT/CUIL ingresado no corresponde a un profesional farmac&eacute;utico</span>
 										<span ng-if="errors.exist_pharmacist" class="tooltiptext-right">El CUIT/CUIL ingresado ya se encuentra registrado</span>
@@ -1090,7 +1108,9 @@ padding-top:50px;
 			
 		
 		
-			<div class="sc_form_item sc_form_button"  ><button class="alignleft">Registrarse</button></div>
+			<div class="sc_form_item sc_form_button"  >
+
+				<button class="alignleft">Registrarse</button></div>
 			
 			<div class="result sc_infobox"></div>
 
@@ -1153,7 +1173,7 @@ padding-top:50px;
 									<span  class="alert-icon tooltip">
 
 										<img ng-if="errors.cuit_not_exist || errors.cuit || errors.invalid_entity || errors.exist_laboratory"  src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span ng-if="errors.cuit_not_exist" class="tooltiptext-right">Error. Verifique el CUIT. Ejemplo: 30555667776 </span>
+										<span ng-if="errors.cuit_not_exist" class="tooltiptext-right">El CUIT es inv&aacute;lido.<br/> Ejemplo: 30555667776 </span>
 										<span ng-if="errors.cuit" class="tooltiptext-right">El CUIT es obligatorio</span>
 										<span ng-if="errors.invalid_entity" class="tooltiptext-right">El CUIT ingresado no corresponde a un laboratorio</span>
 										<span ng-if="errors.exist_laboratory" class="tooltiptext-right">El CUIT ingresado ya se encuentra registrado</span>
@@ -1363,7 +1383,7 @@ padding-top:50px;
 									<span  class="alert-icon tooltip">
 
 										<img ng-if="errors.cuit_not_exist || errors.cuit || errors.invalid_entity || errors.exist_drugstore"  src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span ng-if="errors.cuit_not_exist" class="tooltiptext-right">Error. Verifique el CUIT. Ejemplo: 30555667776 </span>
+										<span ng-if="errors.cuit_not_exist" class="tooltiptext-right">El CUIT es inv&aacute;lido.<br/> Ejemplo: 30555667776 </span>
 										<span ng-if="errors.cuit" class="tooltiptext-right">El CUIT es obligatorio</span>
 										<span ng-if="errors.invalid_entity" class="tooltiptext-right">El CUIT ingresado no corresponde a una droguer&iacute;a</span>
 										<span ng-if="errors.exist_drugstore" class="tooltiptext-right">El CUIT ingresado ya se encuentra registrado</span>
@@ -1873,7 +1893,10 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 <script type='text/javascript' src='./wp-content/plugins/booked//js/spin.jquery.js?ver=2.0.1'></script>
 <script type='text/javascript' src='./wp-content/plugins/booked//js/tooltipster/js/jquery.tooltipster.min.js?ver=3.3.0'></script>
 <script type='text/javascript' src='./wp-content/plugins/booked//js/functions.js?ver=1.7.16'></script>
-<script type='text/javascript'>
+
+<script type='text/javascript' src='./bower_components/ng-dialog/js/ngDialog.js'></script>
+
+
 /* <![CDATA[ */
 var mejsL10n = {"language":"en-US","strings":{"Close":"Close","Fullscreen":"Fullscreen","Download File":"Download File","Download Video":"Download Video","Play\/Pause":"Play\/Pause","Mute Toggle":"Mute Toggle","None":"None","Turn off Fullscreen":"Turn off Fullscreen","Go Fullscreen":"Go Fullscreen","Unmute":"Unmute","Mute":"Mute","Captions\/Subtitles":"Captions\/Subtitles"}};
 var _wpmejsSettings = {"pluginPath":"\/wp-includes\/js\/mediaelement\/"};
@@ -1901,6 +1924,9 @@ var _wpmejsSettings = {"pluginPath":"\/wp-includes\/js\/mediaelement\/"};
 
 <script type='text/javascript' src='./js/landing_controllers.js'></script>
 <script type='text/javascript' src='./js/landing_app.js'></script>
+
+
+
 
 </body>
 </html>

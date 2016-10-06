@@ -19,7 +19,10 @@ var registerPharmacy = function(req, res) {
                 },
                 function(error){
                     console.log('regError');
-                    res.status(400).send (error);
+                    if (error!='exist_pharmacy' && error!='exist_user'){
+                        res.status(400).send('unknown_error');}
+                        else {
+                    res.status(400).send (error);}
                 });
         },
         function(error){

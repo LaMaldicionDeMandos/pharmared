@@ -84,8 +84,9 @@ app.post('/login', function(req, res, next) {
                 return next(err);
             }
             console.log("Login success, sending path to redirect");
-            res.append('Authorization', "Bearer " + user.accessToken);
-            res.redirect(config.success_url);
+            //res.append('Authorization', "Bearer " + user.accessToken);
+            //res.redirect(config.success_url);
+            res.send({accessToken: user.accessToken, url: config.success_url});
         });
     })(req, res, next);
 });

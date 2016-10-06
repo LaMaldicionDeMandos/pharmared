@@ -93,7 +93,7 @@ app.post('/login', function(req, res, next) {
 app.get('/authenticate/:hash',
     passport.authenticate('hash', { failureRedirect: '/', session: true }),
     function(req, res) {
-        res.append('Authorization', "Bearer " + user.accessToken);
+        res.append('Authorization', "Bearer " + req.user.accessToken);
         res.redirect(config.success_url);
     });
 

@@ -428,13 +428,13 @@ function dentario_ready_actions() {
     //----------------------------------------------
 
 	// Login form
-	jQuery('.popup_form.login_form').submit(function(e){
+	/*jQuery('.popup_form.login_form').submit(function(e){
 		"use strict";
 		var rez = dentario_login_validate(jQuery(this));
 		if (!rez)
 			e.preventDefault();
 		return rez;
-	});
+	});*/
 	
 	// Registration form
 	jQuery('.popup_form.registration_form').submit(function(e){
@@ -1581,7 +1581,7 @@ function dentario_comments_validate(form) {
 
 
 // Login form
-function dentario_login_validate(form) {
+/*function dentario_login_validate(form) {
 	"use strict";
 	form.find('input').removeClass('error_fields_class');
 	var error = dentario_form_validate(form, {
@@ -1602,8 +1602,8 @@ function dentario_login_validate(form) {
 				max_length: { value: 30, message: DENTARIO_STORAGE['strings']['password_long'] }
 			}
 		]
-	});
-	if (!error) {
+	});*/
+/*	if (!error) {
 		jQuery.post(DENTARIO_STORAGE['ajax_url'], {
 			action: 'login_user',
 			nonce: DENTARIO_STORAGE['ajax_nonce'],
@@ -1628,14 +1628,16 @@ function dentario_login_validate(form) {
 					location.reload(); 
 					}, 3000);
 			} else {
-				result_box.addClass('sc_infobox sc_infobox_style_error').html(DENTARIO_STORAGE['strings']['login_failed']/* + '<br>' + rez.error*/);
+				result_box.addClass('sc_infobox sc_infobox_style_error').html(DENTARIO_STORAGE['strings']['login_failed']/* + '<br>' + rez.error
+				*/
+				/*); 
 			}
 			result_box.fadeIn().delay(3000).fadeOut();
 		});
 	}
 	return false;
 }
-
+*/
 
 // Registration form 
 function dentario_registration_validate(form) {

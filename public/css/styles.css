@@ -96,3 +96,40 @@
     visibility: visible;
     opacity: 1;
 }
+
+
+
+.tooltip .tooltiptext-beside {
+    visibility: hidden;
+    width: 240px;
+    background-color: #333333;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    font-weight: 500;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -35%;
+    left: 150%;
+    margin-right: -30px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip .tooltiptext-beside::after {
+    content: "";
+    position: absolute;
+    right: 100%;
+
+
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333333 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext-beside {
+    visibility: visible;
+    opacity: 1;
+}

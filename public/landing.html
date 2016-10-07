@@ -184,7 +184,7 @@ var tribe_events_linked_posts = {"post_types":{"tribe_venue":"venue","tribe_orga
 <script type="text/javascript" src="./wp-content/plugins/revslider/public/assets/js/extensions/revolution.extension.parallax.min.js"></script>
 </head>
 
-<body class="home page page-id-8 page-template-default dentario_body body_style_wide body_filled theme_skin_less article_style_stretch layout_single-portfolio template_single-portfolio scheme_original top_panel_show top_panel_above sidebar_hide sidebar_outer_hide wpb-js-composer js-comp-ver-4.12 vc_responsive">
+<body ng-app="landingApp" class="home page page-id-8 page-template-default dentario_body body_style_wide body_filled theme_skin_less article_style_stretch layout_single-portfolio template_single-portfolio scheme_original top_panel_show top_panel_above sidebar_hide sidebar_outer_hide wpb-js-composer js-comp-ver-4.12 vc_responsive">
 	
 
 
@@ -240,8 +240,10 @@ var tribe_events_linked_posts = {"post_types":{"tribe_venue":"venue","tribe_orga
 
 
 
-<li class="menu_user_login"><a href="#popup_login" class="popup_link popup_login_link icon-user">Ingresar</a></li>
-	<li id="menu-item-1780" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1780"><a href="#Reg"><span>Registrarse</span></a></li>
+<li class="menu_user_login">
+	<a href="#popup_login" class="popup_link popup_login_link icon-user">Ingresar</a>
+</li>
+<li id="menu-item-1780" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1780"><a href="#Reg"><span>Registrarse</span></a></li>
 <li id="menu-item-1760" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1760"><a href="#Quienes"><span>Quienes Somos</span></a></li>
 <li id="menu-item-1744" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1744"><a href="#Services"><span>Servicios</span></a></li>
 <li id="menu-item-1761" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1761"><a href="#Contact"><span>Cont&aacute;ctenos</span></a></li>
@@ -299,12 +301,14 @@ var tribe_events_linked_posts = {"post_types":{"tribe_venue":"venue","tribe_orga
 			<div class="panel_top">
 				<nav class="menu_main_nav_area">
 					<ul id="menu_main_mobile" class="menu_main_nav"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1780"><a href="#"><span>Registrarse</span></a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1760"><a href="#Quienes"><span>Quienes Somos</span></a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1744"><a href="#Services"><span>Servicios</span></a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1761"><a href="#Contact"><span>Cont&aacute;ctenos</span></a></li>
-</ul>				</nav>
-										<div class="login"><a href="#popup_login" class="popup_link popup_login_link icon-user">Ingresar</a>						</div>
-									</div>
+					<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1760"><a href="#Quienes"><span>Quienes Somos</span></a></li>
+					<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1744"><a href="#Services"><span>Servicios</span></a></li>
+					<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1761"><a href="#Contact"><span>Cont&aacute;ctenos</span></a></li>
+					</ul>
+				</nav>
+			<div class="login">
+				<a href="#popup_login" class="popup_link popup_login_link icon-user">Ingresar</a>						</div>
+			</div>
 			
 			
 			<div class="panel_bottom">
@@ -690,7 +694,7 @@ en la Farmacia </div>
 	<div  id="sc_form_327934679_wrap" class="sc_form_wrap"><div  id="sc_form_327934679" class="sc_form sc_form_style_form_2">
 
 
- <div  ng-app="landingApp" ng-controller="registerButtonsController">
+ <div  ng-controller="registerButtonsController">
 	 <div ng-show="showMessage" >
 		 <br />
 
@@ -1821,7 +1825,7 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 	
 	
 		<!-- Post/page views count increment -->
-		<script type="text/javascript">
+	<!--	<script type="text/javascript">
 			jQuery(document).ready(function() {
 				setTimeout(function(){
 					jQuery.post(DENTARIO_STORAGE['ajax_url'], {
@@ -1831,39 +1835,57 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 						views: 65					});
 					}, 10);
 			});
-		</script>
-		<div id="popup_login" class="popup_wrap popup_login bg_tint_light">
+		</script>-->
+		<div id="popup_login" class="popup_wrap popup_login bg_tint_light" >
 	<a href="#" class="popup_close"></a>
 	<div class="form_wrap">
-		<div class="form_left">
-			<form action="./wp-login.php" method="post" name="login_form" class="popup_form login_form">
-				<input type="hidden" name="redirect_to" value="./">
-				<div class="popup_form_field login_field iconed_field icon-user"><input type="text" id="log" name="log" value="" placeholder="Email"></div>
-				<div class="popup_form_field password_field iconed_field icon-lock"><input type="password" id="password" name="pwd" value="" placeholder="Contraseña"></div>
+		<div class="form_left " ng-controller="loginController" >
+		<!--	<form action="./wp-login.php" method="post" name="login_form" class="popup_form login_form">-->
+				<form  class="popup_form login_form"  ng-submit="login(user)">
+			<!--	<input type="hidden" name="redirect_to" value="./">-->
+					<input type="hidden" >
+				<div class="popup_form_field login_field iconed_field icon-user alert-container">
+					<input type="text" id="log" ng-model="user.username" name="log" value="" placeholder="Email">
+					<span  class="alert-icon tooltip ">
+						<img ng-if="errors.username" src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+						<span ng-if="errors.username" class="tooltiptext-beside">Se debe completar correctamente el email</span>
+
+					</span>
+				</div>
+				<div class="popup_form_field password_field iconed_field icon-lock  alert-container">
+					<input type="password" id="password" ng-model="user.password" name="pwd" value="" placeholder="Contraseña">
+					<span class="alert-icon tooltip">
+						<img ng-if="errors.user || errors.password" src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+						<span ng-if="errors.password"  class="tooltiptext-beside">La contrase&#241;a debe completarse</span>
+					</span>
+				</div>
 				<div class="popup_form_field remember_field">
 					<input type="checkbox" value="forever" id="rememberme" name="rememberme">
 					<label for="rememberme" style="font-weight:450;">Recordarme</label>
-					<a href="./lost-password/" class="forgot_password" style="font-weight:400;">Olvid&oacute; su contraseña?</a>
+					<a href="./lost-password/" class="forgot_password" style="font-weight:400;">Olvid&oacute&oacute; su contraseña?</a>
 				</div>
-				<div class="popup_form_field submit_field"><input type="submit" class="submit_button" value="Ingresar"></div>
+				<!--<div class="popup_form_field submit_field">
+					<input type="submit" class="submit_button" value="Ingresar"></div>-->
+					<button class="alignright">Ingresar</button>
 			</form>
+
 		</div>
 		<div class="form_right">
 		<!--	<div class="login_socials_title">farmared, Red de Profesionales Farmac&eacute;uticos</div>
 			<div class="login_socials_list">
 				<div class="sc_socials sc_socials_type_icons sc_socials_shape_round sc_socials_size_tiny"><div class="sc_socials_item"><a href="#" target="_blank" class="social_icons social_facebook"><span class="icon-facebook"></span></a></div><div class="sc_socials_item"><a href="#" target="_blank" class="social_icons social_twitter"><span class="icon-twitter"></span></a></div><div class="sc_socials_item"><a href="#" target="_blank" class="social_icons social_gplus"><span class="icon-gplus"></span></a></div></div>			</div>-->
-			
+
 		<div class="column-1_3 contact_logo" style="display: inline;">
 									<div class="logo">
 			<a href="./"><img src="wp-content/uploads/2016/08/logo.png" class="logo_main" alt="" width="34" height="29"><div class="logo_text">farmared</div></a>
 		</div>
 		</div>
-		
+
 				<div class="vc_empty_space"  style="height: 55px" > </div>
 			<div class="login_socials_problem"><a href="#"><strong>Problemas para ingresar?</strong></a></div>
 			<div class="result message_block"></div>
-		</div> 
-	</div>	
+		</div>
+	</div>
 	<!-- /.login_wrap -->
 </div>		<!-- /.popup_login -->
 
@@ -1872,7 +1894,7 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 <div class="custom_html_section">
 </div>
 
-<script type="text/javascript">if (typeof DENTARIO_STORAGE == 'undefined') var DENTARIO_STORAGE = {};if (DENTARIO_STORAGE['theme_font']=='') DENTARIO_STORAGE['theme_font'] = 'Poppins';DENTARIO_STORAGE['theme_skin_color'] = '#232A34';DENTARIO_STORAGE['theme_skin_bg_color'] = '#ffffff';</script><script type="text/javascript">if (typeof DENTARIO_STORAGE == 'undefined') var DENTARIO_STORAGE = {};DENTARIO_STORAGE["strings"] = {ajax_error: 			"Invalid server answer",bookmark_add: 		"Add the bookmark",bookmark_added:		"Current page has been successfully added to the bookmarks. You can see it in the right panel on the tab &#039;Bookmarks&#039;",bookmark_del: 		"Delete this bookmark",bookmark_title:		"Enter bookmark title",bookmark_exists:		"Current page already exists in the bookmarks list",search_error:		"Error occurs in AJAX search! Please, type your query and press search icon for the traditional search way.",email_confirm:		"On the e-mail address &quot;%s&quot; we sent a confirmation email. Please, open it and click on the link.",reviews_vote:		"Thanks for your vote! New average rating is:",reviews_error:		"Error saving your vote! Please, try again later.",error_like:			"Error saving your like! Please, try again later.",error_global:		"Global error text",name_empty:			"The name can&#039;t be empty",name_long:			"Too long name",email_empty:			"Too short (or empty) email address",email_long:			"Too long email address",email_not_valid:		"Invalid email address",subject_empty:		"The subject can&#039;t be empty",subject_long:		"Too long subject",text_empty:			"The message text can&#039;t be empty",text_long:			"Too long message text",send_complete:		"Send message complete!",send_error:			"Transmit failed!",login_empty:			"El Email no puede estar vac&iacute;o",login_long:			"Too long login field",login_success:		"Login success! The page will be reloaded in 3 sec.",login_failed:		"Login failed!",password_empty:		"La contraseña debe contener 4 caracteres como m&iacute;nimo",password_long:		"Too long password",password_not_equal:	"The passwords in both fields are not equal",registration_success:"Registration success! Please log in!",registration_failed:	"Registration failed!",geocode_error:		"Geocode was not successful for the following reason:",googlemap_not_avail:	"Google map API not available!",editor_save_success:	"Post content saved!",editor_save_error:	"Error saving post data!",editor_delete_post:	"You really want to delete the current post?",editor_delete_post_header:"Delete post",editor_delete_success:	"Post deleted!",editor_delete_error:		"Error deleting post!",editor_caption_cancel:	"Cancel",editor_caption_close:	"Close"};</script><script type="text/javascript">if (typeof DENTARIO_STORAGE == 'undefined') var DENTARIO_STORAGE = {};DENTARIO_STORAGE['ajax_nonce']		 = '4acbe622ac';DENTARIO_STORAGE['site_url']			= '.';DENTARIO_STORAGE['vc_edit_mode']		= false;DENTARIO_STORAGE['theme_font']		= 'Poppins';DENTARIO_STORAGE['theme_skin']			= 'less';DENTARIO_STORAGE['theme_skin_color']		= '#232A34';DENTARIO_STORAGE['theme_skin_bg_color']	= '#ffffff';DENTARIO_STORAGE['slider_height']	= 100;DENTARIO_STORAGE['system_message']	= {message: '',status: '',header: ''};DENTARIO_STORAGE['user_logged_in']	= false;DENTARIO_STORAGE['toc_menu']		= 'hide';DENTARIO_STORAGE['toc_menu_home']	= false;DENTARIO_STORAGE['toc_menu_top']	= false;DENTARIO_STORAGE['menu_fixed']		= true;DENTARIO_STORAGE['menu_mobile']	= 1023;DENTARIO_STORAGE['menu_slider']     = false;DENTARIO_STORAGE['menu_cache']	= false;DENTARIO_STORAGE['demo_time']		= 0;DENTARIO_STORAGE['media_elements_enabled'] = true;DENTARIO_STORAGE['ajax_search_enabled'] 	= true;DENTARIO_STORAGE['ajax_search_min_length']	= 3;DENTARIO_STORAGE['ajax_search_delay']		= 200;DENTARIO_STORAGE['css_animation']      = true;DENTARIO_STORAGE['menu_animation_in']  = 'fadeIn';DENTARIO_STORAGE['menu_animation_out'] = 'fadeOutDown';DENTARIO_STORAGE['popup_engine']	= 'magnific';DENTARIO_STORAGE['email_mask']		= '^([a-zA-Z0-9_\-]+\.)*[a-zA-Z0-9_\-]+@[a-z0-9_\-]+(\.[a-z0-9_\-]+)*\.[a-z]{2,6}$';DENTARIO_STORAGE['contacts_maxlength']	= 1000;DENTARIO_STORAGE['comments_maxlength']	= 1000;DENTARIO_STORAGE['remember_visitors_settings']	= false;DENTARIO_STORAGE['admin_mode']			= false;DENTARIO_STORAGE['isotope_resize_delta']	= 0.3;DENTARIO_STORAGE['ajax_url'] ='./wp-admin/admin-ajax.php';DENTARIO_STORAGE['error_message_box']	= null;DENTARIO_STORAGE['viewmore_busy']		= false;DENTARIO_STORAGE['video_resize_inited']	= false;DENTARIO_STORAGE['top_panel_height']		= 0;</script><script type="text/javascript">
+<!--<script type="text/javascript">if (typeof DENTARIO_STORAGE == 'undefined') var DENTARIO_STORAGE = {};if (DENTARIO_STORAGE['theme_font']=='') DENTARIO_STORAGE['theme_font'] = 'Poppins';DENTARIO_STORAGE['theme_skin_color'] = '#232A34';DENTARIO_STORAGE['theme_skin_bg_color'] = '#ffffff';</script><script type="text/javascript">if (typeof DENTARIO_STORAGE == 'undefined') var DENTARIO_STORAGE = {};DENTARIO_STORAGE["strings"] = {ajax_error: 			"Invalid server answer",bookmark_add: 		"Add the bookmark",bookmark_added:		"Current page has been successfully added to the bookmarks. You can see it in the right panel on the tab &#039;Bookmarks&#039;",bookmark_del: 		"Delete this bookmark",bookmark_title:		"Enter bookmark title",bookmark_exists:		"Current page already exists in the bookmarks list",search_error:		"Error occurs in AJAX search! Please, type your query and press search icon for the traditional search way.",email_confirm:		"On the e-mail address &quot;%s&quot; we sent a confirmation email. Please, open it and click on the link.",reviews_vote:		"Thanks for your vote! New average rating is:",reviews_error:		"Error saving your vote! Please, try again later.",error_like:			"Error saving your like! Please, try again later.",error_global:		"Global error text",name_empty:			"The name can&#039;t be empty",name_long:			"Too long name",email_empty:			"Too short (or empty) email address",email_long:			"Too long email address",email_not_valid:		"Invalid email address",subject_empty:		"The subject can&#039;t be empty",subject_long:		"Too long subject",text_empty:			"The message text can&#039;t be empty",text_long:			"Too long message text",send_complete:		"Send message complete!",send_error:			"Transmit failed!",login_empty:			"El Email no puede estar vac&iacute;o",login_long:			"Too long login field",login_success:		"Login success! The page will be reloaded in 3 sec.",login_failed:		"Login failed!",password_empty:		"La contraseña debe contener 4 caracteres como m&iacute;nimo",password_long:		"Too long password",password_not_equal:	"The passwords in both fields are not equal",registration_success:"Registration success! Please log in!",registration_failed:	"Registration failed!",geocode_error:		"Geocode was not successful for the following reason:",googlemap_not_avail:	"Google map API not available!",editor_save_success:	"Post content saved!",editor_save_error:	"Error saving post data!",editor_delete_post:	"You really want to delete the current post?",editor_delete_post_header:"Delete post",editor_delete_success:	"Post deleted!",editor_delete_error:		"Error deleting post!",editor_caption_cancel:	"Cancel",editor_caption_close:	"Close"};</script><script type="text/javascript">if (typeof DENTARIO_STORAGE == 'undefined') var DENTARIO_STORAGE = {};DENTARIO_STORAGE['ajax_nonce']		 = '4acbe622ac';DENTARIO_STORAGE['site_url']			= '.';DENTARIO_STORAGE['vc_edit_mode']		= false;DENTARIO_STORAGE['theme_font']		= 'Poppins';DENTARIO_STORAGE['theme_skin']			= 'less';DENTARIO_STORAGE['theme_skin_color']		= '#232A34';DENTARIO_STORAGE['theme_skin_bg_color']	= '#ffffff';DENTARIO_STORAGE['slider_height']	= 100;DENTARIO_STORAGE['system_message']	= {message: '',status: '',header: ''};DENTARIO_STORAGE['user_logged_in']	= false;DENTARIO_STORAGE['toc_menu']		= 'hide';DENTARIO_STORAGE['toc_menu_home']	= false;DENTARIO_STORAGE['toc_menu_top']	= false;DENTARIO_STORAGE['menu_fixed']		= true;DENTARIO_STORAGE['menu_mobile']	= 1023;DENTARIO_STORAGE['menu_slider']     = false;DENTARIO_STORAGE['menu_cache']	= false;DENTARIO_STORAGE['demo_time']		= 0;DENTARIO_STORAGE['media_elements_enabled'] = true;DENTARIO_STORAGE['ajax_search_enabled'] 	= true;DENTARIO_STORAGE['ajax_search_min_length']	= 3;DENTARIO_STORAGE['ajax_search_delay']		= 200;DENTARIO_STORAGE['css_animation']      = true;DENTARIO_STORAGE['menu_animation_in']  = 'fadeIn';DENTARIO_STORAGE['menu_animation_out'] = 'fadeOutDown';DENTARIO_STORAGE['popup_engine']	= 'magnific';DENTARIO_STORAGE['email_mask']		= '^([a-zA-Z0-9_\-]+\.)*[a-zA-Z0-9_\-]+@[a-z0-9_\-]+(\.[a-z0-9_\-]+)*\.[a-z]{2,6}$';DENTARIO_STORAGE['contacts_maxlength']	= 1000;DENTARIO_STORAGE['comments_maxlength']	= 1000;DENTARIO_STORAGE['remember_visitors_settings']	= false;DENTARIO_STORAGE['admin_mode']			= false;DENTARIO_STORAGE['isotope_resize_delta']	= 0.3;DENTARIO_STORAGE['ajax_url'] ='./wp-admin/admin-ajax.php';DENTARIO_STORAGE['error_message_box']	= null;DENTARIO_STORAGE['viewmore_busy']		= false;DENTARIO_STORAGE['video_resize_inited']	= false;DENTARIO_STORAGE['top_panel_height']		= 0;</script><script type="text/javascript">
 				jQuery("document").ready (function(){DENTARIO_STORAGE['phone_mask']		= '^[0-9\-\+]{9,15}$';DENTARIO_STORAGE["strings"]["phone_not_valid"] = "Invalid phone number" ;DENTARIO_STORAGE["strings"]["phone_empty"] = "The phone can not be empty" ;DENTARIO_STORAGE["strings"]["phone_wrong"] = "The phone is wrong" ;DENTARIO_STORAGE["strings"]["doctor_empty"] = "Doctor name can not be empty" ;DENTARIO_STORAGE["strings"]["doctor_long"] = "Doctor name too long" ;});</script><link rel='stylesheet' property='stylesheet' id='rs-icon-set-fa-icon-css'  href='./wp-content/plugins/revslider/public/assets/fonts/font-awesome/css/font-awesome.css' type='text/css' media='all' />		<script type="text/javascript">
 			function revslider_showDoubleJqueryError(sliderID) {
 				var errorMessage = "Revolution Slider Error: You have some jquery.js library include that comes after the revolution files js include.";
@@ -1882,7 +1904,7 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 				errorMessage = "<span style='font-size:16px;color:#BC0C06;'>" + errorMessage + "</span>";
 					jQuery(sliderID).show().html(errorMessage);
 			}
-		</script>
+		</script> -->
 		<link property="stylesheet" rel='stylesheet' id='dentario-messages-style-css'  href='./wp-content/themes/dentario/fw/js/core.messages/core.messages.css' type='text/css' media='all' />
 <link property="stylesheet" rel='stylesheet' id='dentario-magnific-style-css'  href='./wp-content/themes/dentario/fw/js/magnific/magnific-popup.min.css' type='text/css' media='all' />
 <link property="stylesheet" rel='stylesheet' id='vc_google_fonts_merriweather300300italicregularitalic700700italic900900italic-css'  href='http://fonts.googleapis.com/css?family=Merriweather%3A300%2C300italic%2Cregular%2Citalic%2C700%2C700italic%2C900%2C900italic&#038;subset=latin&#038;ver=4.5.3' type='text/css' media='all' />

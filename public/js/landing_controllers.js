@@ -206,6 +206,55 @@ angular.module('landingApp.controllers', []).
 
         };
 
+    })
+
+    .controller('loginController', function($scope, $window, userService) {
+        $scope.user = {username:'', password: ''};
+        $scope.errors = {};
+        $scope.login = function() {
+            $scope.errors = {};
+
+            var result = validateFormLogin($scope.user);
+            if (result.valid) {
+
+                var success = function () {
+                    $scope.success = true;
+                    $window.location.href = 'http://app.staging.farmared.com.ar';
+                };
+                var fail = function (error) {
+                    $scope.errors.user = error;
+                };
+                userService.login($scope.user).then(success, fail);
+            }
+            else{
+
+                $scope.errors = result.err;
+
+            }
+        };
+
+        var validateFormLogin = function(user) {
+            var valid = true;
+
+
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+            if (!re.test(user.username)) {
+                $scope.errors.username = 'invalid_username';
+                valid = false;
+            }
+
+
+
+            if (!user.password || user.password.length == 0) {
+                $scope.errors.password = 'invalid_password';
+                valid = false;
+            }
+
+            return {err:$scope.errors,valid:valid};
+        }
+
+
     });
 
 

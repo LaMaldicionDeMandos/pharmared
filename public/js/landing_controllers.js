@@ -101,6 +101,9 @@ angular.module('landingApp.controllers', []).
                 },
                 function(error) {
                     $scope.errors[error] = true;
+                    if ($scope.errors.unknown_error) {
+                        ngDialog.open({ template: '/errors' });
+                    }
                     console.log(error);
 
                 }
@@ -163,6 +166,9 @@ angular.module('landingApp.controllers', []).
                 },
                 function(error) {
                     $scope.errors[error] = true;
+                    if ($scope.errors.unknown_error) {
+                        ngDialog.open({ template: '/errors' });
+                    }
                     console.log(error);
 
                 }
@@ -196,6 +202,9 @@ angular.module('landingApp.controllers', []).
                     },
                     function(error) {
                         $scope.errors[error] = true;
+                        if ($scope.errors.unknown_error) {
+                            ngDialog.open({ template: '/errors' });
+                        }
                         console.log(error);
 
                     }
@@ -226,6 +235,9 @@ angular.module('landingApp.controllers', []).
                 };
                 var fail = function (error) {
                     $scope.errors.user = error;
+                    if ($scope.errors.unknown_error) {
+                        ngDialog.open({ template: '/errors' });
+                    }
                 };
                 userService.login($scope.user).then(success, fail);
             }

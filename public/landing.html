@@ -1855,7 +1855,7 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 				<div class="popup_form_field password_field iconed_field icon-lock  alert-container">
 					<input type="password" id="password" ng-model="user.password" name="pwd" value="" placeholder="Contraseña">
 					<span class="alert-icon tooltip">
-						<img ng-if="errors.user || errors.password" src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+						<img ng-if="errors.password" src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
 						<span ng-if="errors.password"  class="tooltiptext-beside">La contrase&#241;a debe completarse</span>
 					</span>
 				</div>
@@ -1866,7 +1866,12 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 				</div>
 				<!--<div class="popup_form_field submit_field">
 					<input type="submit" class="submit_button" value="Ingresar"></div>-->
+
+
+
 					<button class="alignright">Ingresar</button>
+
+
 			</form>
 
 		</div>

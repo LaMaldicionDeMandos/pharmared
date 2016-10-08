@@ -107,11 +107,13 @@ app.get('/errors', function(req, res) {
 function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         console.log("User is authenticated");
+        console.log("Access Token: " + req.user.accessToken);
         res.append('Authorization', "Bearer " + req.user.accessToken);
-        return res.redirect(config.success_url);
+        res.redirect(config.success_url);
+    } else {
+        console.log("User is not authenticated");
+        return next();
     }
-    console.log("User is not authenticated");
-    return next();
 };
 
 app.listen(app.get('port'), function() {

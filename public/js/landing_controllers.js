@@ -211,6 +211,9 @@ angular.module('landingApp.controllers', []).
     .controller('loginController', function($scope, $window, userService) {
         $scope.user = {username:'', password: ''};
         $scope.errors = {};
+        $scope.close=function(){
+            $scope.errors = {};
+        };
         $scope.login = function() {
             $scope.errors = {};
 
@@ -235,7 +238,7 @@ angular.module('landingApp.controllers', []).
 
         var validateFormLogin = function(user) {
             var valid = true;
-
+            $scope.errors = {};
 
             var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 

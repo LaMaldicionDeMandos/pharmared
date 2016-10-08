@@ -100,7 +100,7 @@
 
 
 .tooltip .tooltiptext-beside {
-    visibility: hidden;
+   visibility: hidden;
     width: 240px;
     background-color: #333333;
     color: #fff;
@@ -111,23 +111,28 @@
     padding: 5px 0;
     position: absolute;
     z-index: 1;
-    top: -35%;
-    left: 150%;
-    margin-right: -30px;
+
+    left:115%;
+    top:-55%;
+
+     margin-right: -30px;
     opacity: 0;
     transition: opacity 1s;
+
+
+
 }
 
-.tooltip .tooltiptext-beside::after {
-    content: "";
+/*.tooltip .tooltiptext-beside::after {
+    content: " ";
     position: absolute;
+    top: 50%;
     right: 100%;
-
-
+    margin-top: -5px;
     border-width: 5px;
     border-style: solid;
     border-color: #333333 transparent transparent transparent;
-}
+}*/
 
 .tooltip:hover .tooltiptext-beside {
     visibility: visible;

@@ -1836,10 +1836,10 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 					}, 10);
 			});
 		</script>-->
-		<div id="popup_login" class="popup_wrap popup_login bg_tint_light" >
-	<a href="#" class="popup_close"></a>
+		<div id="popup_login" class="popup_wrap popup_login bg_tint_light" ng-controller="loginController" >
+	<a href="#" class="popup_close" ng-click="close()"></a>
 	<div class="form_wrap">
-		<div class="form_left " ng-controller="loginController" >
+		<div class="form_left " >
 		<!--	<form action="./wp-login.php" method="post" name="login_form" class="popup_form login_form">-->
 				<form  class="popup_form login_form"  ng-submit="login(user)">
 			<!--	<input type="hidden" name="redirect_to" value="./">-->

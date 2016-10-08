@@ -84,15 +84,14 @@ app.post('/login', function(req, res, next) {
                 return next(err);
             }
             console.log("Login success, sending path to redirect");
-            res.send({accessToken: user.accessToken, url: config.success_url});
+            res.send(config.success_url + user.accessToken);
         });
     })(req, res, next);
 });
 app.get('/authenticate/:hash',
     passport.authenticate('hash', { failureRedirect: '/', session: true }),
     function(req, res) {
-        res.append('Authorization', "Bearer " + req.user.accessToken);
-        res.redirect(config.success_url);
+        res.redirect(config.success_url + req.user.accessToken);
     });
 
 app.get('/', ensureAuthenticated, function(req, res) {
@@ -108,8 +107,7 @@ function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         console.log("User is authenticated");
         console.log("Access Token: " + req.user.accessToken);
-        res.append('Authorization', "Bearer " + req.user.accessToken);
-        res.redirect(config.success_url);
+        res.redirect(config.success_url + req.user.accessToken);
     } else {
         console.log("User is not authenticated");
         return next();

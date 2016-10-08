@@ -7,7 +7,7 @@ angular.module('landingApp.services', []).
                 url: '/login',
                 method: 'post',
                 dataType: 'json',
-                data: {user},
+                data: user,
                 headers: {'Content-Type': 'application/json'}
             }).success(function (data) {
                 def.resolve(data);

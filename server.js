@@ -33,20 +33,24 @@ passport.use(new HashStrategy(
     }));
 passport.use(new LoginStrategy(
     function(username, password, done) {
+        console.log('login - usernmane: ' + username + ' password: ' + password);
         var form = {username: username, password: password};
         request({method: 'post', url: config.login_url, body: form, json: true, headers: null},
             function(error, response, body){
+                console.log('post to login... ');
                 if (error)  {
+                    console.log('some bad, ' + error);
                     done(error);
                 }
                 form.accessToken = body;
+                console.log('login ok ' + JSON.stringify(form));
                 done(null, form);
             });
     }
 ));
 passport.serializeUser(function(user, done) {
-    console.log('Serializing user');
     var json = JSON.stringify(user);
+    console.log('Serializing user ' + json);
     done(null, json);
 });
 
@@ -78,6 +82,9 @@ app.post('/login', function(req, res, next) {
             return next(err);
         }
         console.log("user authenticated: " + JSON.stringify(user) + " doing login in session");
+        if (!user) {
+            return next('user_not_authenticated');
+        }
         req.login(user, function(err) {
             if (err) {
                 console.log("Error in login into session: " + err);

@@ -229,15 +229,13 @@ angular.module('landingApp.controllers', []).
             var result = validateFormLogin($scope.user);
             if (result.valid) {
 
-                var success = function () {
+                var success = function (data) {
                     $scope.success = true;
-                    $window.location.href = 'http://app.staging.farmared.com.ar';
+                    $window.location.href = data;
                 };
                 var fail = function (error) {
                     $scope.errors.user = error;
-                    if ($scope.errors.unknown_error) {
-                        ngDialog.open({ template: '/errors' });
-                    }
+
                 };
                 userService.login($scope.user).then(success, fail);
             }

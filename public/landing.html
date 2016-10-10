@@ -1862,7 +1862,7 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 				<div class="popup_form_field remember_field">
 					<input type="checkbox" value="forever" id="rememberme" name="rememberme">
 					<label for="rememberme" style="font-weight:450;">Recordarme</label>
-					<a href="./lost-password/" class="forgot_password" style="font-weight:400;">Olvid&oacute&oacute; su contraseña?</a>
+					<a href="./lost-password/" class="forgot_password" style="font-weight:400;">Olvid&oacute; su contraseña?</a>
 				</div>
 				<!--<div class="popup_form_field submit_field">
 					<input type="submit" class="submit_button" value="Ingresar"></div>-->
@@ -1889,6 +1889,16 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 				<div class="vc_empty_space"  style="height: 55px" > </div>
 			<div class="login_socials_problem"><a href="#"><strong>Problemas para ingresar?</strong></a></div>
 			<div class="result message_block"></div>
+
+			<div  style="color:red">
+				</br>
+				<p ng-if="errors.login_invalid"><strong>Los datos ingresados son incorrectos</strong></p>
+				<p ng-if="errors.unactived_user"><strong>Detectamos que su email no fue verificado. Presione el bot&oacute;n "Verificar" del correo de bienvenida recibido.</strong></p>
+			</div>
+
+
+
+
 		</div>
 	</div>
 	<!-- /.login_wrap -->

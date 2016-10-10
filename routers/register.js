@@ -34,6 +34,91 @@ router.post('/pharmacy', registerPharmacy);
 
 
 
+
+var registerPharmacist = function(req, res) {
+    var form=req.body;
+
+
+    confirmEntity(form.cuit,'pharmacist').then(
+        function(socialName) {
+            console.log('Validation ok, registering');
+            regEntity(form, socialName, 'pharmacist').then(
+                function() {
+                    console.log("Register ok");
+                    res.status(201).send('Farmac&eacute;utico Registrado') ;
+                },
+                function(error){
+                    console.log('regError');
+                    if (error!='exist_pharmacist' && error!='exist_user'){
+                        res.status(400).send('unknown_error');}
+                    else {
+                        res.status(400).send (error);}
+                });
+        },
+        function(error){
+            console.log('Validation error, send 400');
+            res.status(400).send (error);
+        });
+};
+router.post('/pharmacist', registerPharmacist);
+
+
+var registerLaboratory = function(req, res) {
+    var form=req.body;
+    console.log(form.fantasyName);
+
+    confirmEntity(form.cuit,'laboratory').then(
+        function(socialName) {
+            console.log('Validation ok, registering');
+            regEntity(form, socialName, 'laboratory').then(
+                function() {
+                    console.log("Register ok");
+                    res.status(201).send('Laboratorio Registrado') ;
+                },
+                function(error){
+                    console.log('regError');
+                    if (error!='exist_laboratory' && error!='exist_user'){
+                        res.status(400).send('unknown_error');}
+                    else {
+                        res.status(400).send (error);}
+                });
+        },
+        function(error){
+            console.log('Validation error, send 400');
+            res.status(400).send (error);
+        });
+};
+router.post('/laboratory', registerLaboratory);
+
+
+var registerDrugstore = function(req, res) {
+    var form=req.body;
+    console.log(form.fantasyName);
+
+    confirmEntity(form.cuit,'laboratory').then(
+        function(socialName) {
+            console.log('Validation ok, registering');
+            regEntity(form, socialName, 'laboratory').then(
+                function() {
+                    console.log("Register ok");
+                    res.status(201).send('Laboratorio Registrado') ;
+                },
+                function(error){
+                    console.log('regError');
+                    if (error!='exist_laboratory' && error!='exist_user'){
+                        res.status(400).send('unknown_error');}
+                    else {
+                        res.status(400).send (error);}
+                });
+        },
+        function(error){
+            console.log('Validation error, send 400');
+            res.status(400).send (error);
+        });
+};
+router.post('/laboratory', registerLaboratory);
+
+
 var confirmEntity=function(cuit,entityName) {
     var def = q.defer();
     console.log("Sent request to: " + config.validator_url+entityName + '/'+cuit);
@@ -95,27 +180,6 @@ var regEntity=function(form,socialName,entityName) {
 
 
 
-
-var registerPharmacist = function(req, res) {
-    var form=req.body;
-    console.log(form.email);
-    res.status(201).send('Farmacéutico Registrado');
-};
-router.post('/pharmacist', registerPharmacist);
-
-var registerLaboratory = function(req, res) {
-    var form=req.body;
-    console.log(form.email);
-    res.status(201).send('Laboratorio Registrado');
-};
-router.post('/laboratory', registerLaboratory);
-
-var registerDrugstore = function(req, res) {
-    var form=req.body;
-    console.log(form.email);
-    res.status(201).send('Droguería Registrada');
-};
-router.post('/drugstore', registerDrugstore);
 
 
 

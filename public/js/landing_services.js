@@ -10,9 +10,9 @@ angular.module('landingApp.services', []).
                 data: user,
                 headers: {'Content-Type': 'application/json'}
             }).success(function (data) {
-                def.resolve(data);
+                    def.resolve(data);
             }).error(function (data, status) {
-                def.reject(data);
+                    def.reject(data);
             });
             return def.promise;
         }

@@ -47,9 +47,15 @@ passport.use(new LoginStrategy(
                     console.log('login ok ' + JSON.stringify(form));
                     done(null, form);
                 }
-                else {
+               if (response.statusCode == 400) {
                     done(body);
                 }
+                if (response.statusCode == 401) {
+                    done('login_invalid');
+                }
+                form.accessToken = body;
+                console.log('login ok ' + JSON.stringify(form));
+                done(null, form);
             });
     }
 ));
@@ -84,7 +90,7 @@ app.post('/login', function(req, res, next) {
     passport.authenticate('local', function(err, user, info) {
         if (err) {
             console.log("Error in authentication: " + JSON.stringify(info));
-          return next(err);
+            return res.statusCode(400).send(err);
         }
         console.log("user authenticated: " + JSON.stringify(user) + " doing login in session");
         if (!user) {

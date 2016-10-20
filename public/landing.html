@@ -1863,7 +1863,8 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 		<!--	<form action="./wp-login.php" method="post" name="login_form" class="popup_form login_form">-->
 				<form class="popup_form login_form"  ng-submit="login(user)">
 			<!--	<input type="hidden" name="redirect_to" value="./">-->
-					<input type="hidden" >
+				<div ng-if="forgotpass=='false'">
+						<input type="hidden" >
 				<div class="popup_form_field login_field iconed_field icon-user alert-container">
 					<input type="text" id="log" ng-model="user.username" name="log" value="" placeholder="Email">
 					<span  class="alert-icon tooltip ">
@@ -1884,7 +1885,7 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 
 
 					<label for="rememberme" style="font-weight:450;">Recordarme</label>
-					<a href="#" class="forgot_password" style="font-weight:400;">Olvid&oacute; su contraseña?</a>
+					<a href="#" class="forgot_password" ng-click="forgot()" style="font-weight:400;">Olvid&oacute; su contraseña?</a>
 				</div>
 				<!--<div class="popup_form_field submit_field">
 					<input type="submit" class="submit_button" value="Ingresar"></div>-->
@@ -1892,7 +1893,22 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 
 
 					<button class="alignright">Ingresar</button>
+				</div>
 
+					<div ng-if="forgotpass=='true'" ng-submit="retrievePass(mailRet)">
+						<input type="hidden" >
+						<div class="popup_form_field login_field iconed_field icon-user alert-container">
+
+								<input type="text" id="ret" ng-model="mailRet" name="log" ng-init="mailRet=user.username" placeholder="Ingresar email">
+							<span  class="alert-icon tooltip ">
+						<img ng-if="errors.mailRetrieve" src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+						<span ng-if="errors.mailRetrieve" class="tooltiptext-beside">Se debe completar correctamente el email</span>
+
+					</span>
+						</div>
+
+						<button ng-click="retrievePass(mailRet)" class="alignright">Restablecer Contrase&ntilde;a</button>
+					</div>
 			</form>
 
 		</div>

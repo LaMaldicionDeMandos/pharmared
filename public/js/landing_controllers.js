@@ -218,7 +218,7 @@ angular.module('landingApp.controllers', []).
     })
 
     .controller('loginController', function($scope, $window, userService,  $localStorage) {
-
+        $scope.forgotpass="false";
         $scope.$storage = $localStorage.$default({username:'', password: '',rememberme:'false'});
         $scope.user={username: $scope.$storage.username,password: $scope.$storage.password};
         $scope.rememberme= $scope.$storage.rememberme;
@@ -227,8 +227,44 @@ angular.module('landingApp.controllers', []).
             $scope.errors = {};
             if (!$scope.rememberme){
                 $scope.user = {username:'', password: ''};
+                $scope.forgotpass="false";
             }
         };
+
+        $scope.forgot = function() {
+
+            $scope.forgotpass="true";
+
+        };
+
+        $scope.retrievePass=function(mailRet) {
+            var result = validateRetrievePass(mailRet);
+            if (result.valid) {
+
+            }
+            else {
+                $scope.errors = result.err;
+                console.log($scope.errors.mailRetrieve);
+            }
+
+        };
+            var validateRetrievePass=function(mailRet)
+            {
+                var valid = true;
+                $scope.errors = {};
+
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+                if (!re.test(mailRet)) {
+                    $scope.errors.mailRetrieve = 'invalid_mail_retrieve';
+                    valid = false;
+                }
+
+
+                return {err: $scope.errors, valid: valid};
+            }
+
+
 
 
         $scope.remember = function(us,pas,rem) {
@@ -243,6 +279,10 @@ angular.module('landingApp.controllers', []).
             $scope.$storage.rememberme=rem;
 
         };
+
+
+
+
         $scope.login = function() {
             $scope.errors = {};
 

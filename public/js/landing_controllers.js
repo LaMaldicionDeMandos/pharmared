@@ -217,11 +217,31 @@ angular.module('landingApp.controllers', []).
 
     })
 
-    .controller('loginController', function($scope, $window, userService) {
-        $scope.user = {username:'', password: ''};
+    .controller('loginController', function($scope, $window, userService,  $localStorage) {
+
+        $scope.$storage = $localStorage.$default({username:'', password: '',rememberme:'false'});
+        $scope.user={username: $scope.$storage.username,password: $scope.$storage.password};
+        $scope.rememberme= $scope.$storage.rememberme;
         $scope.errors = {};
         $scope.close=function(){
             $scope.errors = {};
+            if (!$scope.rememberme){
+                $scope.user = {username:'', password: ''};
+            }
+        };
+
+
+        $scope.remember = function(us,pas,rem) {
+            if (rem){   $scope.$storage.username=us;
+            $scope.$storage.password=pas;}
+
+            else {
+                $scope.$storage.username='';
+                $scope.$storage.password='';
+            }
+
+            $scope.$storage.rememberme=rem;
+
         };
         $scope.login = function() {
             $scope.errors = {};

@@ -1861,7 +1861,7 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 	<div class="form_wrap">
 		<div class="form_left " >
 		<!--	<form action="./wp-login.php" method="post" name="login_form" class="popup_form login_form">-->
-				<form  class="popup_form login_form"  ng-submit="login(user)">
+				<form class="popup_form login_form"  ng-submit="login(user)">
 			<!--	<input type="hidden" name="redirect_to" value="./">-->
 					<input type="hidden" >
 				<div class="popup_form_field login_field iconed_field icon-user alert-container">
@@ -1880,9 +1880,11 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 					</span>
 				</div>
 				<div class="popup_form_field remember_field">
-					<input type="checkbox" value="forever" id="rememberme" name="rememberme">
+					<input type="checkbox" ng-model="rememberme" value="forever" id="rememberme" name="rememberme" ng-change="remember(user.username,user.password,rememberme)">
+
+
 					<label for="rememberme" style="font-weight:450;">Recordarme</label>
-					<a href="./lost-password/" class="forgot_password" style="font-weight:400;">Olvid&oacute; su contraseña?</a>
+					<a href="#" class="forgot_password" style="font-weight:400;">Olvid&oacute; su contraseña?</a>
 				</div>
 				<!--<div class="popup_form_field submit_field">
 					<input type="submit" class="submit_button" value="Ingresar"></div>-->
@@ -1890,7 +1892,6 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 
 
 					<button class="alignright">Ingresar</button>
-
 
 			</form>
 
@@ -1950,8 +1951,10 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 <script type='text/javascript' src='./wp-content/plugins/booked//js/spin.jquery.js?ver=2.0.1'></script>
 <script type='text/javascript' src='./wp-content/plugins/booked//js/tooltipster/js/jquery.tooltipster.min.js?ver=3.3.0'></script>
 <script type='text/javascript' src='./wp-content/plugins/booked//js/functions.js?ver=1.7.16'></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
 
-<script type='text/javascript' src='./bower_components/ng-dialog/js/ngDialog.js'></script>
+	<script type='text/javascript' src='./bower_components/ng-dialog/js/ngDialog.js'></script>
+
 
 
 /* <![CDATA[ */

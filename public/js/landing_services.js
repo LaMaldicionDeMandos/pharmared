@@ -24,10 +24,10 @@ angular.module('landingApp.services', []).
         retrievePassw: function (username) {
             var def = $q.defer();
             $http({
-                url: '/retrieve',
+                url: '/register/retrieve/'+username,
                 method: 'post',
-                data: username,
-                headers: {'Content-Type': 'application/json'}
+               // data: username,
+               // headers: {'Content-Type': 'application/json'}
             }).success(function (data) {
                 def.resolve(data);
             }).error(function (data) {

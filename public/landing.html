@@ -1861,7 +1861,7 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 	<div class="form_wrap">
 		<div class="form_left " >
 		<!--	<form action="./wp-login.php" method="post" name="login_form" class="popup_form login_form">-->
-				<form class="popup_form login_form"  ng-submit="login(user)">
+				<form class="popup_form login_form">
 			<!--	<input type="hidden" name="redirect_to" value="./">-->
 				<div ng-if="forgotpass=='false'">
 						<input type="hidden" >
@@ -1892,19 +1892,18 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 
 
 
-					<button class="alignright">Ingresar</button>
+					<button ng-click="login(user)" class="alignright">Ingresar</button>
 				</div>
 
 					<div ng-if="forgotpass=='true'">
 						<input type="hidden" >
 						<div class="popup_form_field login_field iconed_field icon-user alert-container">
 
-								<input type="text" id="ret" ng-model="mailRet" name="log" ng-init="mailRet=user.username" placeholder="Ingresar email">
-							<span  class="alert-icon tooltip ">
-						<img ng-if="errors.ret" src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-						<span ng-if="errors.ret" class="tooltiptext-beside">Se debe completar correctamente el email</span>
-
-					</span>
+							<input type="text" id="ret" ng-model="mailRet" name="log" ng-init="mailRet=user.username" placeholder="Ingresar email" />
+							<span class="alert-icon tooltip">
+								<img ng-if="errors.invalid_mail_retrieve" src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+								<span ng-if="errors.invalid_mail_retrieve" class="tooltiptext-beside">Se debe completar correctamente el email</span>
+							</span>
 						</div>
 
 						<button ng-click="retrievePass(mailRet)" class="alignright">Restablecer Contrase&ntilde;a</button>
@@ -1933,7 +1932,7 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 				<p ng-if="errors.login_invalid"><strong>Los datos ingresados son incorrectos.</strong></p>
 				<p ng-if="errors.unactived_user"><strong>Detectamos que su email no fue verificado. Presione el bot&oacute;n "Verificar" del correo de bienvenida recibido.</strong></p>
 				<p ng-if="errors.retrieve"><strong>El usuario ingresado es incorrecto.</strong></p>
-				<p ng-if="successRet" style="color:green !important"><strong>Se ha restablecido su contrase&ntilde;. A continuaci&oacute;n le enviaremos un mail.</strong></p>
+				<p ng-if="successRet=='true'" style="color:green !important"><strong>Se ha restablecido su contrase&ntilde;. A continuaci&oacute;n le enviaremos un mail.</strong></p>
 
 			</div>
 

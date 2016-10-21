@@ -8,28 +8,35 @@ var router = require('express').Router();
 
 
 var retrievePassword=function(req,res){
-confirmRetrieve(username).then(
+confirmRetrieve(req.params.username).then(
     function() {
+        console.log('retrieve ok');
         res.send('Retrieve ok');
     },
-    function(error){
-        res.send('Retrieve error');
+    function(){
+        console.log('retrieve error');
+        res.status(400).send('Retrieve error');
     }
 
 )
 };
-router.post('/account/register/retrieve/:username', retrievePassword);
+router.post('/retrieve/:username', retrievePassword);
 
 var confirmRetrieve=function(username) {
     var def = q.defer();
-        request(config.retrieve_url+username, function (error, response, body) {
+        request(config.retrieve_url+username, function (error, response) {
         if (error)  {
-           return def.reject(error);
+           return def.reject();
         }
-        def.resolve();
-});
+        if (response.statusCode != 200) {
+            def.reject();
+        } else {
+            def.resolve();
+        }
+
+        });
 return def.promise;
-}
+};
 
 
 

@@ -219,6 +219,7 @@ angular.module('landingApp.controllers', []).
 
     .controller('loginController', function($scope, $window, userService,  $localStorage,retrieveService) {
         $scope.forgotpass="false";
+        $scope.successRet="false";
         $scope.$storage = $localStorage.$default({username:'', password: '',rememberme:'false'});
         $scope.user={username: $scope.$storage.username,password: $scope.$storage.password};
         $scope.rememberme= $scope.$storage.rememberme;
@@ -239,51 +240,46 @@ angular.module('landingApp.controllers', []).
         };
 
         $scope.retrievePass=function(mailRet) {
-            var result = validateRetrievePass(mailRet);
-            if (result.valid) {
+            $scope.errors = {};
+            var valid = validateRetrievePass(mailRet);
+            if (valid) {
 
-                var success = function (data) {
-                    $scope.successRet = true;
+                var success = function () {
+                    $scope.successRet = "true";
 
                 };
-                var fail = function (error) {
+                var fail = function () {
                     $scope.errors.retrieve = "true";
 
                 };
                 retrieveService.retrievePassw(mailRet).then(success, fail);
-
-
-            }
-            else {
-                $scope.errors = result.err;
-                console.log($scope.errors.ret);
+            } else {
+                $scope.errors.invalid_mail_retrieve = true;
             }
 
         };
             var validateRetrievePass=function(mailRet)
             {
                 var valid = true;
-                $scope.errors = {};
 
                 var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
                 if (!re.test(mailRet)) {
-                    $scope.errors.ret = 'invalid_mail_retrieve';
                     valid = false;
                 }
 
 
-                return {err: $scope.errors, valid: valid};
-            }
+                return valid;
+            };
 
 
 
 
         $scope.remember = function(us,pas,rem) {
-            if (rem){   $scope.$storage.username=us;
-            $scope.$storage.password=pas;}
-
-            else {
+            if (rem){
+                $scope.$storage.username=us;
+                $scope.$storage.password=pas;
+            } else {
                 $scope.$storage.username='';
                 $scope.$storage.password='';
             }
@@ -291,9 +287,6 @@ angular.module('landingApp.controllers', []).
             $scope.$storage.rememberme=rem;
 
         };
-
-
-
 
         $scope.login = function() {
             $scope.errors = {};

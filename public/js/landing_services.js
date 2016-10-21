@@ -19,7 +19,25 @@ angular.module('landingApp.services', []).
 
     } ;
     })
+    .factory('retrieveService', function($http, $q) {
+    return {
+        retrievePassw: function (username) {
+            var def = $q.defer();
+            $http({
+                url: '/retrieve',
+                method: 'post',
+                data: username,
+                headers: {'Content-Type': 'application/json'}
+            }).success(function (data) {
+                def.resolve(data);
+            }).error(function (data) {
+                def.reject(data);
+            });
+            return def.promise;
+        }
 
+    } ;
+})
 
 
     .factory('registerService', function($http, $q) {

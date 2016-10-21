@@ -90,6 +90,10 @@ app.post('/login', function(req, res, next) {
                 console.log("Error in login into session: " + err);
                 return next(err);
             }
+         //   if (user.accessToken=="Unauthorized"){
+           //     console.log("Error in login into session- unauth")
+           //     return next('user_not_authorized')
+            //}
             console.log("Login success, sending path to redirect");
             res.send(config.success_url + user.accessToken);
         });

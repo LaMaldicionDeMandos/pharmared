@@ -5,6 +5,36 @@ var request=require('request');
 var q=require('q');
 
 var router = require('express').Router();
+
+
+var retrievePassword=function(req,res){
+confirmRetrieve(username).then(
+    function() {
+        res.send('Retrieve ok');
+    },
+    function(error){
+        res.send('Retrieve error');
+    }
+
+)
+};
+router.post('/account/register/retrieve/:username', retrievePassword);
+
+var confirmRetrieve=function(username) {
+    var def = q.defer();
+        request(config.retrieve_url+username, function (error, response, body) {
+        if (error)  {
+           return def.reject(error);
+        }
+        def.resolve();
+});
+return def.promise;
+}
+
+
+
+
+
 var registerPharmacy = function(req, res) {
     var form=req.body;
     console.log(form.fantasyName);

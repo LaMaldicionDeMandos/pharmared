@@ -299,7 +299,8 @@ angular.module('landingApp.controllers', []).
                     $window.location.href = data;
                 };
                 var fail = function (error) {
-                    $scope.errors[error] = true;
+                    $scope.errors[(error.trim()).toLowerCase()] = true;
+                    console.log('en controller:'+error)
 
                 };
                 userService.login($scope.user).then(success, fail);

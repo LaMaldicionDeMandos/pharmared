@@ -84,7 +84,7 @@ app.post('/login', function(req, res, next) {
     passport.authenticate('local', function(err, user, info) {
         if (err) {
             console.log("Error in authentication: " + JSON.stringify(info));
-            return next(err);
+          return next(err);
         }
         console.log("user authenticated: " + JSON.stringify(user) + " doing login in session");
         if (!user) {

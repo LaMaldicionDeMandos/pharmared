@@ -42,9 +42,14 @@ passport.use(new LoginStrategy(
                     console.log('some bad, ' + error);
                     done(error);
                 }
-                form.accessToken = body;
-                console.log('login ok ' + JSON.stringify(form));
-                done(null, form);
+              else if (response.statusCode==201) {
+                    form.accessToken = body;
+                    console.log('login ok ' + JSON.stringify(form));
+                    done(null, form);
+                }
+                else {
+                    done(body);
+                }
             });
     }
 ));
@@ -90,13 +95,12 @@ app.post('/login', function(req, res, next) {
                 console.log("Error in login into session: " + err);
                 return next(err);
             }
-         //   if (user.accessToken=="Unauthorized"){
-           //     console.log("Error in login into session- unauth")
-           //     return next('user_not_authorized')
-            //}
-            console.log("Login success, sending path to redirect");
-            res.send(config.success_url + user.accessToken);
-        });
+
+
+               console.log("Login success, sending path to redirect");
+               res.send(config.success_url + user.accessToken);
+
+           });
     })(req, res, next);
 });
 app.get('/authenticate/:hash',

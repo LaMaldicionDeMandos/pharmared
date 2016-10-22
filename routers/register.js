@@ -24,11 +24,15 @@ router.post('/retrieve/:username', retrievePassword);
 
 var confirmRetrieve=function(username) {
     var def = q.defer();
-        request(config.retrieve_url+username, function (error, response) {
+        request({
+            method: 'post',
+            url: config.retrieve_url+username,
+            headers: null
+        }, function (error, response) {
         if (error)  {
            return def.reject();
         }
-        if (response.statusCode != 200) {
+        if (response.statusCode != 201) {
             def.reject();
         } else {
             def.resolve();

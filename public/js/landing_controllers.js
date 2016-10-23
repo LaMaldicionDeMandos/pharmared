@@ -46,39 +46,47 @@ angular.module('landingApp.controllers', []).
 
 
     })
-    .controller('contactController', function($scope) {
+    .controller('contactController', function($scope,contactService) {
         $scope.contactForm={contactName:'',contactMail:'',contactMessage:''};
         $scope.sendMessage=function(){
             $scope.errors = {};
             var result=validateContactForm($scope.contactForm);
-            if (result.valid){
+            if (result.valid) {
+                contactService.sendContact($scope.contactForm).then(
+                    function(info) {
+                        $scope.successContact = true;
+                        console.log('contact success');
+                    },
+                    function(error) {
+                        $scope.errors.contact= true;
+                        console.log('contact fail');
+                    }
+                );
 
             }
             else{
 
                 $scope.errors=result.err;
-                console.log('mail: ' +$scope.errors.contactMail+', nombre: '+$scope.errors.contactName+', mensaje: '+$scope.errors.contactMessaje);
+
             }
 
         };
-
-        var validateContactForm=function(form){
+        var validateContactForm=function(contactForm){
                     var errors = {};
                     var valid=true;
-                    if (!form.contactName || form.contactName.length == 0) {
-                        //    errors.fantasyName = 'invalid_fantasyName';
+                    if (!contactForm.contactName || contactForm.contactName.length == 0) {
                         errors.contactName =true;
                         valid = false;
                     }
 
                    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-                    if (!re.test(form.contactMail)) {
+                    if (!re.test(contactForm.contactMail)) {
                         errors.contactMail = true;
                         valid = false;
                     };
 
-                    if (!form.contactMessage || form.contactMessage.length == 0) {
+                    if (!contactForm.contactMessage || contactForm.contactMessage.length == 0) {
                         //    errors.fantasyName = 'invalid_fantasyName';
                         errors.contactMessage =true;
                         valid = false;

@@ -19,6 +19,32 @@ angular.module('landingApp.services', []).
 
     } ;
     })
+
+    .factory('contactService', function($http, $q) {
+        return {
+            sendContact: function (contactForm) {
+                var def = $q.defer();
+                $http({
+                    url: '/register/contact/',
+                    method: 'post',
+                    dataType: 'json',
+                    data: contactForm,
+                    headers: {'Content-Type': 'application/json'}
+                }).success(function (data) {
+                    def.resolve(data);
+                }).error(function (data) {
+                    def.reject(data);
+                });
+                return def.promise;
+            }
+
+        } ;
+    })
+
+
+
+
+
     .factory('retrieveService', function($http, $q) {
     return {
         retrievePassw: function (username) {

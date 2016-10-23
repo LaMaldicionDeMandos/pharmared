@@ -1818,12 +1818,12 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 					<div class="textwidget" ng-controller="contactController">
 						<div  id="sc_form_129551765_wrap" class="sc_form_wrap">
 							<div  id="sc_form_129551765" class="sc_form sc_form_style_form_1 margin_top_null margin_bottom_null">
-								<form  >
+								<form >
 
 						<div class="sc_form_info" >
 				<div class="sc_form_item sc_form_field label_over alert-container">
-					<label >Name</label>
-					<input type="text" name="username" placeholder="Nombre" ng-model="contactName">
+					<label >Nombre</label>
+					<input type="text" placeholder="Nombre" ng-model="contactForm.contactName">
 					<span  class="alert-icon tooltip ">
 						<img ng-if="errors.contactName" src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
 						<span ng-if="errors.contactName" class="tooltiptext-right">Se debe completar el nombre</span>
@@ -1831,8 +1831,8 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 					</span>
 				</div>
 				<div class="sc_form_item sc_form_field label_over alert-container">
-					<label >E-mail</label>
-					<input  type="text" name="email" placeholder="E-mail" ng-model="contactMail">
+					<label >mail</label>
+					<input  type="text" placeholder="E-mail" ng-model="contactForm.contactMail">
 					<span  class="alert-icon tooltip ">
 						<img ng-if="errors.contactMail" src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
 						<span ng-if="errors.contactMail" class="tooltiptext-right">Se debe completar correctamente el email</span>
@@ -1842,15 +1842,20 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 			</div>
 			<div class="sc_form_item sc_form_message label_over alert-container">
 				<label >Mensaje</label>
-				<textarea data-autoresize rows="1" name="mensaje" placeholder="Mensaje" ng-model="contactMessage"></textarea>
+				<textarea data-autoresize rows="1" placeholder="Mensaje" ng-model="contactForm.contactMessage"></textarea>
 				<span  class="alert-icon tooltip ">
 						<img ng-if="errors.contactMessage" src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
 						<span ng-if="errors.contactMessage" class="tooltiptext-right">Se debe completar el mensaje</span>
 
 				</span>
 			</div>
-		<div class="sc_form_item sc_form_button">
-				<button ng-click="sendMessage()">Enviar Mensaje</button>
+		<div class="sc_form_item sc_form_button" style="display:-webkit-box">
+				<button ng-click="sendMessage(contactForm)" >Enviar Mensaje</button>
+
+			<p ng-if="successContact" style="color:green ;margin-left:30px"><strong>Se ha enviado el mensaje.</br> Nos comunicaremos. Gracias!</strong></p>
+
+			<p ng-if="errors.contact" style="color:red;margin-left:30px"><strong>No se ha podido enviar el mensaje. Intente nuevamente.</strong></p>
+
 		</div>
 			<!--<div class="result sc_infobox"></div>-->
 		</form>
@@ -1964,7 +1969,6 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 
 				<p ng-if="errors.unactived_user"><strong>Detectamos que su email no fue verificado. Presione el bot&oacute;n "Verificar" del correo de bienvenida recibido.</strong></p>
 				<p ng-if="errors.retrieve"><strong>El usuario ingresado es incorrecto.</strong></p>
-				<p ng-if="successRet=='true'" style="color:green !important"><strong>Se ha restablecido su contrase&ntilde;. A continuaci&oacute;n le enviaremos un mail.</strong></p>
 
 			</div>
 
@@ -2012,7 +2016,7 @@ Types of bridges may vary, depending upon how they are fabricated and the way th
 var mejsL10n = {"language":"en-US","strings":{"Close":"Close","Fullscreen":"Fullscreen","Download File":"Download File","Download Video":"Download Video","Play\/Pause":"Play\/Pause","Mute Toggle":"Mute Toggle","None":"None","Turn off Fullscreen":"Turn off Fullscreen","Go Fullscreen":"Go Fullscreen","Unmute":"Unmute","Mute":"Mute","Captions\/Subtitles":"Captions\/Subtitles"}};
 var _wpmejsSettings = {"pluginPath":"\/wp-includes\/js\/mediaelement\/"};
 /* ]]> */
-</script>
+
 <script type='text/javascript' src='./wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=2.18.1-a'></script>
 <script type='text/javascript' src='./wp-includes/js/mediaelement/wp-mediaelement.min.js?ver=4.5.3'></script>
 <script type='text/javascript' src='./wp-includes/js/masonry.min.js?ver=3.1.2'></script>

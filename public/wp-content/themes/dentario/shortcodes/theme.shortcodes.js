@@ -991,7 +991,7 @@ function dentario_countdown(dt) {
 
 // Contact form handlers
 function dentario_sc_form_validate(form){
-	"use strict";
+/*	"use strict";
 	var url = form.attr('action');
 	if (url == '') return false;
 	form.find('input').removeClass('error_fields_class');
@@ -1096,4 +1096,5 @@ function dentario_sc_form_validate(form){
 		});
 	}
 	return !error;
+ */
 }

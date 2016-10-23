@@ -6,6 +6,39 @@ var q=require('q');
 
 var router = require('express').Router();
 
+var contactUs=function(req,res){
+    var form=req.body;
+    var def = q.defer();
+
+    var bodyForm={contactName:form.contactName,contactMail:form.contactMail,contactMessage:form.contactMessage};
+    request({
+            method: 'post',
+            url: config.contact_url,
+            body: bodyForm,
+            json: true,
+            headers: null
+        },
+        function(error, response, body){
+
+
+            var result = body;
+            if (error)  {
+                def.reject(error);
+
+            } else if (response.statusCode != 201) {
+                def.reject(body);
+            }
+
+            else {
+
+                def.resolve();
+            }
+
+        });
+    return def.promise;
+};
+router.post('/contact', contactUs);
+
 
 var retrievePassword=function(req,res){
 confirmRetrieve(req.params.username).then(

@@ -190,7 +190,7 @@ var registerDrugstore = function(req, res) {
             res.status(400).send (error);
         });
 };
-router.post('/laboratory', registerLaboratory);
+router.post('/drugstore', registerDrugstore);
 
 
 var confirmEntity=function(cuit,entityName) {

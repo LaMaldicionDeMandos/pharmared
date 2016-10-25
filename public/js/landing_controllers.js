@@ -47,7 +47,7 @@ angular.module('landingApp.controllers', []).
 
     })
     .controller('contactController', function($scope,contactService) {
-        $scope.contactForm={contactName:'',contactMail:'',contactMessage:''};
+        $scope.contactForm={name:'',mail:'',message:''};
         $scope.sendMessage=function(){
             $scope.errors = {};
             var result=validateContactForm($scope.contactForm);

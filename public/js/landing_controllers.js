@@ -74,19 +74,19 @@ angular.module('landingApp.controllers', []).
         var validateContactForm=function(contactForm){
                     var errors = {};
                     var valid=true;
-                    if (!contactForm.contactName || contactForm.contactName.length == 0) {
+                    if (!contactForm.name || contactForm.name.length == 0) {
                         errors.contactName =true;
                         valid = false;
                     }
 
                    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-                    if (!re.test(contactForm.contactMail)) {
+                    if (!re.test(contactForm.mail)) {
                         errors.contactMail = true;
                         valid = false;
                     };
 
-                    if (!contactForm.contactMessage || contactForm.contactMessage.length == 0) {
+                    if (!contactForm.message || contactForm.message.length == 0) {
                         //    errors.fantasyName = 'invalid_fantasyName';
                         errors.contactMessage =true;
                         valid = false;

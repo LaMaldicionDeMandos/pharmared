@@ -26,6 +26,7 @@ var contactUs=function(req,res){
                 def.reject(error);
 
             } else if (response.statusCode != 201) {
+                console.log('status:'+response.statusCode);
                 def.reject(body);
             }
 

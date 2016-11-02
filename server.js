@@ -53,9 +53,6 @@ passport.use(new LoginStrategy(
                 if (response.statusCode == 401) {
                     done('login_invalid');
                 }
-                form.accessToken = body;
-                console.log('login ok ' + JSON.stringify(form));
-                done(null, form);
             });
     }
 ));

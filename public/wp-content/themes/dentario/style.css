@@ -1272,6 +1272,7 @@ body:not(.top_panel_fixed) .top_panel_position_over .top_panel_bottom {
 	width:12em;
 	padding: 0;
 	border:1px solid #ddd;
+
 }
 .menu_user_nav > li.menu_user_bookmarks ul {
 	width:15em;
@@ -1303,6 +1304,7 @@ body:not(.top_panel_fixed) .top_panel_position_over .top_panel_bottom {
 	width: 1em;
 	height: 1em;
 	line-height:1em;
+
 }
 
 /* Main and user menu */
@@ -1365,6 +1367,7 @@ body:not(.top_panel_fixed) .top_panel_position_over .top_panel_bottom {
 }
 .menu_main_nav > li ul {
 	border: 1px solid #ddd;
+
 }
 .menu_main_nav > li ul {
 	width:220px;

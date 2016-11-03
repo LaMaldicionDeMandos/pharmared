@@ -1037,9 +1037,12 @@ padding-top:50px;
 								<div class="sc_form_item sc_form_field label_over alert-container">
 									<label for="sc_form_phone">Matricula</label>
 									<input id="sc_form_phone" ng-model="form.enrollment" type="text" name="matricula" placeholder="Matr&iacute;cula">
-									<span ng-if="errors.enrollment" class="alert-icon tooltip">
-										<img src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
-										<span class="tooltiptext-right">La matr&iacute;cula es obligatoria</span>
+									<span  class="alert-icon tooltip">
+										<img  ng-if="errors.enrollment || errors.invalid_entity || errors.exist_pharmacist" src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<span ng-if="errors.enrollment" class="tooltiptext-right">La matr&iacute;cula es obligatoria</span>
+										<span ng-if="errors.invalid_entity" class="tooltiptext-right">La matr&iacute;cula ingresada no corresponde a un profesional farmac&eacute;utico</span>
+										<span ng-if="errors.exist_pharmacist" class="tooltiptext-right">La matr&iacute;cula ingresada ya se encuentra registrada</span>
+
 									</span>
 								</div>
 							</div>
@@ -1055,13 +1058,11 @@ padding-top:50px;
 									<input id="sc_form_username" ng-model="form.cuit" type="text" name="cuil" placeholder="CUIL/CUIT - Ej.: 27555667776">
 									<span  class="alert-icon tooltip">
 
-										<img ng-if="errors.cuit_not_exist || errors.cuit || errors.invalid_entity || errors.exist_pharmacist"  src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
+										<img ng-if="errors.cuit_not_exist || errors.cuit "  src="./wp-content/themes/dentario/images/alert.svg" class="min-icon">
 
 										<span ng-if="errors.cuit_not_exist" class="tooltiptext-right">El CUIT/CUIL es inv&aacute;lido.<br/> Ejemplo: 27555667776 </span>
 										<span ng-if="errors.cuit" class="tooltiptext-right">El CUIT/CUIL es obligatorio</span>
-										<span ng-if="errors.invalid_entity" class="tooltiptext-right">El CUIT/CUIL ingresado no corresponde a un profesional farmac&eacute;utico</span>
-										<span ng-if="errors.exist_pharmacist" class="tooltiptext-right">El CUIT/CUIL ingresado ya se encuentra registrado</span>
-									</span>
+																			</span>
 
 								</div>
 

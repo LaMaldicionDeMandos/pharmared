@@ -53,7 +53,7 @@ angular.module('landingApp.controllers', []).
             var result=validateContactForm($scope.contactForm);
             if (result.valid) {
                 contactService.sendContact($scope.contactForm).then(
-                    function(info) {
+                    function() {
                         $scope.successContact = true;
                         console.log('contact success');
                     },

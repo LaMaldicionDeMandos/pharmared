@@ -30,8 +30,9 @@ angular.module('landingApp.services', []).
                     dataType: 'json',
                     data: contactForm,
                     headers: {'Content-Type': 'application/json'}
-                }).success(function (data) {
-                    def.resolve(data);
+                }).success(function () {
+                    console.log('success en service');
+                    def.resolve();
                 }).error(function (data) {
                     def.reject(data);
                 });

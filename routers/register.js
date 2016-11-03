@@ -10,7 +10,7 @@ var contactUs=function(req,res){
     var form=req.body;
     var def = q.defer();
 
-    var bodyForm={contactName:form.contactName,contactMail:form.contactMail,contactMessage:form.contactMessage};
+    var bodyForm={name:form.name,mail:form.mail,message:form.message};
     request({
             method: 'post',
             url: config.contact_url,
@@ -31,7 +31,7 @@ var contactUs=function(req,res){
             }
 
             else {
-
+                console.log('status:'+response.statusCode);
                 def.resolve();
             }
 
@@ -114,10 +114,10 @@ var registerPharmacist = function(req, res) {
     var form=req.body;
 
 
-    confirmEntity(form.cuit,'pharmacist').then(
-        function(socialName) {
+    confirmEntity(form.enrollment,'pharmacist').then(
+        function() {
             console.log('Validation ok, registering');
-            regEntity(form, socialName, 'pharmacist').then(
+            regPharmacist(form).then(
                 function() {
                     console.log("Register ok");
                     res.status(201).send('Farmac&eacute;utico Registrado') ;
@@ -170,17 +170,17 @@ var registerDrugstore = function(req, res) {
     var form=req.body;
     console.log(form.fantasyName);
 
-    confirmEntity(form.cuit,'laboratory').then(
+    confirmEntity(form.cuit,'drugstore').then(
         function(socialName) {
             console.log('Validation ok, registering');
-            regEntity(form, socialName, 'laboratory').then(
+            regEntity(form, socialName, 'drugstore').then(
                 function() {
                     console.log("Register ok");
-                    res.status(201).send('Laboratorio Registrado') ;
+                    res.status(201).send('Drogueria Registrada') ;
                 },
                 function(error){
                     console.log('regError');
-                    if (error!='exist_laboratory' && error!='exist_user'){
+                    if (error!='exist_drugstore' && error!='exist_user'){
                         res.status(400).send('unknown_error');}
                     else {
                         res.status(400).send (error);}
@@ -256,6 +256,39 @@ var regEntity=function(form,socialName,entityName) {
 
 
 
+var regPharmacist=function(form) {
+    var def = q.defer();
+
+    var arrayName=form.fullName.split(" ",2);
+    var firstName=arrayName[0];
+    var lastName=arrayName[1];
+    var bodyForm={enrollment:form.enrollment,cuit:form.cuit,email:form.email,profile:{first_name:firstName,last_name:lastName}};
+    request({
+            method: 'post',
+            url: config.registration_url+'pharmacist',
+            body: bodyForm,
+            json: true,
+            headers: null
+        },
+        function(error, response, body){
+
+
+            var result = body;
+            if (error)  {
+                def.reject(error);
+                console.log('error');
+            } else if (response.statusCode != 201) {
+                def.reject(body);
+            }
+
+            else {
+
+                def.resolve();
+            }
+
+        });
+    return def.promise;
+};
 
 
 module.exports = router;

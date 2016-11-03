@@ -8,9 +8,8 @@ var router = require('express').Router();
 
 var contactUs=function(req,res){
     var form=req.body;
-    var def = q.defer();
 
-    var bodyForm={name:form.name,mail:form.mail,message:form.message};
+    var bodyForm={name:form.name,email:form.mail,message:form.message};
     request({
             method: 'post',
             url: config.contact_url,
@@ -23,20 +22,20 @@ var contactUs=function(req,res){
 
             var result = body;
             if (error)  {
-                def.reject(error);
+                res.status(400).send(error);
 
             } else if (response.statusCode != 201) {
                 console.log('status:'+response.statusCode);
-                def.reject(body);
+                res.send(400);
             }
 
             else {
                 console.log('status:'+response.statusCode);
-                def.resolve();
+                res.send(201);
             }
 
         });
-    return def.promise;
+
 };
 router.post('/contact', contactUs);
 

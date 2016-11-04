@@ -269,7 +269,7 @@ angular.module('landingApp.controllers', []).
     .controller('loginController', function($scope, $window, userService, $localStorage,retrieveService,$timeout, $interval) {
         $scope.forgotpass="false";
         $scope.successRet=false;
-        $scope.$storage = $localStorage.$default({username:'', password: '',rememberme:'false'});
+        $scope.$storage = $localStorage.$default({username:'', password: '',rememberme:false});
         $scope.user={username: $scope.$storage.username,password: $scope.$storage.password};
         $scope.rememberme= $scope.$storage.rememberme;
         $scope.errors = {};

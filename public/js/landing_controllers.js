@@ -287,7 +287,8 @@ angular.module('landingApp.controllers', []).
                 $scope.errors = {};
                 $scope.successRet = false;
                 if (!$scope.rememberme) {
-                    $scope.user = {username: '', password: ''};
+                    $scope.user.username = '';
+                    $scope.user.password =  '';
                 }
                 $scope.forgotpass = "false";
             };
@@ -340,6 +341,7 @@ angular.module('landingApp.controllers', []).
 
 
         $scope.remember = function(us,pas,rem) {
+            $scope.rememberme = rem;
             if (rem){
                 $scope.$storage.username=us;
                 $scope.$storage.password=pas;

@@ -267,6 +267,7 @@ angular.module('landingApp.controllers', []).
     })
 
     .controller('loginController', function($scope, $window, userService, $localStorage,retrieveService,$timeout, $interval) {
+        $scope.changeRem=false;
         $scope.forgotpass="false";
         $scope.successRet=false;
         $scope.$storage = $localStorage.$default({username:'', password: '',rememberme:false});
@@ -341,6 +342,7 @@ angular.module('landingApp.controllers', []).
 
 
         $scope.remember = function(us,pas,rem) {
+            $scope.changeRem=true;
             $scope.rememberme = rem;
             if (rem){
                 $scope.$storage.username=us;
@@ -374,6 +376,12 @@ angular.module('landingApp.controllers', []).
             else{
 
                 $scope.errors = result.err;
+
+            }
+
+            if ($scope.$storage.rememberme && !$scope.changeRem){
+
+                $scope.remember($scope.user.username,$scope.user.password,true);
 
             }
         };

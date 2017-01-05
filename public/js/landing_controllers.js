@@ -274,7 +274,7 @@ angular.module('landingApp.controllers', []).
         $scope.user={username: $scope.$storage.username,password: $scope.$storage.password};
         $scope.rememberme= $scope.$storage.rememberme;
         $scope.errors = {};
-
+        $scope.loginClick=false;
 
 
 
@@ -367,9 +367,9 @@ angular.module('landingApp.controllers', []).
                     $window.location.href = data;
                 };
                 var fail = function (error) {
-                    $scope.errors[(error.trim()).toLowerCase()] = true;
-                    console.log('en controller:'+error)
-
+                    if (error){
+                    $scope.errors[(error.trim()).toLowerCase()] = true;}
+                    $scope.loginClick=true;
                 };
                 userService.login($scope.user).then(success, fail);
             }
